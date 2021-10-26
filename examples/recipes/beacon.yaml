@@ -1,0 +1,54 @@
+scenario: Random Beacon
+author: Marcus LaFerrera
+date: 2021-09-25
+description: Generate a random host resolving a domain and then beaconing over TLS
+options:
+  src_ip: 192.168.54.36
+time:
+  jitter_min: 0
+  jitter_max: 1
+  # cadence: "* 10 1 * * *"
+sessions:
+  - event: salo.events.zeek.ConnModel
+    description: Generate initial DNS connection and query
+    repeat: 1
+    options:
+      dest_port: 53
+      proto: udp
+      service: dns
+    spawns:
+      - event: salo.events.zeek.DNSModel
+        likelihood: 100
+        save_values:
+          first_dns_response: dns_rdata
+          first_dns_query: dns_query
+          query_timestamp: timestamp
+        options:
+          dest_port: 53
+          dns_rcode: 0
+          dns_rcode_name: NOERROR
+          dns_qtype: 1
+          dns_qtype_name: A
+        spawns:
+          - event: salo.events.suricata.dns.DNSModel
+            time:
+            options:
+              timestamp: $query_timestamp
+              dns_type: answer
+  - event: salo.events.zeek.ConnModel
+    description: Initiate initial TLS connection for C2
+    time:
+      jitter_min: 600
+      jitter_max: 1200
+    options:
+      dest_ip: $first_dns_response.0
+      proto: tcp
+      dest_port: 443
+      service: http,ssl
+    spawns:
+      - event: salo.events.zeek.SSLModel
+        time:
+          jitter_min: 0
+          jitter_max: 1
+        options:
+          server_name: $first_dns_query

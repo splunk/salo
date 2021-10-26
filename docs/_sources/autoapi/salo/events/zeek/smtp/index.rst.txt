@@ -1,0 +1,221 @@
+:py:mod:`salo.events.zeek.smtp`
+===============================
+
+.. py:module:: salo.events.zeek.smtp
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.smtp.SMTPModel
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.smtp.MAX_FUIDS
+   salo.events.zeek.smtp.MAX_RCPT
+   salo.events.zeek.smtp.MAX_CC
+
+
+.. py:data:: MAX_FUIDS
+   :annotation: = 5
+
+   
+
+.. py:data:: MAX_RCPT
+   :annotation: = 5
+
+   
+
+.. py:data:: MAX_CC
+   :annotation: = 10
+
+   
+
+.. py:class:: SMTPModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/smtp/main.zeek.html#type-SMTP::Info',...
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: smtp_trans_depth
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: smtp_helo
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_mailfrom
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_rcptto
+      :annotation: :List[str]
+
+      
+
+   .. py:attribute:: timestamp
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:attribute:: smtp_from
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_to
+      :annotation: :List[str]
+
+      
+
+   .. py:attribute:: smtp_cc
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: smtp_reply_to
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_msg_id
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_in_reply_to
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_subject
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_x_originating_ip
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_first_received
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_second_received
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_last_reply
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_path
+      :annotation: :Optional[List[pydantic.IPvAnyAddress]]
+
+      
+
+   .. py:attribute:: smtp_user_agent
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_tls
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: smtp_process_received_from
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: smtp_has_client_activity
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: smtp_process_smtp_headers
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: smtp_entity_count
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: fuids
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: smtp_is_webmail
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: set_smtp_msg_id(cls, v)
+
+
+   .. py:method:: set_smtp_trans_depth(cls, v)
+
+
+   .. py:method:: set_smtp_path(cls, v, *, values)
+
+
+   .. py:method:: set_smtp_tls(cls, v)
+
+
+   .. py:method:: set_fuids(cls, v)
+
+
+   .. py:method:: set_is_webmail(cls, v)
+
+
+   .. py:method:: set_values(cls, values) -> None
+
+
+

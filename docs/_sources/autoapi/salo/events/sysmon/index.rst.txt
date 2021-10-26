@@ -1,0 +1,15 @@
+:py:mod:`salo.events.sysmon`
+============================
+
+.. py:module:: salo.events.sysmon
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   windows/index.rst
+
+

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo.stencils &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>salo.stencils</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for salo.stencils</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="c1">#  Copyright 2021 Splunk Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    ..  _SaloStencilModel:</span>
+
+<span class="sd">    Overview</span>
+<span class="sd">    ********</span>
+
+<span class="sd">    Stencils allow for complex programatic ``SaloEventModel`` generation. By leveraging Stencils, SALO is able to produce</span>
+<span class="sd">    events that can easily mimic specific characteristics, tactics, and techniques of an attack. For instance, some malware</span>
+<span class="sd">    may create command and control (C2) beacons over DNS that leverage TXT records with base64 encoded content.</span>
+<span class="sd">    A `Stencil` can be created that mimics this specific pattern to ensure ``SaloEventModel`` that are generated appear </span>
+<span class="sd">    as close to the attack as possible. </span>
+
+<span class="sd">    As with ``SaloEventModel``, a ``SaloStencilModel`` leverages pydantic for modeling. `Stencils` are identical to</span>
+<span class="sd">    `Events` in nearly every way, except for the fact that `Stencils` will not generate output by default. They are </span>
+<span class="sd">    designed to be used as a model to define specific attributes across one or more ``SaloEventModel``.</span>
+<span class="sd">    </span>
+<span class="sd">    Model Fields</span>
+<span class="sd">    ************</span>
+
+<span class="sd">    In order to ensure ``SaloStencilModel`` classes can pass along their values to other ``SaloStencilModel`` and ``SaloEventModel`` objects, SALO</span>
+<span class="sd">    heavily relies on ``pydantic`` ``Field`` aliases. For example, ``Zeek`` represents the source ip address as ``id.orig_h``, while</span>
+<span class="sd">    ``suricata`` represents it as ``src_ip``. To accomodate the multitude of variations across log schemas, ``pydantic`` ``Field`` aliases</span>
+<span class="sd">    are used to define common ``Field`` names across models.  </span>
+
+<span class="sd">    Example</span>
+<span class="sd">    *******</span>
+
+<span class="sd">    `Stencils` must be a subclass of the ``SaloStencilModel`` class. Let&#39;s explore a simple example of a ``SaloStencilModel``.</span>
+
+<span class="sd">    In this example, we will create a `stencil` in ``salo/stencils/badactor.py`` for a DNS Query and HTTP GET request::</span>
+
+<span class="sd">        import random</span>
+<span class="sd">        from typing import List, Optional</span>
+
+<span class="sd">        from pydantic import Field, validator</span>
+
+<span class="sd">        from salo import SaloStencilModel</span>
+
+<span class="sd">        class BadActor(SaloStencilModel):</span>
+<span class="sd">            dns_query: Optional[str]</span>
+<span class="sd">            dest_port: int = Field(default=53)</span>
+<span class="sd">            dns_rcode: int = Field(default=0)</span>
+<span class="sd">            dns_rcode_name: str = Field(default=&quot;NOERROR&quot;)</span>
+<span class="sd">            dns_qtype: int = Field(default=1)</span>
+<span class="sd">            dns_qtype_name: str = Field(default=&quot;A&quot;)</span>
+<span class="sd">            dns_rdata: Optional[List[str]]</span>
+<span class="sd">            http_method: str = Field(default=&quot;GET&quot;)</span>
+<span class="sd">            http_uri: str = Field(default=&quot;/bin/fast.cgi?user=root&quot;)</span>
+
+<span class="sd">            @validator(&quot;dns_query&quot;, pre=True, always=True)</span>
+<span class="sd">            def set_dns_query(cls, v):</span>
+<span class="sd">                return v or random.choice([&quot;badsite.com&quot;, &quot;totallydoesntexist.io&quot;])</span>
+
+<span class="sd">            @validator(&quot;dns_rdata&quot;, pre=True, always=True)</span>
+<span class="sd">            def set_dns_rdata(cls, v):</span>
+<span class="sd">                return v or random.sample([&quot;1.2.3.4&quot;, &quot;5.6.7.8&quot;])</span>
+
+
+<span class="sd">    This `stencil` will ensure that each ``SaloEventModel`` that is spawned from this stencil will be assigned the defined</span>
+<span class="sd">    attributes above if the ``SaloEventModel`` contains the attributes. Once the ``SaloStencilModel`` has been created, the</span>
+<span class="sd">    `recipe` must be configured to use the stencil:</span>
+
+
+<span class="sd">    .. code-block:: yaml</span>
+
+
+<span class="sd">        sessions:</span>
+<span class="sd">          - event: salo.stencils.badactor.BadActor</span>
+<span class="sd">            spawns:</span>
+<span class="sd">              - event: salo.events.zeek.DNSModel</span>
+<span class="sd">                spawns:</span>
+<span class="sd">                  - event: salo.events.zeek.HTTPModel</span>
+
+
+<span class="sd">    .. note:: Spawned `Events` from a `Stencil` are treated as new `Sessions`, and as such, will generate unique random attributes</span>
+<span class="sd">             if they are not defined. To ensure attributes are inherited, ``SaloEventModel`` `events` must spawn additional `events`.</span>
+<span class="sd">             If inherited values are not needed, then there is no need for them to be spawned.</span>
+
+<span class="sd">    Once executed, two sythentic log events will be generated. One for DNS and another  for the HTTP request. As you can see,</span>
+<span class="sd">    the defined values in our `stencil` have automatically pre-populated the neccessary fields:</span>
+
+<span class="sd">    .. code-block:: json</span>
+
+
+
+<span class="sd">        {</span>
+<span class="sd">          &quot;ts&quot;: &quot;2021-11-02T11:05:56Z&quot;,</span>
+<span class="sd">          &quot;uid&quot;: &quot;CqxewMpzKDwx3V0CqW&quot;,</span>
+<span class="sd">          &quot;id.orig_h&quot;: &quot;192.168.88.172&quot;,</span>
+<span class="sd">          &quot;id.orig_p&quot;: 54827,</span>
+<span class="sd">          &quot;id.resp_h&quot;: &quot;201.6.38.99&quot;,</span>
+<span class="sd">          &quot;id.resp_p&quot;: 53,</span>
+<span class="sd">          &quot;proto&quot;: &quot;tcp&quot;,</span>
+<span class="sd">          &quot;trans_id&quot;: 24991,</span>
+<span class="sd">          &quot;rtt&quot;: 1.1869650984929,</span>
+<span class="sd">          &quot;query&quot;: &quot;totallydoesntexist.io&quot;,</span>
+<span class="sd">          &quot;qclass&quot;: 1,</span>
+<span class="sd">          &quot;qclass_name&quot;: &quot;C_INTERNET&quot;,</span>
+<span class="sd">          &quot;qtype&quot;: 1,</span>
+<span class="sd">          &quot;qtype_name&quot;: &quot;A&quot;,</span>
+<span class="sd">          &quot;rcode&quot;: 0,</span>
+<span class="sd">          &quot;rcode_name&quot;: &quot;NOERROR&quot;,</span>
+<span class="sd">          &quot;AA&quot;: true,</span>
+<span class="sd">          &quot;TC&quot;: false,</span>
+<span class="sd">          &quot;RD&quot;: false,</span>
+<span class="sd">          &quot;RA&quot;: false,</span>
+<span class="sd">          &quot;Z&quot;: 0,</span>
+<span class="sd">          &quot;answers&quot;: [</span>
+<span class="sd">            &quot;1.2.3.4&quot;</span>
+<span class="sd">          ],</span>
+<span class="sd">          &quot;TTLs&quot;: [</span>
+<span class="sd">            15585</span>
+<span class="sd">          ],</span>
+<span class="sd">          &quot;rejected&quot;: false</span>
+<span class="sd">        }</span>
+<span class="sd">        {</span>
+<span class="sd">          &quot;ts&quot;: &quot;2021-11-02T11:05:57Z&quot;,</span>
+<span class="sd">          &quot;uid&quot;: &quot;CqxewMpzKDwx3V0CqW&quot;,</span>
+<span class="sd">          &quot;id.orig_h&quot;: &quot;192.168.88.172&quot;,</span>
+<span class="sd">          &quot;id.orig_p&quot;: 54827,</span>
+<span class="sd">          &quot;id.resp_h&quot;: &quot;201.6.38.99&quot;,</span>
+<span class="sd">          &quot;id.resp_p&quot;: 53,</span>
+<span class="sd">          &quot;trans_depth&quot;: 10,</span>
+<span class="sd">          &quot;method&quot;: &quot;GET&quot;,</span>
+<span class="sd">          &quot;host&quot;: &quot;davies-patterson.net&quot;,</span>
+<span class="sd">          &quot;uri&quot;: &quot;/bin/fast.cgi?user=root&quot;,</span>
+<span class="sd">          &quot;version&quot;: &quot;1.0&quot;,</span>
+<span class="sd">          &quot;user_agent&quot;: &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 4.0; Trident/5.1)&quot;,</span>
+<span class="sd">          &quot;request_body_len&quot;: 7162,</span>
+<span class="sd">          &quot;response_body_len&quot;: 2689,</span>
+<span class="sd">          &quot;status_code&quot;: 301,</span>
+<span class="sd">          &quot;status_msg&quot;: &quot;Redirect&quot;,</span>
+<span class="sd">          &quot;tags&quot;: []</span>
+<span class="sd">        }</span>
+
+
+<span class="sd">    API</span>
+<span class="sd">    ***</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<div class="viewcode-block" id="SaloStencilModel"><a class="viewcode-back" href="../../stencils.html#salo.SaloStencilModel">[docs]</a><span class="k">class</span> <span class="nc">SaloStencilModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="viewcode-block" id="SaloStencilModel.Config"><a class="viewcode-back" href="../../stencils.html#salo.SaloStencilModel.Config">[docs]</a>    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">allow_population_by_field_name</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">validate_assignment</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">allow_reuse</span> <span class="o">=</span> <span class="kc">True</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

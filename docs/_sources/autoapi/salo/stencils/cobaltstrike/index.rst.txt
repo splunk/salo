@@ -1,0 +1,15 @@
+:py:mod:`salo.stencils.cobaltstrike`
+====================================
+
+.. py:module:: salo.stencils.cobaltstrike
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   dns/index.rst
+
+

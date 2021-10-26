@@ -1,0 +1,104 @@
+:py:mod:`salo.stencils.sunburst`
+================================
+
+.. py:module:: salo.stencils.sunburst
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.stencils.sunburst.SunBurstDNSQuery
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.stencils.sunburst.REGIONS
+   salo.stencils.sunburst.PHASES
+
+
+.. py:data:: REGIONS
+   :annotation: = ['eu-west-1', 'us-west-2', 'us-east-1', 'us-east-2']
+
+   
+
+.. py:data:: PHASES
+   
+
+   
+
+.. py:class:: SunBurstDNSQuery(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.SaloStencilModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: sunburst_phase
+      :annotation: :Literal[kill, beacon, preactivation]
+
+      
+
+   .. py:attribute:: dns_query
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_rcode
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_rcode_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_qtype
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_qtype_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_rdata
+      :annotation: :Optional[Union[str, List[str]]]
+
+      
+
+   .. py:attribute:: proto
+      :annotation: :str
+
+      
+
+   .. py:attribute:: service
+      :annotation: :str
+
+      
+
+   .. py:method:: set_dns_query(cls, v)
+
+
+   .. py:method:: set_dns_rdata(cls, v, *, values)
+
+
+

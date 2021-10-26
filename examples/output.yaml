@@ -1,0 +1,80 @@
+# 
+# Suricata
+#
+salo.events.suricata:
+  outputs:
+    file:
+      path: suricata/eve.log
+    splunk:
+      index: salo
+      sourcetype: suricata
+
+#
+# Zeek
+#
+salo.events.zeek.conn.ConnModel:
+  outputs:
+    file:
+      path: zeek/conn.log
+    splunk:
+      index: salo
+      sourcetype: "bro:conn:json"
+
+salo.events.zeek.dns.DNSModel:
+  outputs:
+    file:
+      path: zeek/dns.log
+    splunk:
+      index: salo
+      sourcetype: "bro:dns:json"
+
+salo.events.zeek.files.FilesModel:
+  outputs:
+    file:
+      path: zeek/files.log
+    splunk:
+      index: salo
+      sourcetype: "bro:files:json"
+
+salo.events.zeek.http.HTTPModel:
+  outputs:
+    file:
+      path: zeek/http.log
+    splunk:
+      index: salo
+      sourcetype: "bro:http:json"
+
+salo.events.zeek.rdp.RDPModel:
+  outputs:
+    file:
+      path: zeek/rdp.log
+    splunk:
+      index: salo
+      sourcetype: "bro:rdp:json"
+
+salo.events.zeek.smtp.SMTPModel:
+  outputs:
+    file:
+      path: zeek/smtp.log
+    splunk:
+      index: salo
+      sourcetype: "bro:smtp:json"
+
+salo.events.zeek.ssl.SSLModel:
+  outputs:
+    file:
+      path: zeek/ssl.log
+    splunk:
+      index: salo
+      sourcetype: "bro:ssl:json"
+
+#
+# GitHub Audit
+#
+salo.events.github.audit:
+  outputs:
+    file:
+      path: github/audit.log
+    splunk:
+      index: salo
+      sourcetype: ghe_audit_log_monitoring

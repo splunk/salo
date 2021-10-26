@@ -1,0 +1,206 @@
+:py:mod:`salo.events.github.audit.repo`
+=======================================
+
+.. py:module:: salo.events.github.audit.repo
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.github.audit.repo.RepoModel
+   salo.events.github.audit.repo.Access
+   salo.events.github.audit.repo.ActionsEnabled
+   salo.events.github.audit.repo.AdvancedSecurityEnabled
+   salo.events.github.audit.repo.ChangeMergeSetting
+   salo.events.github.audit.repo.Create
+   salo.events.github.audit.repo.Destroy
+   salo.events.github.audit.repo.RemoveMember
+
+
+
+
+.. py:class:: RepoModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.github.audit.base.GitHubAuditModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_actor
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_org
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_created_at
+      :annotation: :Optional[datetime.datetime]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+   .. py:attribute:: github_repo
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: Access(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepoModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_visibility
+      :annotation: :Optional[Literal[internal, private, public]]
+
+      
+
+
+.. py:class:: ActionsEnabled(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepoModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+
+.. py:class:: AdvancedSecurityEnabled(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepoModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_visibility
+      :annotation: :Optional[Literal[internal, private, public]]
+
+      
+
+
+.. py:class:: ChangeMergeSetting(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepoModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_visibility
+      :annotation: :Optional[Literal[internal, private, public]]
+
+      
+
+
+.. py:class:: Create(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepoModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_visibility
+      :annotation: :Optional[Literal[internal, private, public]]
+
+      
+
+
+.. py:class:: Destroy(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepoModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_visibility
+      :annotation: :Optional[Literal[internal, private, public]]
+
+      
+
+
+.. py:class:: RemoveMember(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepoModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_visibility
+      :annotation: :Optional[Literal[internal, private, public]]
+
+      
+
+

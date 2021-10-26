@@ -1,0 +1,111 @@
+:py:mod:`salo.events.suricata.base`
+===================================
+
+.. py:module:: salo.events.suricata.base
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.suricata.base.SuricataModel
+
+
+
+
+.. py:class:: SuricataModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.SaloEventModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: json_encoders
+         
+
+         
+
+
+   .. py:attribute:: timestamp
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:attribute:: flow_id
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: pcap_cnt
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: event_type
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: src_ip
+      :annotation: :Optional[pydantic.IPvAnyAddress]
+
+      
+
+   .. py:attribute:: src_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dest_ip
+      :annotation: :Optional[pydantic.IPvAnyAddress]
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: proto
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: packet
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: packet_info
+      :annotation: :Optional[Dict]
+
+      
+
+   .. py:attribute:: tx_id
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: app_proto
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_src_port(cls, v)
+
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: generate(self, by_alias: bool = True, exclude_none: bool = True)
+
+
+

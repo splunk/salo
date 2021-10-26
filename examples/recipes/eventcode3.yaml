@@ -1,0 +1,21 @@
+scenario: Sysmon Event Code 3 outbound beacon
+options:
+  service: http,ssl
+  proto: tcp
+sessions:
+  - event: salo.events.sysmon.windows.eventcode.EventCode3Model
+    options:
+      src_ip: fe80::aede:48ff:fe00:1122
+      src_port: 42350
+      #dest_ip: 13.59.205.66
+      dest_ip: a
+      dest_port: 443
+      server_name: deftsecurity.com
+      DestinationHostname: deftsecurity.com
+      DestinationPortName: https
+      Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+    spawns:
+      - event: salo.events.zeek.ConnModel
+      - event: salo.events.zeek.SSLModel
+      
+

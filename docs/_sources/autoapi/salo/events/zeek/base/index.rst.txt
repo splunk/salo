@@ -1,0 +1,96 @@
+:py:mod:`salo.events.zeek.base`
+===============================
+
+.. py:module:: salo.events.zeek.base
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.base.ZeekModel
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.base.random_uid
+   salo.events.zeek.base.random_fuid
+
+
+
+.. py:function:: random_uid() -> str
+
+
+.. py:function:: random_fuid() -> str
+
+
+.. py:class:: ZeekModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.SaloEventModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: json_encoders
+         
+
+         
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: timestamp
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:attribute:: uid
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: src_ip
+      :annotation: :Optional[pydantic.IPvAnyAddress]
+
+      
+
+   .. py:attribute:: src_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dest_ip
+      :annotation: :Optional[pydantic.IPvAnyAddress]
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:method:: set_src_port(cls, v)
+
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: generate(self, by_alias: bool = True, exclude_none: bool = True)
+
+
+

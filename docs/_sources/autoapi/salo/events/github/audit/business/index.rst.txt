@@ -1,0 +1,154 @@
+:py:mod:`salo.events.github.audit.business`
+===========================================
+
+.. py:module:: salo.events.github.audit.business
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.github.audit.business.BusinessModel
+   salo.events.github.audit.business.AddAdmin
+   salo.events.github.audit.business.AddOrganization
+   salo.events.github.audit.business.Create
+   salo.events.github.audit.business.ImportLicenseUsage
+   salo.events.github.audit.business.InviteAdmin
+
+
+
+
+.. py:class:: BusinessModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.github.audit.base.GitHubAuditModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_actor
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_created_at
+      :annotation: :Optional[datetime.datetime]
+
+      
+
+
+.. py:class:: AddAdmin(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`BusinessModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: AddOrganization(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`BusinessModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_org
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: Create(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`BusinessModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+
+.. py:class:: ImportLicenseUsage(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`BusinessModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: InviteAdmin(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`BusinessModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SALO Documentation &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="gettingstarted.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>SALO Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <a class="reference external image-reference" href="https://github.com/splunk/salo"><img alt="https://splunk.github.io/salo/src/_static/salo-600x182.png" src="https://splunk.github.io/salo/src/_static/salo-600x182.png" /></a>
+<section id="salo-documentation">
+<h1>SALO Documentation<a class="headerlink" href="#salo-documentation" title="Permalink to this headline"></a></h1>
+<p>Synthetic Adversarial Log Objects (SALO) is a framework for the generation of log events without the need
+for infrastructure or actions to initiate the event that causes a log event. The purpose of this
+framework is to allow security practitioners, data scientists, and researchers the ability to create log
+events in a simple, repeatable, and randomized way without the overhead of traditional required resources.</p>
+<section id="why-salo">
+<h2>Why SALO?<a class="headerlink" href="#why-salo" title="Permalink to this headline"></a></h2>
+<p>In the past, in order to generate simple network security logs, such as DNS queries for a malicious domain,
+it would be required to build one or more servers, as well as a network monitoring solution to capture
+events. Additionally, the DNS queries would have to be sent to a resolver with no simple way to construct
+custom requests or responses. This process can be time consuming, present technical and financial hurdles,
+and be extremely cumbersome or difficult to accomplish. This is especially so for more complex scenarios
+that may require highly technical deployments of software, services, and/or cloud native technology.</p>
+<p>SALO seeks to simplify the task of creating and collecting log events from any source that generates
+them by constructing models for such events and a simple method for defining attributes and their values.</p>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
+<p>Create a new <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> for SALO:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv ~/.venv/salo
+</pre></div>
+</div>
+<p>Activate the new <code class="docutils literal notranslate"><span class="pre">venv</span></code> environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source ~/.venv/salo/bin/activate
+</pre></div>
+</div>
+<p>Clone the respository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/splunk/salo
+</pre></div>
+</div>
+<p>Change directories to the newly cloned one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd salo
+</pre></div>
+</div>
+<p>Then, install SALO and neccessary requirements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install -e .
+</pre></div>
+</div>
+<p>Once installed, you can simply run <code class="docutils literal notranslate"><span class="pre">salo</span></code>. Multiple example <cite>recipes</cite> can be found in the <code class="docutils literal notranslate"><span class="pre">examples/recipes/</span></code> folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe examples/recipes/beacon.yaml
+</pre></div>
+</div>
+</section>
+<section id="example-scenario">
+<h2>Example Scenario<a class="headerlink" href="#example-scenario" title="Permalink to this headline"></a></h2>
+<p>Let’s suppose we want to generate a simple log event from Zeek in the form of a DNS query. We can create
+a new <cite>recipe</cite> in a file called <code class="docutils literal notranslate"><span class="pre">dns.yaml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.DNSModel</span>
+</pre></div>
+</div>
+<p>Now, we can run <code class="docutils literal notranslate"><span class="pre">salo</span></code> with this <cite>recipe</cite>, to produce:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe dns.yaml | jq
+</pre></div>
+</div>
+<p>Which will produce something similar to:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-01T13:21:14Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;C8Fk5zpofVMzoBhn8D&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_h&quot;</span><span class="p">:</span> <span class="s2">&quot;172.16.190.191&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_p&quot;</span><span class="p">:</span> <span class="mi">49914</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_h&quot;</span><span class="p">:</span> <span class="s2">&quot;209.39.178.20&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_p&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span>
+  <span class="nt">&quot;proto&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;trans_id&quot;</span><span class="p">:</span> <span class="mi">53305</span><span class="p">,</span>
+  <span class="nt">&quot;rtt&quot;</span><span class="p">:</span> <span class="mf">1.49349329260705</span><span class="p">,</span>
+  <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;web-44.howell-vaughn.com&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;qclass&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;qclass_name&quot;</span><span class="p">:</span> <span class="s2">&quot;C_INTERNET&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;qtype&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nt">&quot;qtype_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CNAME&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;rcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;rcode_name&quot;</span><span class="p">:</span> <span class="s2">&quot;NOERROR&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;AA&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;TC&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;RD&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;RA&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Z&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;answers&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;rejected&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can see here that SALO generated a new log event just as Zeek would, but without the need for any
+additional resources or software. All of the data in the event are generated automatically without the
+need to specifically define any values. SALO allows for every value to be customized within the
+<cite>recipe</cite>, making the log generation extremely powerful and flexible. For instance, we can define the
+<cite>query</cite> value by making a small change to the above <cite>recipe</cite>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.DNSModel</span>
+      <span class="nt">options</span><span class="p">:</span>
+        <span class="nt">dns_query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deftsecurity.com</span>
+</pre></div>
+</div>
+<p>Now, if we run the same command, we can see that <cite>query</cite> will have a value of <cite>deftsecurity.com</cite>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-01T13:27:51Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;CG76aJw9ds4wE4oxEM&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_h&quot;</span><span class="p">:</span> <span class="s2">&quot;10.133.26.158&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_p&quot;</span><span class="p">:</span> <span class="mi">57670</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_h&quot;</span><span class="p">:</span> <span class="s2">&quot;110.189.62.162&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_p&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span>
+  <span class="nt">&quot;proto&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;trans_id&quot;</span><span class="p">:</span> <span class="mi">29972</span><span class="p">,</span>
+  <span class="nt">&quot;rtt&quot;</span><span class="p">:</span> <span class="mf">1.5927651649765</span><span class="p">,</span>
+  <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;deftsecurity.com&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;qclass&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;qclass_name&quot;</span><span class="p">:</span> <span class="s2">&quot;C_INTERNET&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;qtype&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&quot;qtype_name&quot;</span><span class="p">:</span> <span class="s2">&quot;NS&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;rcode&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&quot;rcode_name&quot;</span><span class="p">:</span> <span class="s2">&quot;SERVFAIL&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;AA&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;TC&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;RD&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;RA&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Z&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;rejected&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can even go one step further, and chain this log event with another, such as a Zeek Connection
+log event. In this case, we’ll add the <code class="docutils literal notranslate"><span class="pre">spawns</span></code> configuration option to our example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.DNSModel</span>
+    <span class="nt">options</span><span class="p">:</span>
+      <span class="nt">dns_query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deftsecurity.com</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.ConnModel</span>
+</pre></div>
+</div>
+<p>Now we can see two log events have been generated. One for the DNS query, and another corresponding
+log event for the connection, which automatically have overlapping values:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-01T14:05:08Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;CmTvCVkHFJD2gXo0LV&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_h&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.155.219&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_p&quot;</span><span class="p">:</span> <span class="mi">60387</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_h&quot;</span><span class="p">:</span> <span class="s2">&quot;206.23.9.82&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_p&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span>
+  <span class="nt">&quot;proto&quot;</span><span class="p">:</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;trans_id&quot;</span><span class="p">:</span> <span class="mi">39899</span><span class="p">,</span>
+  <span class="nt">&quot;rtt&quot;</span><span class="p">:</span> <span class="mf">0.60784220271283</span><span class="p">,</span>
+  <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;deftsecurity.com&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;qclass&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;qclass_name&quot;</span><span class="p">:</span> <span class="s2">&quot;C_INTERNET&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;qtype&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&quot;qtype_name&quot;</span><span class="p">:</span> <span class="s2">&quot;NS&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;rcode&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="nt">&quot;rcode_name&quot;</span><span class="p">:</span> <span class="s2">&quot;NXDOMAIN&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;AA&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;TC&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;RD&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;RA&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Z&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;rejected&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+<span class="p">{</span>
+  <span class="nt">&quot;ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-01T14:05:09Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;CmTvCVkHFJD2gXo0LV&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_h&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.155.219&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_p&quot;</span><span class="p">:</span> <span class="mi">60387</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_h&quot;</span><span class="p">:</span> <span class="s2">&quot;206.23.9.82&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_p&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span>
+  <span class="nt">&quot;proto&quot;</span><span class="p">:</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;dns&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mf">4.88802234168719</span><span class="p">,</span>
+  <span class="nt">&quot;orig_bytes&quot;</span><span class="p">:</span> <span class="mi">7002</span><span class="p">,</span>
+  <span class="nt">&quot;resp_bytes&quot;</span><span class="p">:</span> <span class="mi">5235</span><span class="p">,</span>
+  <span class="nt">&quot;conn_state&quot;</span><span class="p">:</span> <span class="s2">&quot;RSTR&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;missed_bytes&quot;</span><span class="p">:</span> <span class="mi">164</span><span class="p">,</span>
+  <span class="nt">&quot;history&quot;</span><span class="p">:</span> <span class="s2">&quot;ShADTadtfFr&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;orig_pkts&quot;</span><span class="p">:</span> <span class="mi">9028</span><span class="p">,</span>
+  <span class="nt">&quot;orig_ip_bytes&quot;</span><span class="p">:</span> <span class="mi">8946</span><span class="p">,</span>
+  <span class="nt">&quot;resp_pkts&quot;</span><span class="p">:</span> <span class="mi">9241</span><span class="p">,</span>
+  <span class="nt">&quot;resp_ip_bytes&quot;</span><span class="p">:</span> <span class="mi">4615</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more advanced use cases of SALO, take a look at some example <a class="reference external" href="examples/recipes/">recipes</a>.</p>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#usage">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#viewing-event-schema">Viewing Event Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#result-output">Result Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes.html#configuration-options">Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#model-fields">Model Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stencils.html">Stencils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stencils.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stencils.html#model-fields">Model Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stencils.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stencils.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#configuration-file">Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="framework.html#salo.salo.Event">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="framework.html#salo.salo.Session">Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="framework.html#salo.salo.Sessions">Sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/salo/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="indices-and-tables">
+<h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gettingstarted.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

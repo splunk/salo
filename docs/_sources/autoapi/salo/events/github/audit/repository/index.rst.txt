@@ -1,0 +1,238 @@
+:py:mod:`salo.events.github.audit.repository`
+=============================================
+
+.. py:module:: salo.events.github.audit.repository
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.github.audit.repository.RepositoryModel
+   salo.events.github.audit.repository.ContentAnalysisEnable
+   salo.events.github.audit.repository.ContentAnalysisDisable
+   salo.events.github.audit.repository.DependencyGraphEnable
+   salo.events.github.audit.repository.DependencyGraphDisable
+   salo.events.github.audit.repository.SecretScanningEnable
+   salo.events.github.audit.repository.SecretScanningDisable
+   salo.events.github.audit.repository.VulnerabilityAlertCreate
+   salo.events.github.audit.repository.VulnerabilityAlertsEnable
+   salo.events.github.audit.repository.VulnerabilityAlertsDisable
+
+
+
+
+.. py:class:: RepositoryModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.github.audit.base.GitHubAuditModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_actor
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_org
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_repo
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_created_at
+      :annotation: :Optional[datetime.datetime]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: ContentAnalysisEnable(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: ContentAnalysisDisable(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: DependencyGraphEnable(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: DependencyGraphDisable(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: SecretScanningEnable(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: SecretScanningDisable(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: VulnerabilityAlertCreate(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+
+.. py:class:: VulnerabilityAlertsEnable(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: VulnerabilityAlertsDisable(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`RepositoryModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+

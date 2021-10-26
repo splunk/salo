@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo.events.suricata.dns &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="salo.events.suricata.http" href="../http/index.html" />
+    <link rel="prev" title="salo.events.suricata.base" href="../base/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../framework.html">Framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../outputs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../stencils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.suricata</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.suricata.dns</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/salo/events/suricata/dns/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-salo.events.suricata.dns">
+<span id="salo-events-suricata-dns"></span><h1><a class="reference internal" href="#module-salo.events.suricata.dns" title="salo.events.suricata.dns"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.suricata.dns</span></code></a><a class="headerlink" href="#module-salo.events.suricata.dns" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.events.suricata.dns.DNSModelFull" title="salo.events.suricata.dns.DNSModelFull"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DNSModelFull</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.events.suricata.dns.DNSModel" title="salo.events.suricata.dns.DNSModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DNSModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.events.suricata.dns.MAX_DNS_ID" title="salo.events.suricata.dns.MAX_DNS_ID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_DNS_ID</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.events.suricata.dns.MAX_TTL" title="salo.events.suricata.dns.MAX_TTL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_TTL</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.MAX_DNS_ID">
+<span class="sig-prename descclassname"><span class="pre">salo.events.suricata.dns.</span></span><span class="sig-name descname"><span class="pre">MAX_DNS_ID</span></span><em class="property"> <span class="pre">=</span> <span class="pre">65535</span></em><a class="headerlink" href="#salo.events.suricata.dns.MAX_DNS_ID" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.MAX_TTL">
+<span class="sig-prename descclassname"><span class="pre">salo.events.suricata.dns.</span></span><span class="sig-name descname"><span class="pre">MAX_TTL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">28800</span></em><a class="headerlink" href="#salo.events.suricata.dns.MAX_TTL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.suricata.dns.</span></span><span class="sig-name descname"><span class="pre">DNSModelFull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../index.html#salo.SaloEventModel" title="salo.SaloEventModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.SaloEventModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.Config.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.Config.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_type">
+<span class="sig-name descname"><span class="pre">dns_type</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_id">
+<span class="sig-name descname"><span class="pre">dns_id</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_version">
+<span class="sig-name descname"><span class="pre">dns_version</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_qr">
+<span class="sig-name descname"><span class="pre">dns_qr</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_qr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_aa">
+<span class="sig-name descname"><span class="pre">dns_aa</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_aa" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_tc">
+<span class="sig-name descname"><span class="pre">dns_tc</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_tc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_rd">
+<span class="sig-name descname"><span class="pre">dns_rd</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_rd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_ra">
+<span class="sig-name descname"><span class="pre">dns_ra</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_ra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_rcode_name">
+<span class="sig-name descname"><span class="pre">dns_rcode_name</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_rcode_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_query">
+<span class="sig-name descname"><span class="pre">dns_query</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_query" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_qtype_name">
+<span class="sig-name descname"><span class="pre">dns_qtype_name</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_qtype_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_rdata">
+<span class="sig-name descname"><span class="pre">dns_rdata</span></span><em class="property"> <span class="pre">:Optional[Union[str,</span> <span class="pre">List[str]]]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_rdata" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_ttl">
+<span class="sig-name descname"><span class="pre">dns_ttl</span></span><em class="property"> <span class="pre">:Optional[Union[List[int],</span> <span class="pre">int]]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_ttl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_answers">
+<span class="sig-name descname"><span class="pre">dns_answers</span></span><em class="property"> <span class="pre">:Optional[List[Dict]]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_answers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.dns_grouped">
+<span class="sig-name descname"><span class="pre">dns_grouped</span></span><em class="property"> <span class="pre">:Optional[Dict[str,</span> <span class="pre">List]]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.dns_grouped" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.set_dns_id">
+<span class="sig-name descname"><span class="pre">set_dns_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull.set_dns_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.set_dns_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.set_dns_qr">
+<span class="sig-name descname"><span class="pre">set_dns_qr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull.set_dns_qr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.set_dns_qr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.set_aa">
+<span class="sig-name descname"><span class="pre">set_aa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull.set_aa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.set_aa" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.set_tc">
+<span class="sig-name descname"><span class="pre">set_tc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull.set_tc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.set_tc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.set_rd">
+<span class="sig-name descname"><span class="pre">set_rd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull.set_rd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.set_rd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.set_ra">
+<span class="sig-name descname"><span class="pre">set_ra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull.set_ra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.set_ra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModelFull.set_values">
+<span class="sig-name descname"><span class="pre">set_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModelFull.set_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModelFull.set_values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.suricata.dns.</span></span><span class="sig-name descname"><span class="pre">DNSModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base/index.html#salo.events.suricata.base.SuricataModel" title="salo.events.suricata.base.SuricataModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.events.suricata.base.SuricataModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModel._refs">
+<span class="sig-name descname"><span class="pre">_refs</span></span><em class="property"> <span class="pre">:List[str]</span> <span class="pre">=</span> <span class="pre">['https://docs.zeek.org/en/master/logs/dns.html']</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModel._refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModel.event_type">
+<span class="sig-name descname"><span class="pre">event_type</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModel.event_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModel.dest_port">
+<span class="sig-name descname"><span class="pre">dest_port</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModel.dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModel.dns">
+<span class="sig-name descname"><span class="pre">dns</span></span><em class="property"> <span class="pre">:Optional[Union[DNSModelFull,</span> <span class="pre">Dict]]</span></em><a class="headerlink" href="#salo.events.suricata.dns.DNSModel.dns" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModel.set_values">
+<span class="sig-name descname"><span class="pre">set_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModel.set_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModel.set_values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.suricata.dns.DNSModel.get_options">
+<span class="sig-name descname"><span class="pre">get_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../../../../../_modules/salo/events/suricata/dns.html#DNSModel.get_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.suricata.dns.DNSModel.get_options" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../base/index.html" class="btn btn-neutral float-left" title="salo.events.suricata.base" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../http/index.html" class="btn btn-neutral float-right" title="salo.events.suricata.http" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

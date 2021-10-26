@@ -1,0 +1,23 @@
+:py:mod:`salo.events.github.audit`
+==================================
+
+.. py:module:: salo.events.github.audit
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   base/index.rst
+   business/index.rst
+   git/index.rst
+   hook/index.rst
+   integration/index.rst
+   org/index.rst
+   repo/index.rst
+   repository/index.rst
+   team/index.rst
+
+

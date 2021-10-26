@@ -1,0 +1,15 @@
+:py:mod:`salo.events.github`
+============================
+
+.. py:module:: salo.events.github
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   audit/index.rst
+
+

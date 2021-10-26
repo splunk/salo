@@ -1,0 +1,143 @@
+:py:mod:`salo.salo`
+===================
+
+.. py:module:: salo.salo
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.salo.Session
+   salo.salo.Sessions
+   salo.salo.Event
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.salo.SALO_PATH
+   salo.salo.fake
+
+
+.. py:data:: SALO_PATH
+   
+
+   
+
+.. py:data:: fake
+   
+
+   
+
+.. py:class:: Session(model: Dict, cadence: salo.cadence.Cadence, defaults: Dict, saved_values: Optional[Dict] = None)
+
+   .. py:method:: spawn(self, model: Dict, options: Dict) -> None
+
+      Iterate over event objects in recipe, generate Event objects, and spawn
+      additional child Event objects.
+
+
+
+   .. py:method:: __repr__(self)
+
+      Return repr(self).
+
+
+   .. py:method:: generate(self, with_stencils: bool = False) -> Generator
+
+      Iterate over Event objects for this Session
+
+
+
+   .. py:method:: __len__(self)
+
+
+
+.. py:class:: Sessions(config: str, outputs: Optional[List] = None, output_config: Optional[str] = None)
+
+   .. py:method:: load_config(self, config: pathlib.Path) -> Dict
+
+      Load Salo configuration file for recipe or output
+
+
+
+   .. py:method:: create_session(self, model: Dict) -> None
+
+      Create a new Session object for this collection of Sessions
+
+
+   .. py:method:: generate(self, with_stencils: bool = False) -> Generator
+
+      Iterate over Event objects for each Session object
+
+
+
+   .. py:method:: save(self) -> None
+
+      Pass all Sessions to outputs for saving/post-processing
+
+
+
+   .. py:method:: __repr__(self)
+
+      Return repr(self).
+
+
+   .. py:method:: __len__(self)
+
+
+
+.. py:class:: Event(model: Dict, session: Session, options: Dict, exclude_none: bool = True)
+
+   .. py:method:: run(self) -> None
+
+      Create log event
+
+
+
+   .. py:method:: update_cadence(self) -> None
+
+      Update the cadence and timestamp for this Event
+
+
+
+   .. py:method:: update_saved_values(self, event: Union[salo.stencils.SaloStencilModel, salo.events.SaloEventModel]) -> None
+
+      Ensure saved_values are updated if defined in the recipe
+
+
+
+   .. py:method:: get_saved_value(self, key: str, index: Optional[int] = None, is_random: bool = False) -> Any
+
+      Set the value of an attribute for the event if a saved_value exists and is defined
+
+
+
+   .. py:method:: set_options(self) -> None
+
+      Set Event options
+
+
+
+   .. py:method:: save_value(self, key: str, value: str) -> None
+
+      Update Session object with values if a saved_value is defined
+
+
+
+   .. py:method:: _load_model(self, model_path: str) -> pydantic.main.ModelMetaclass
+
+      Import model object defined in recipe
+
+
+
+

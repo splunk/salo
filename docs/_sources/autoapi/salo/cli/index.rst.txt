@@ -1,0 +1,22 @@
+:py:mod:`salo.cli`
+==================
+
+.. py:module:: salo.cli
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.cli.main
+
+
+
+.. py:function:: main()
+
+

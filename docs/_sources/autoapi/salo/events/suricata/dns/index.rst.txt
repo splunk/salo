@@ -1,0 +1,189 @@
+:py:mod:`salo.events.suricata.dns`
+==================================
+
+.. py:module:: salo.events.suricata.dns
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.suricata.dns.DNSModelFull
+   salo.events.suricata.dns.DNSModel
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.suricata.dns.MAX_DNS_ID
+   salo.events.suricata.dns.MAX_TTL
+
+
+.. py:data:: MAX_DNS_ID
+   :annotation: = 65535
+
+   
+
+.. py:data:: MAX_TTL
+   :annotation: = 28800
+
+   
+
+.. py:class:: DNSModelFull(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.SaloEventModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: dns_type
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: dns_id
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dns_version
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: dns_qr
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_aa
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_tc
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_rd
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_ra
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_rcode_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: dns_query
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: dns_qtype_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: dns_rdata
+      :annotation: :Optional[Union[str, List[str]]]
+
+      
+
+   .. py:attribute:: dns_ttl
+      :annotation: :Optional[Union[List[int], int]]
+
+      
+
+   .. py:attribute:: dns_answers
+      :annotation: :Optional[List[Dict]]
+
+      
+
+   .. py:attribute:: dns_grouped
+      :annotation: :Optional[Dict[str, List]]
+
+      
+
+   .. py:method:: set_dns_id(cls, v)
+
+
+   .. py:method:: set_dns_qr(cls, v)
+
+
+   .. py:method:: set_aa(cls, v)
+
+
+   .. py:method:: set_tc(cls, v)
+
+
+   .. py:method:: set_rd(cls, v)
+
+
+   .. py:method:: set_ra(cls, v)
+
+
+   .. py:method:: set_values(cls, values)
+
+
+
+.. py:class:: DNSModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.suricata.base.SuricataModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/logs/dns.html']
+
+      
+
+   .. py:attribute:: event_type
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns
+      :annotation: :Optional[Union[DNSModelFull, Dict]]
+
+      
+
+   .. py:method:: set_values(cls, values)
+
+
+   .. py:method:: get_options(self, *args, **kwargs) -> Dict
+
+
+

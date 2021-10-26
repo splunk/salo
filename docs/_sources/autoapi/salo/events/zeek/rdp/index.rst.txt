@@ -1,0 +1,122 @@
+:py:mod:`salo.events.zeek.rdp`
+==============================
+
+.. py:module:: salo.events.zeek.rdp
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.rdp.RDPModel
+
+
+
+
+.. py:class:: RDPModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/rdp/main.zeek.html#type-RDP::Info',...
+
+      
+
+   .. py:attribute:: cookie
+      :annotation: :str
+
+      
+
+   .. py:attribute:: result
+      :annotation: :str
+
+      
+
+   .. py:attribute:: security_protocol
+      :annotation: :str
+
+      
+
+   .. py:attribute:: client_channels
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: keyboard_layour
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_build
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_dig_product_id
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: desktop_width
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: desktop_height
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: requested_color_depth
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cert_type
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cert_count
+      :annotation: :int
+
+      
+
+   .. py:attribute:: cert_permanent
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: encryption_level
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: encryption_method
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: ssl
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+

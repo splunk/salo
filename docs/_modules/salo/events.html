@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo.events &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>salo.events</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for salo.events</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="c1">#  Copyright 2021 Splunk Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    ..  _SaloEventModel:</span>
+
+<span class="sd">    Overview</span>
+<span class="sd">    ********</span>
+
+<span class="sd">    Events are specific schemas that represent the contruct of a logged event. Event generation is very</span>
+<span class="sd">    dynamic and flexible, allowing for nearly any logged event to be easily generated once a `SaloEventModel`</span>
+<span class="sd">    has been created. Once a `SaloEventModel` is created, logged events can easily be customized via a</span>
+<span class="sd">    recipe or, for more advanced use cases, by leveraging `Stencils`. SALO comes with several `Events` out of</span>
+<span class="sd">    the box, with more being developed and shared regularly. </span>
+
+<span class="sd">    `SaloEventModel` leverages `pydantic &lt;https://pydantic-docs.helpmanual.io/&gt;`_ for modeling to ensure strict data validation and </span>
+<span class="sd">    type checking. If creating a new `SaloEventModel`, it is recommended to have a minimal understanding of ``pydantic``, though </span>
+<span class="sd">    being an expert is not a  requirement.</span>
+
+<span class="sd">    Model Fields</span>
+<span class="sd">    ************</span>
+
+<span class="sd">    In order to ensure ``SaloEventModel`` classes can pass along their values to other ``SaloEventModel`` and ``SaloStencilModel`` objects, SALO</span>
+<span class="sd">    heavily relies on ``pydantic`` ``Field`` aliases. For example, ``Zeek`` represents the source ip address as ``id.orig_h``, while</span>
+<span class="sd">    ``suricata`` represents it as ``src_ip``. To accomodate the multitude of variations across log schemas, ``pydantic`` ``Field`` aliases</span>
+<span class="sd">    are used to define common ``Field`` names across models.  </span>
+
+<span class="sd">    Example</span>
+<span class="sd">    *******</span>
+
+<span class="sd">    `Events` must be a subclass of the ``SaloEventModel`` class. Let&#39;s explore a simple example of a ``SaloEventModel``.</span>
+
+<span class="sd">    In this example, we will create a ``SaloEventModel`` that produces a simple log output. Our example log event will</span>
+<span class="sd">    be in JSON:</span>
+
+<span class="sd">    .. code-block:: json</span>
+
+
+<span class="sd">        {&quot;source&quot;: &quot;test&quot;, &quot;src_ip&quot;: &quot;1.1.1.1&quot;}</span>
+
+
+<span class="sd">    Let&#39;s build our example event model in ``salo/events/example.py``::</span>
+
+
+<span class="sd">        from pydantic import Field, IPvAnyAddress</span>
+
+<span class="sd">        from salo import SaloEventModel</span>
+
+<span class="sd">        class ExampleModel(SaloEventModel):</span>
+<span class="sd">            source: str = Field(default=&quot;test&quot;)</span>
+<span class="sd">            src_ip: IPvAnyAddress = Field(default=&quot;1.1.1.1&quot;)</span>
+
+<span class="sd">            def generate(self, by_alias: bool = True, exclude_none: bool = True):</span>
+<span class="sd">                return self.json(by_alias=by_alias, exclude_none=exclude_none)</span>
+
+
+<span class="sd">    .. note:: The ``generate`` method must exist. In this case, we are returning a JSON result. However, any output can be</span>
+<span class="sd">             returned to include raw text or XML. In some cases, it may be more useful to generate results using a templating</span>
+<span class="sd">             language, such as `Jinja2 &lt;https://jinja2docs.readthedocs.io/en/stable/&gt;`_.</span>
+
+<span class="sd">    Now, we  can simple create a new recipe in ``example.yaml``:</span>
+
+<span class="sd">    .. code-block:: yaml</span>
+
+
+<span class="sd">        sessions:</span>
+<span class="sd">          - event: salo.events.example.ExampleModel</span>
+
+<span class="sd">    Once the recipe is executed, ``salogen.py -r example.yaml``, you should see the exact log output we  set out to create:</span>
+
+<span class="sd">    .. code-block:: json</span>
+
+
+<span class="sd">        {&quot;source&quot;: &quot;test&quot;, &quot;src_ip&quot;: &quot;1.1.1.1&quot;}</span>
+
+
+<span class="sd">    API</span>
+<span class="sd">    ***</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<div class="viewcode-block" id="SaloEventModel"><a class="viewcode-back" href="../../events.html#salo.events.SaloEventModel">[docs]</a><span class="k">class</span> <span class="nc">SaloEventModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="viewcode-block" id="SaloEventModel.Config"><a class="viewcode-back" href="../../events.html#salo.events.SaloEventModel.Config">[docs]</a>    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">allow_population_by_field_name</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">underscore_attrs_are_private</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">validate_assignment</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">allow_reuse</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="SaloEventModel.Config.schema_extra"><a class="viewcode-back" href="../../events.html#salo.events.SaloEventModel.Config.schema_extra">[docs]</a>        <span class="nd">@staticmethod</span>
+        <span class="k">def</span> <span class="nf">schema_extra</span><span class="p">(</span><span class="n">schema</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">Config</span><span class="p">,</span> <span class="s2">&quot;fields&quot;</span><span class="p">):</span>
+                <span class="n">config</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">fields</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">config</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;properties&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+                    <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;alias&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="n">prop</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div></div></div>
+
+    <span class="c1">#  TODO: Find a better way to handle schema creation. This method won&#39;t</span>
+    <span class="c1">#        work with nested models. In other words, this won&#39;t work and</span>
+    <span class="c1">#        there doesn&#39;t seem to be a good way to ensuring aliases are</span>
+    <span class="c1">#        mapped properly.</span>
+    <span class="c1">#  @classmethod</span>
+    <span class="c1">#  def get_aliases(cls) -&gt; Dict[str, Dict[str, Optional[str]]]:</span>
+    <span class="c1">#      &quot;&quot;&quot; Generate dictionary of attributes, aliases, and descriptions &quot;&quot;&quot;</span>
+    <span class="c1">#      schema = cls.schema(by_alias=False)</span>
+    <span class="c1">#      alias_schema = cls.schema(by_alias=True)</span>
+    <span class="c1">#      print(cls().dict())</span>
+    <span class="c1">#      aliases = {}</span>
+    <span class="c1">#      for schema_results, alias in zip(schema.get(&#39;properties&#39;, {}).items(), alias_schema.get(&#39;properties&#39;, {}).keys()):</span>
+    <span class="c1">#          aliases[schema_results[0]] = {&quot;alias&quot;: alias, &quot;description&quot;: schema_results[1].get(&quot;description&quot;)}</span>
+    <span class="c1">#      return aliases</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

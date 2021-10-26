@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stencils &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Outputs" href="outputs.html" />
+    <link rel="prev" title="Events" href="events.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Stencils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-fields">Model Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#salo.stencils.SaloStencilModel">SaloStencilModel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#salo.stencils.SaloStencilModel.Config">Config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Stencils</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/stencils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-salo.stencils">
+<span id="stencils"></span><span id="stencilmodel"></span><h1>Stencils<a class="headerlink" href="#module-salo.stencils" title="Permalink to this headline"></a></h1>
+<section id="overview">
+<span id="salostencilmodel"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>Stencils allow for complex programatic <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> generation. By leveraging Stencils, SALO is able to produce
+events that can easily mimic specific characteristics, tactics, and techniques of an attack. For instance, some malware
+may create command and control (C2) beacons over DNS that leverage TXT records with base64 encoded content.
+A <cite>Stencil</cite> can be created that mimics this specific pattern to ensure <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> that are generated appear 
+as close to the attack as possible.</p>
+<p>As with <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code>, a <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code> leverages pydantic for modeling. <cite>Stencils</cite> are identical to
+<cite>Events</cite> in nearly every way, except for the fact that <cite>Stencils</cite> will not generate output by default. They are 
+designed to be used as a model to define specific attributes across one or more <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code>.</p>
+</section>
+<section id="model-fields">
+<h2>Model Fields<a class="headerlink" href="#model-fields" title="Permalink to this headline"></a></h2>
+<p>In order to ensure <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code> classes can pass along their values to other <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code> and <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> objects, SALO
+heavily relies on <code class="docutils literal notranslate"><span class="pre">pydantic</span></code> <code class="docutils literal notranslate"><span class="pre">Field</span></code> aliases. For example, <code class="docutils literal notranslate"><span class="pre">Zeek</span></code> represents the source ip address as <code class="docutils literal notranslate"><span class="pre">id.orig_h</span></code>, while
+<code class="docutils literal notranslate"><span class="pre">suricata</span></code> represents it as <code class="docutils literal notranslate"><span class="pre">src_ip</span></code>. To accomodate the multitude of variations across log schemas, <code class="docutils literal notranslate"><span class="pre">pydantic</span></code> <code class="docutils literal notranslate"><span class="pre">Field</span></code> aliases
+are used to define common <code class="docutils literal notranslate"><span class="pre">Field</span></code> names across models.</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h2>
+<p><cite>Stencils</cite> must be a subclass of the <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code> class. Let’s explore a simple example of a <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code>.</p>
+<p>In this example, we will create a <cite>stencil</cite> in <code class="docutils literal notranslate"><span class="pre">salo/stencils/badactor.py</span></code> for a DNS Query and HTTP GET request:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">Field</span><span class="p">,</span> <span class="n">validator</span>
+
+<span class="kn">from</span> <span class="nn">salo</span> <span class="kn">import</span> <span class="n">SaloStencilModel</span>
+
+<span class="k">class</span> <span class="nc">BadActor</span><span class="p">(</span><span class="n">SaloStencilModel</span><span class="p">):</span>
+    <span class="n">dns_query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">dest_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">53</span><span class="p">)</span>
+    <span class="n">dns_rcode</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">dns_rcode_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;NOERROR&quot;</span><span class="p">)</span>
+    <span class="n">dns_qtype</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dns_qtype_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+    <span class="n">dns_rdata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+    <span class="n">http_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">)</span>
+    <span class="n">http_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;/bin/fast.cgi?user=root&quot;</span><span class="p">)</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;dns_query&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_dns_query</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;badsite.com&quot;</span><span class="p">,</span> <span class="s2">&quot;totallydoesntexist.io&quot;</span><span class="p">])</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;dns_rdata&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_dns_rdata</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">([</span><span class="s2">&quot;1.2.3.4&quot;</span><span class="p">,</span> <span class="s2">&quot;5.6.7.8&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This <cite>stencil</cite> will ensure that each <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> that is spawned from this stencil will be assigned the defined
+attributes above if the <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> contains the attributes. Once the <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code> has been created, the
+<cite>recipe</cite> must be configured to use the stencil:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.stencils.badactor.BadActor</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.DNSModel</span>
+        <span class="nt">spawns</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.HTTPModel</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Spawned <cite>Events</cite> from a <cite>Stencil</cite> are treated as new <cite>Sessions</cite>, and as such, will generate unique random attributes
+if they are not defined. To ensure attributes are inherited, <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> <cite>events</cite> must spawn additional <cite>events</cite>.
+If inherited values are not needed, then there is no need for them to be spawned.</p>
+</div>
+<p>Once executed, two sythentic log events will be generated. One for DNS and another  for the HTTP request. As you can see,
+the defined values in our <cite>stencil</cite> have automatically pre-populated the neccessary fields:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-02T11:05:56Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;CqxewMpzKDwx3V0CqW&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_h&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.88.172&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_p&quot;</span><span class="p">:</span> <span class="mi">54827</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_h&quot;</span><span class="p">:</span> <span class="s2">&quot;201.6.38.99&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_p&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span>
+  <span class="nt">&quot;proto&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;trans_id&quot;</span><span class="p">:</span> <span class="mi">24991</span><span class="p">,</span>
+  <span class="nt">&quot;rtt&quot;</span><span class="p">:</span> <span class="mf">1.1869650984929</span><span class="p">,</span>
+  <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;totallydoesntexist.io&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;qclass&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;qclass_name&quot;</span><span class="p">:</span> <span class="s2">&quot;C_INTERNET&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;qtype&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;qtype_name&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;rcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;rcode_name&quot;</span><span class="p">:</span> <span class="s2">&quot;NOERROR&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;AA&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;TC&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;RD&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;RA&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Z&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;answers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;1.2.3.4&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;TTLs&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="mi">15585</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;rejected&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+<span class="p">{</span>
+  <span class="nt">&quot;ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-02T11:05:57Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;CqxewMpzKDwx3V0CqW&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_h&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.88.172&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.orig_p&quot;</span><span class="p">:</span> <span class="mi">54827</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_h&quot;</span><span class="p">:</span> <span class="s2">&quot;201.6.38.99&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;id.resp_p&quot;</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span>
+  <span class="nt">&quot;trans_depth&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;davies-patterson.net&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;/bin/fast.cgi?user=root&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 4.0; Trident/5.1)&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;request_body_len&quot;</span><span class="p">:</span> <span class="mi">7162</span><span class="p">,</span>
+  <span class="nt">&quot;response_body_len&quot;</span><span class="p">:</span> <span class="mi">2689</span><span class="p">,</span>
+  <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">301</span><span class="p">,</span>
+  <span class="nt">&quot;status_msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Redirect&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.stencils.SaloStencilModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.stencils.</span></span><span class="sig-name descname"><span class="pre">SaloStencilModel</span></span><a class="reference internal" href="_modules/salo/stencils.html#SaloStencilModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.stencils.SaloStencilModel" title="Permalink to this definition"></a></dt>
+<dd><dl class="py class">
+<dt class="sig sig-object py" id="salo.stencils.SaloStencilModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/salo/stencils.html#SaloStencilModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.stencils.SaloStencilModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.SaloStencilModel.Config.allow_population_by_field_name">
+<span class="sig-name descname"><span class="pre">allow_population_by_field_name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.stencils.SaloStencilModel.Config.allow_population_by_field_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.SaloStencilModel.Config.allow_reuse">
+<span class="sig-name descname"><span class="pre">allow_reuse</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.stencils.SaloStencilModel.Config.allow_reuse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.SaloStencilModel.Config.validate_assignment">
+<span class="sig-name descname"><span class="pre">validate_assignment</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.stencils.SaloStencilModel.Config.validate_assignment" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="events.html" class="btn btn-neutral float-left" title="Events" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="outputs.html" class="btn btn-neutral float-right" title="Outputs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

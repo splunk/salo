@@ -1,0 +1,30 @@
+:py:mod:`salo.outputs.localfile`
+================================
+
+.. py:module:: salo.outputs.localfile
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.outputs.localfile.LocalFileOutput
+
+
+
+
+.. py:class:: LocalFileOutput(config: Dict)
+
+   Bases: :py:obj:`salo.outputs.SaloOutput`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: save(self, sessions: salo.Sessions) -> None
+
+
+

@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo.events.zeek &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="salo.events.zeek.base" href="base/index.html" />
+    <link rel="prev" title="salo.events.sysmon.windows.eventcode" href="../sysmon/windows/eventcode/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../framework.html">Framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../outputs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../stencils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/salo/events/zeek/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-salo.events.zeek">
+<span id="salo-events-zeek"></span><h1><a class="reference internal" href="#module-salo.events.zeek" title="salo.events.zeek"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek</span></code></a><a class="headerlink" href="#module-salo.events.zeek" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.base</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="conn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.conn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.dns</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="files/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.files</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="http/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.http</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="rdp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.rdp</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smtp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.smtp</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssl/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.ssl</span></code></a></li>
+</ul>
+</div>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.events.zeek.ZeekModel" title="salo.events.zeek.ZeekModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZeekModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.events.zeek.ConnModel" title="salo.events.zeek.ConnModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConnModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.events.zeek.SSLModel" title="salo.events.zeek.SSLModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SSLModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.events.zeek.DNSModel" title="salo.events.zeek.DNSModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DNSModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.events.zeek.HTTPModel" title="salo.events.zeek.HTTPModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HTTPModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.events.zeek.SMTPModel" title="salo.events.zeek.SMTPModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SMTPModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.events.zeek.RDPModel" title="salo.events.zeek.RDPModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RDPModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.events.zeek.FilesModel" title="salo.events.zeek.FilesModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FilesModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.events.zeek.fake" title="salo.events.zeek.fake"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fake</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">ZeekModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/base.html#ZeekModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ZeekModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../index.html#salo.SaloEventModel" title="salo.SaloEventModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.SaloEventModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../../../../_modules/salo/events/zeek/base.html#ZeekModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ZeekModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.Config.json_encoders">
+<span class="sig-name descname"><span class="pre">json_encoders</span></span><a class="headerlink" href="#salo.events.zeek.ZeekModel.Config.json_encoders" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.Config.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><a class="headerlink" href="#salo.events.zeek.ZeekModel.Config.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"> <span class="pre">:datetime.datetime</span></em><a class="headerlink" href="#salo.events.zeek.ZeekModel.timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.uid">
+<span class="sig-name descname"><span class="pre">uid</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.ZeekModel.uid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.src_ip">
+<span class="sig-name descname"><span class="pre">src_ip</span></span><em class="property"> <span class="pre">:Optional[pydantic.IPvAnyAddress]</span></em><a class="headerlink" href="#salo.events.zeek.ZeekModel.src_ip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.src_port">
+<span class="sig-name descname"><span class="pre">src_port</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.ZeekModel.src_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.dest_ip">
+<span class="sig-name descname"><span class="pre">dest_ip</span></span><em class="property"> <span class="pre">:Optional[pydantic.IPvAnyAddress]</span></em><a class="headerlink" href="#salo.events.zeek.ZeekModel.dest_ip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.dest_port">
+<span class="sig-name descname"><span class="pre">dest_port</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.ZeekModel.dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.set_src_port">
+<span class="sig-name descname"><span class="pre">set_src_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/base.html#ZeekModel.set_src_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ZeekModel.set_src_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.set_dest_port">
+<span class="sig-name descname"><span class="pre">set_dest_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/base.html#ZeekModel.set_dest_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ZeekModel.set_dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.ZeekModel.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_alias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_none</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/base.html#ZeekModel.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ZeekModel.generate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="salo.events.zeek.fake">
+<span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">fake</span></span><a class="headerlink" href="#salo.events.zeek.fake" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">ConnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/conn.html#ConnModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ConnModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="base/index.html#salo.events.zeek.base.ZeekModel" title="salo.events.zeek.base.ZeekModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.events.zeek.base.ZeekModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel._refs">
+<span class="sig-name descname"><span class="pre">_refs</span></span><em class="property"> <span class="pre">:List[str]</span> <span class="pre">=</span> <span class="pre">['https://docs.zeek.org/en/master/scripts/base/protocols/conn/main.zeek.html#type-Conn::Info',...</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel._refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.proto">
+<span class="sig-name descname"><span class="pre">proto</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.proto" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.service">
+<span class="sig-name descname"><span class="pre">service</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.service" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.duration">
+<span class="sig-name descname"><span class="pre">duration</span></span><em class="property"> <span class="pre">:Optional[float]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.duration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.orig_bytes">
+<span class="sig-name descname"><span class="pre">orig_bytes</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.orig_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.resp_bytes">
+<span class="sig-name descname"><span class="pre">resp_bytes</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.resp_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.conn_state">
+<span class="sig-name descname"><span class="pre">conn_state</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.conn_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.local_orig">
+<span class="sig-name descname"><span class="pre">local_orig</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.local_orig" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.local_resp">
+<span class="sig-name descname"><span class="pre">local_resp</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.local_resp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.missed_bytes">
+<span class="sig-name descname"><span class="pre">missed_bytes</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.missed_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.history" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.orig_pkts">
+<span class="sig-name descname"><span class="pre">orig_pkts</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.orig_pkts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.orig_ip_bytes">
+<span class="sig-name descname"><span class="pre">orig_ip_bytes</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.orig_ip_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.resp_pkts">
+<span class="sig-name descname"><span class="pre">resp_pkts</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.resp_pkts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.resp_ip_bytes">
+<span class="sig-name descname"><span class="pre">resp_ip_bytes</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.resp_ip_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.tunnel_parents">
+<span class="sig-name descname"><span class="pre">tunnel_parents</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.tunnel_parents" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.orig_l2_addr">
+<span class="sig-name descname"><span class="pre">orig_l2_addr</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.orig_l2_addr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.resp_l2_addr">
+<span class="sig-name descname"><span class="pre">resp_l2_addr</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.resp_l2_addr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.vlan">
+<span class="sig-name descname"><span class="pre">vlan</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.vlan" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.inner_vlan">
+<span class="sig-name descname"><span class="pre">inner_vlan</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.inner_vlan" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.speculative_service">
+<span class="sig-name descname"><span class="pre">speculative_service</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.ConnModel.speculative_service" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.set_duration">
+<span class="sig-name descname"><span class="pre">set_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/conn.html#ConnModel.set_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ConnModel.set_duration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.set_conn_state">
+<span class="sig-name descname"><span class="pre">set_conn_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/conn.html#ConnModel.set_conn_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ConnModel.set_conn_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.set_history">
+<span class="sig-name descname"><span class="pre">set_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/conn.html#ConnModel.set_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ConnModel.set_history" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.ConnModel.ports_protocols">
+<span class="sig-name descname"><span class="pre">ports_protocols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/conn.html#ConnModel.ports_protocols"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.ConnModel.ports_protocols" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">SSLModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/ssl.html#SSLModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SSLModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="base/index.html#salo.events.zeek.base.ZeekModel" title="salo.events.zeek.base.ZeekModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.events.zeek.base.ZeekModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel._refs">
+<span class="sig-name descname"><span class="pre">_refs</span></span><em class="property"> <span class="pre">:List[str]</span> <span class="pre">=</span> <span class="pre">['https://docs.zeek.org/en/master/scripts/base/protocols/ssl/main.zeek.html#type-SSL::Info',...</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel._refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.dest_port">
+<span class="sig-name descname"><span class="pre">dest_port</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.version">
+<span class="sig-name descname"><span class="pre">version</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.cipher">
+<span class="sig-name descname"><span class="pre">cipher</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.cipher" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.curve">
+<span class="sig-name descname"><span class="pre">curve</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.curve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.server_name">
+<span class="sig-name descname"><span class="pre">server_name</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.server_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.resumed">
+<span class="sig-name descname"><span class="pre">resumed</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.resumed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.last_alert">
+<span class="sig-name descname"><span class="pre">last_alert</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.last_alert" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.next_protocol">
+<span class="sig-name descname"><span class="pre">next_protocol</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.next_protocol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.established">
+<span class="sig-name descname"><span class="pre">established</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.established" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.ssl_history">
+<span class="sig-name descname"><span class="pre">ssl_history</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.ssl_history" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.cert_chain_fps">
+<span class="sig-name descname"><span class="pre">cert_chain_fps</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.cert_chain_fps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_cert_chain_fps">
+<span class="sig-name descname"><span class="pre">client_cert_chain_fps</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_cert_chain_fps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.subject">
+<span class="sig-name descname"><span class="pre">subject</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.subject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.issuer">
+<span class="sig-name descname"><span class="pre">issuer</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.issuer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_subject">
+<span class="sig-name descname"><span class="pre">client_subject</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_subject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_issuer">
+<span class="sig-name descname"><span class="pre">client_issuer</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_issuer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.sni_matches_cert">
+<span class="sig-name descname"><span class="pre">sni_matches_cert</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.sni_matches_cert" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.server_version">
+<span class="sig-name descname"><span class="pre">server_version</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.server_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_version">
+<span class="sig-name descname"><span class="pre">client_version</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_ciphers">
+<span class="sig-name descname"><span class="pre">client_ciphers</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_ciphers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.ssl_client_exts">
+<span class="sig-name descname"><span class="pre">ssl_client_exts</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.ssl_client_exts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.ssl_server_exts">
+<span class="sig-name descname"><span class="pre">ssl_server_exts</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.ssl_server_exts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.ticket_lifetime_hint">
+<span class="sig-name descname"><span class="pre">ticket_lifetime_hint</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.ticket_lifetime_hint" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.dh_param_size">
+<span class="sig-name descname"><span class="pre">dh_param_size</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.dh_param_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.point_formats">
+<span class="sig-name descname"><span class="pre">point_formats</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.point_formats" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_curves">
+<span class="sig-name descname"><span class="pre">client_curves</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_curves" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.orig_alpn">
+<span class="sig-name descname"><span class="pre">orig_alpn</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.orig_alpn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_supported_versions">
+<span class="sig-name descname"><span class="pre">client_supported_versions</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_supported_versions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.server_supported_version">
+<span class="sig-name descname"><span class="pre">server_supported_version</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.server_supported_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_key_share_groups">
+<span class="sig-name descname"><span class="pre">client_key_share_groups</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_key_share_groups" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.server_key_share_group">
+<span class="sig-name descname"><span class="pre">server_key_share_group</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.server_key_share_group" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.client_comp_methods">
+<span class="sig-name descname"><span class="pre">client_comp_methods</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.client_comp_methods" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.sigalgs">
+<span class="sig-name descname"><span class="pre">sigalgs</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.sigalgs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.hashalgs">
+<span class="sig-name descname"><span class="pre">hashalgs</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.hashalgs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.validation_status">
+<span class="sig-name descname"><span class="pre">validation_status</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.validation_status" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.ocsp_status">
+<span class="sig-name descname"><span class="pre">ocsp_status</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.ocsp_status" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.valid_ct_logs">
+<span class="sig-name descname"><span class="pre">valid_ct_logs</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.valid_ct_logs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.valid_ct_operators">
+<span class="sig-name descname"><span class="pre">valid_ct_operators</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.valid_ct_operators" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.ja3">
+<span class="sig-name descname"><span class="pre">ja3</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.ja3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.ja3s">
+<span class="sig-name descname"><span class="pre">ja3s</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.SSLModel.ja3s" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.set_dest_port">
+<span class="sig-name descname"><span class="pre">set_dest_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/ssl.html#SSLModel.set_dest_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SSLModel.set_dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.set_version">
+<span class="sig-name descname"><span class="pre">set_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/ssl.html#SSLModel.set_version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SSLModel.set_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.set_cipher">
+<span class="sig-name descname"><span class="pre">set_cipher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/ssl.html#SSLModel.set_cipher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SSLModel.set_cipher" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.set_curve">
+<span class="sig-name descname"><span class="pre">set_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/ssl.html#SSLModel.set_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SSLModel.set_curve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.set_resumed">
+<span class="sig-name descname"><span class="pre">set_resumed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/ssl.html#SSLModel.set_resumed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SSLModel.set_resumed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SSLModel.set_established">
+<span class="sig-name descname"><span class="pre">set_established</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/ssl.html#SSLModel.set_established"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SSLModel.set_established" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">DNSModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="base/index.html#salo.events.zeek.base.ZeekModel" title="salo.events.zeek.base.ZeekModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.events.zeek.base.ZeekModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.Config.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><a class="headerlink" href="#salo.events.zeek.DNSModel.Config.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel._refs">
+<span class="sig-name descname"><span class="pre">_refs</span></span><em class="property"> <span class="pre">:List[str]</span> <span class="pre">=</span> <span class="pre">['https://docs.zeek.org/en/master/scripts/base/protocols/dns/main.zeek.html#type-DNS::Info',...</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel._refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.proto">
+<span class="sig-name descname"><span class="pre">proto</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.proto" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_id">
+<span class="sig-name descname"><span class="pre">dns_id</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_rtt">
+<span class="sig-name descname"><span class="pre">dns_rtt</span></span><em class="property"> <span class="pre">:Optional[float]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_rtt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_query">
+<span class="sig-name descname"><span class="pre">dns_query</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_query" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_qclass">
+<span class="sig-name descname"><span class="pre">dns_qclass</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_qclass" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_qclass_name">
+<span class="sig-name descname"><span class="pre">dns_qclass_name</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_qclass_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_qtype">
+<span class="sig-name descname"><span class="pre">dns_qtype</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_qtype" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_qtype_name">
+<span class="sig-name descname"><span class="pre">dns_qtype_name</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_qtype_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_rcode">
+<span class="sig-name descname"><span class="pre">dns_rcode</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_rcode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_rcode_name">
+<span class="sig-name descname"><span class="pre">dns_rcode_name</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_rcode_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_aa">
+<span class="sig-name descname"><span class="pre">dns_aa</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_aa" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_tc">
+<span class="sig-name descname"><span class="pre">dns_tc</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_tc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_rd">
+<span class="sig-name descname"><span class="pre">dns_rd</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_rd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_ra">
+<span class="sig-name descname"><span class="pre">dns_ra</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_ra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_z">
+<span class="sig-name descname"><span class="pre">dns_z</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_z" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_rdata">
+<span class="sig-name descname"><span class="pre">dns_rdata</span></span><em class="property"> <span class="pre">:Optional[Union[str,</span> <span class="pre">List[str]]]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_rdata" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_ttl">
+<span class="sig-name descname"><span class="pre">dns_ttl</span></span><em class="property"> <span class="pre">:Optional[Union[int,</span> <span class="pre">List[int]]]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_ttl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_rejected">
+<span class="sig-name descname"><span class="pre">dns_rejected</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_rejected" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_auth">
+<span class="sig-name descname"><span class="pre">dns_auth</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_auth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_addl">
+<span class="sig-name descname"><span class="pre">dns_addl</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_addl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.dns_original_query">
+<span class="sig-name descname"><span class="pre">dns_original_query</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.DNSModel.dns_original_query" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_dest_port">
+<span class="sig-name descname"><span class="pre">set_dest_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_dest_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_proto">
+<span class="sig-name descname"><span class="pre">set_proto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_proto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_proto" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_dns_id">
+<span class="sig-name descname"><span class="pre">set_dns_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_dns_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_dns_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_dns_rtt">
+<span class="sig-name descname"><span class="pre">set_dns_rtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_dns_rtt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_dns_rtt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_dns_aa">
+<span class="sig-name descname"><span class="pre">set_dns_aa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_dns_aa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_dns_aa" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_dns_tc">
+<span class="sig-name descname"><span class="pre">set_dns_tc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_dns_tc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_dns_tc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_rd">
+<span class="sig-name descname"><span class="pre">set_rd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_rd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_rd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_ra">
+<span class="sig-name descname"><span class="pre">set_ra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_ra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_ra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_dns_rejected">
+<span class="sig-name descname"><span class="pre">set_dns_rejected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_dns_rejected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_dns_rejected" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_dns_rdata">
+<span class="sig-name descname"><span class="pre">set_dns_rdata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_dns_rdata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_dns_rdata" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_dns_ttl">
+<span class="sig-name descname"><span class="pre">set_dns_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_dns_ttl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_dns_ttl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.DNSModel.set_values">
+<span class="sig-name descname"><span class="pre">set_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/salo/events/zeek/dns.html#DNSModel.set_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.DNSModel.set_values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">HTTPModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/http.html#HTTPModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.HTTPModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="base/index.html#salo.events.zeek.base.ZeekModel" title="salo.events.zeek.base.ZeekModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.events.zeek.base.ZeekModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../../../../_modules/salo/events/zeek/http.html#HTTPModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.HTTPModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.Config.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><a class="headerlink" href="#salo.events.zeek.HTTPModel.Config.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel._refs">
+<span class="sig-name descname"><span class="pre">_refs</span></span><em class="property"> <span class="pre">:List[str]</span> <span class="pre">=</span> <span class="pre">['https://docs.zeek.org/en/master/scripts/base/protocols/http/main.zeek.html#type-HTTP::Info',...</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel._refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.trans_depth">
+<span class="sig-name descname"><span class="pre">trans_depth</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.trans_depth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_method">
+<span class="sig-name descname"><span class="pre">http_method</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_method" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_hostname">
+<span class="sig-name descname"><span class="pre">http_hostname</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_hostname" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_uri">
+<span class="sig-name descname"><span class="pre">http_uri</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_uri" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_referrer">
+<span class="sig-name descname"><span class="pre">http_referrer</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_referrer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_version">
+<span class="sig-name descname"><span class="pre">http_version</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_user_agent">
+<span class="sig-name descname"><span class="pre">http_user_agent</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_user_agent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_origin">
+<span class="sig-name descname"><span class="pre">http_origin</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_origin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_request_body_len">
+<span class="sig-name descname"><span class="pre">http_request_body_len</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_request_body_len" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_response_body_len">
+<span class="sig-name descname"><span class="pre">http_response_body_len</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_response_body_len" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_status_code">
+<span class="sig-name descname"><span class="pre">http_status_code</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_status_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_status_msg">
+<span class="sig-name descname"><span class="pre">http_status_msg</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_status_msg" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_info_code">
+<span class="sig-name descname"><span class="pre">http_info_code</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_info_code" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_info_msg">
+<span class="sig-name descname"><span class="pre">http_info_msg</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_info_msg" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_tags">
+<span class="sig-name descname"><span class="pre">http_tags</span></span><em class="property"> <span class="pre">:Optional[List]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_tags" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_username">
+<span class="sig-name descname"><span class="pre">http_username</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_username" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_password">
+<span class="sig-name descname"><span class="pre">http_password</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_password" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_proxied">
+<span class="sig-name descname"><span class="pre">http_proxied</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_proxied" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.orig_fuids">
+<span class="sig-name descname"><span class="pre">orig_fuids</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.orig_fuids" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.orig_filenames">
+<span class="sig-name descname"><span class="pre">orig_filenames</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.orig_filenames" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.orig_mime_types">
+<span class="sig-name descname"><span class="pre">orig_mime_types</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.orig_mime_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.resp_fuids">
+<span class="sig-name descname"><span class="pre">resp_fuids</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.resp_fuids" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.resp_filenames">
+<span class="sig-name descname"><span class="pre">resp_filenames</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.resp_filenames" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.resp_mime_types">
+<span class="sig-name descname"><span class="pre">resp_mime_types</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.resp_mime_types" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_client_header_names">
+<span class="sig-name descname"><span class="pre">http_client_header_names</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_client_header_names" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_server_header_names">
+<span class="sig-name descname"><span class="pre">http_server_header_names</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_server_header_names" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_cookie_vars">
+<span class="sig-name descname"><span class="pre">http_cookie_vars</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_cookie_vars" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.http_uri_vars">
+<span class="sig-name descname"><span class="pre">http_uri_vars</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.HTTPModel.http_uri_vars" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.set_dest_port">
+<span class="sig-name descname"><span class="pre">set_dest_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/http.html#HTTPModel.set_dest_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.HTTPModel.set_dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.set_http_version">
+<span class="sig-name descname"><span class="pre">set_http_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/http.html#HTTPModel.set_http_version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.HTTPModel.set_http_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.HTTPModel.set_values">
+<span class="sig-name descname"><span class="pre">set_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/http.html#HTTPModel.set_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.HTTPModel.set_values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">SMTPModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="base/index.html#salo.events.zeek.base.ZeekModel" title="salo.events.zeek.base.ZeekModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.events.zeek.base.ZeekModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.Config.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><a class="headerlink" href="#salo.events.zeek.SMTPModel.Config.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel._refs">
+<span class="sig-name descname"><span class="pre">_refs</span></span><em class="property"> <span class="pre">:List[str]</span> <span class="pre">=</span> <span class="pre">['https://docs.zeek.org/en/master/scripts/base/protocols/smtp/main.zeek.html#type-SMTP::Info',...</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel._refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.dest_port">
+<span class="sig-name descname"><span class="pre">dest_port</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_trans_depth">
+<span class="sig-name descname"><span class="pre">smtp_trans_depth</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_trans_depth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_helo">
+<span class="sig-name descname"><span class="pre">smtp_helo</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_helo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_mailfrom">
+<span class="sig-name descname"><span class="pre">smtp_mailfrom</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_mailfrom" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_rcptto">
+<span class="sig-name descname"><span class="pre">smtp_rcptto</span></span><em class="property"> <span class="pre">:List[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_rcptto" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"> <span class="pre">:datetime.datetime</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_from">
+<span class="sig-name descname"><span class="pre">smtp_from</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_from" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_to">
+<span class="sig-name descname"><span class="pre">smtp_to</span></span><em class="property"> <span class="pre">:List[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_to" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_cc">
+<span class="sig-name descname"><span class="pre">smtp_cc</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_cc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_reply_to">
+<span class="sig-name descname"><span class="pre">smtp_reply_to</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_reply_to" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_msg_id">
+<span class="sig-name descname"><span class="pre">smtp_msg_id</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_msg_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_in_reply_to">
+<span class="sig-name descname"><span class="pre">smtp_in_reply_to</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_in_reply_to" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_subject">
+<span class="sig-name descname"><span class="pre">smtp_subject</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_subject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_x_originating_ip">
+<span class="sig-name descname"><span class="pre">smtp_x_originating_ip</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_x_originating_ip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_first_received">
+<span class="sig-name descname"><span class="pre">smtp_first_received</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_first_received" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_second_received">
+<span class="sig-name descname"><span class="pre">smtp_second_received</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_second_received" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_last_reply">
+<span class="sig-name descname"><span class="pre">smtp_last_reply</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_last_reply" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_path">
+<span class="sig-name descname"><span class="pre">smtp_path</span></span><em class="property"> <span class="pre">:Optional[List[pydantic.IPvAnyAddress]]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_path" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_user_agent">
+<span class="sig-name descname"><span class="pre">smtp_user_agent</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_user_agent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_tls">
+<span class="sig-name descname"><span class="pre">smtp_tls</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_tls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_process_received_from">
+<span class="sig-name descname"><span class="pre">smtp_process_received_from</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_process_received_from" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_has_client_activity">
+<span class="sig-name descname"><span class="pre">smtp_has_client_activity</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_has_client_activity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_process_smtp_headers">
+<span class="sig-name descname"><span class="pre">smtp_process_smtp_headers</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_process_smtp_headers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_entity_count">
+<span class="sig-name descname"><span class="pre">smtp_entity_count</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_entity_count" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.fuids">
+<span class="sig-name descname"><span class="pre">fuids</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.fuids" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.smtp_is_webmail">
+<span class="sig-name descname"><span class="pre">smtp_is_webmail</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.SMTPModel.smtp_is_webmail" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.set_dest_port">
+<span class="sig-name descname"><span class="pre">set_dest_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.set_dest_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.set_dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.set_smtp_msg_id">
+<span class="sig-name descname"><span class="pre">set_smtp_msg_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.set_smtp_msg_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.set_smtp_msg_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.set_smtp_trans_depth">
+<span class="sig-name descname"><span class="pre">set_smtp_trans_depth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.set_smtp_trans_depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.set_smtp_trans_depth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.set_smtp_path">
+<span class="sig-name descname"><span class="pre">set_smtp_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.set_smtp_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.set_smtp_path" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.set_smtp_tls">
+<span class="sig-name descname"><span class="pre">set_smtp_tls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.set_smtp_tls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.set_smtp_tls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.set_fuids">
+<span class="sig-name descname"><span class="pre">set_fuids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.set_fuids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.set_fuids" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.set_is_webmail">
+<span class="sig-name descname"><span class="pre">set_is_webmail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.set_is_webmail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.set_is_webmail" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.SMTPModel.set_values">
+<span class="sig-name descname"><span class="pre">set_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/salo/events/zeek/smtp.html#SMTPModel.set_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.SMTPModel.set_values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">RDPModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/rdp.html#RDPModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.RDPModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="base/index.html#salo.events.zeek.base.ZeekModel" title="salo.events.zeek.base.ZeekModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.events.zeek.base.ZeekModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel._refs">
+<span class="sig-name descname"><span class="pre">_refs</span></span><em class="property"> <span class="pre">:List[str]</span> <span class="pre">=</span> <span class="pre">['https://docs.zeek.org/en/master/scripts/base/protocols/rdp/main.zeek.html#type-RDP::Info',...</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel._refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.cookie">
+<span class="sig-name descname"><span class="pre">cookie</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.cookie" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.result">
+<span class="sig-name descname"><span class="pre">result</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.result" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.security_protocol">
+<span class="sig-name descname"><span class="pre">security_protocol</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.security_protocol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.client_channels">
+<span class="sig-name descname"><span class="pre">client_channels</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.client_channels" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.keyboard_layour">
+<span class="sig-name descname"><span class="pre">keyboard_layour</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.keyboard_layour" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.client_build">
+<span class="sig-name descname"><span class="pre">client_build</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.client_build" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.client_name">
+<span class="sig-name descname"><span class="pre">client_name</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.client_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.client_dig_product_id">
+<span class="sig-name descname"><span class="pre">client_dig_product_id</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.client_dig_product_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.desktop_width">
+<span class="sig-name descname"><span class="pre">desktop_width</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.desktop_width" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.desktop_height">
+<span class="sig-name descname"><span class="pre">desktop_height</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.desktop_height" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.requested_color_depth">
+<span class="sig-name descname"><span class="pre">requested_color_depth</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.requested_color_depth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.cert_type">
+<span class="sig-name descname"><span class="pre">cert_type</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.cert_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.cert_count">
+<span class="sig-name descname"><span class="pre">cert_count</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.cert_count" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.cert_permanent">
+<span class="sig-name descname"><span class="pre">cert_permanent</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.cert_permanent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.encryption_level">
+<span class="sig-name descname"><span class="pre">encryption_level</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.encryption_level" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.encryption_method">
+<span class="sig-name descname"><span class="pre">encryption_method</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.encryption_method" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.ssl">
+<span class="sig-name descname"><span class="pre">ssl</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.RDPModel.ssl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.RDPModel.set_dest_port">
+<span class="sig-name descname"><span class="pre">set_dest_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/rdp.html#RDPModel.set_dest_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.RDPModel.set_dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.zeek.</span></span><span class="sig-name descname"><span class="pre">FilesModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/files.html#FilesModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.FilesModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="base/index.html#salo.events.zeek.base.ZeekModel" title="salo.events.zeek.base.ZeekModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.events.zeek.base.ZeekModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel._refs">
+<span class="sig-name descname"><span class="pre">_refs</span></span><em class="property"> <span class="pre">:List[str]</span> <span class="pre">=</span> <span class="pre">['https://docs.zeek.org/en/master/scripts/base/frameworks/files/main.zeek.html#type-Files::Info',...</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel._refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.src_port">
+<span class="sig-name descname"><span class="pre">src_port</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.src_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.dest_port">
+<span class="sig-name descname"><span class="pre">dest_port</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.fuid">
+<span class="sig-name descname"><span class="pre">fuid</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.fuid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.tx_hosts">
+<span class="sig-name descname"><span class="pre">tx_hosts</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.tx_hosts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.rx_hosts">
+<span class="sig-name descname"><span class="pre">rx_hosts</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.rx_hosts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.conn_uids">
+<span class="sig-name descname"><span class="pre">conn_uids</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.conn_uids" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.source">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.source" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.depth">
+<span class="sig-name descname"><span class="pre">depth</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.depth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.analyzers">
+<span class="sig-name descname"><span class="pre">analyzers</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.analyzers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.mime_type">
+<span class="sig-name descname"><span class="pre">mime_type</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.mime_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.duration">
+<span class="sig-name descname"><span class="pre">duration</span></span><em class="property"> <span class="pre">:Optional[float]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.duration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.is_orig">
+<span class="sig-name descname"><span class="pre">is_orig</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.is_orig" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.seen_bytes">
+<span class="sig-name descname"><span class="pre">seen_bytes</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.seen_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.total_bytes">
+<span class="sig-name descname"><span class="pre">total_bytes</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.total_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.missing_bytes">
+<span class="sig-name descname"><span class="pre">missing_bytes</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.missing_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.overflow_bytes">
+<span class="sig-name descname"><span class="pre">overflow_bytes</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.overflow_bytes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.timedout">
+<span class="sig-name descname"><span class="pre">timedout</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.timedout" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.parent_fuid">
+<span class="sig-name descname"><span class="pre">parent_fuid</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.parent_fuid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.md5">
+<span class="sig-name descname"><span class="pre">md5</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.md5" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.sha1">
+<span class="sig-name descname"><span class="pre">sha1</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.sha1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.sha256">
+<span class="sig-name descname"><span class="pre">sha256</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.sha256" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.extracted">
+<span class="sig-name descname"><span class="pre">extracted</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.extracted" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.extracted_cutoff">
+<span class="sig-name descname"><span class="pre">extracted_cutoff</span></span><em class="property"> <span class="pre">:Optional[bool]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.extracted_cutoff" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.extract_size">
+<span class="sig-name descname"><span class="pre">extract_size</span></span><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#salo.events.zeek.FilesModel.extract_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.set_fields">
+<span class="sig-name descname"><span class="pre">set_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/files.html#FilesModel.set_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.FilesModel.set_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.set_depth">
+<span class="sig-name descname"><span class="pre">set_depth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/files.html#FilesModel.set_depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.FilesModel.set_depth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.set_duration">
+<span class="sig-name descname"><span class="pre">set_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/files.html#FilesModel.set_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.FilesModel.set_duration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.set_is_orig">
+<span class="sig-name descname"><span class="pre">set_is_orig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/files.html#FilesModel.set_is_orig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.FilesModel.set_is_orig" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.set_timedout">
+<span class="sig-name descname"><span class="pre">set_timedout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/files.html#FilesModel.set_timedout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.FilesModel.set_timedout" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.set_extracted_cutoff">
+<span class="sig-name descname"><span class="pre">set_extracted_cutoff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/files.html#FilesModel.set_extracted_cutoff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.FilesModel.set_extracted_cutoff" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.zeek.FilesModel.set_conn_info">
+<span class="sig-name descname"><span class="pre">set_conn_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/salo/events/zeek/files.html#FilesModel.set_conn_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.zeek.FilesModel.set_conn_info" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../sysmon/windows/eventcode/index.html" class="btn btn-neutral float-left" title="salo.events.sysmon.windows.eventcode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="base/index.html" class="btn btn-neutral float-right" title="salo.events.zeek.base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

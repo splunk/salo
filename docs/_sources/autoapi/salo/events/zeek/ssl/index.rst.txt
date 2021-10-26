@@ -1,0 +1,277 @@
+:py:mod:`salo.events.zeek.ssl`
+==============================
+
+.. py:module:: salo.events.zeek.ssl
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.ssl.SSLModel
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.ssl.TLS_VERSIONS
+   salo.events.zeek.ssl.TLS_CIPHERS
+   salo.events.zeek.ssl.TLS_CURVES
+
+
+.. py:data:: TLS_VERSIONS
+   :annotation: = ['TLSv10', 'TLSv12', 'TLSv13']
+
+   
+
+.. py:data:: TLS_CIPHERS
+   :annotation: = ['TLS_AES_128_GCM_SHA256', 'TLS_AES_256_GCM_SHA384', 'TLS_CHACHA20_POLY1305_SHA256',...
+
+   
+
+.. py:data:: TLS_CURVES
+   :annotation: = ['secp256r1', 'secp384r1', 'secp521r1', 'x25519']
+
+   
+
+.. py:class:: SSLModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/ssl/main.zeek.html#type-SSL::Info',...
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :int
+
+      
+
+   .. py:attribute:: version
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cipher
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: curve
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: server_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: resumed
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: last_alert
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: next_protocol
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: established
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: ssl_history
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cert_chain_fps
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: client_cert_chain_fps
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: subject
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: issuer
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_subject
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_issuer
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: sni_matches_cert
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: server_version
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: client_version
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: client_ciphers
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: ssl_client_exts
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: ssl_server_exts
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: ticket_lifetime_hint
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dh_param_size
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: point_formats
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: client_curves
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: orig_alpn
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: client_supported_versions
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: server_supported_version
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: client_key_share_groups
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: server_key_share_group
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: client_comp_methods
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: sigalgs
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: hashalgs
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: validation_status
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: ocsp_status
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: valid_ct_logs
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: valid_ct_operators
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: ja3
+      :annotation: :str
+
+      
+
+   .. py:attribute:: ja3s
+      :annotation: :str
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: set_version(cls, v)
+
+
+   .. py:method:: set_cipher(cls, v)
+
+
+   .. py:method:: set_curve(cls, v)
+
+
+   .. py:method:: set_resumed(cls, v)
+
+
+   .. py:method:: set_established(cls, v)
+
+
+

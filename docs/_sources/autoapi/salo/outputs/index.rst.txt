@@ -1,0 +1,140 @@
+:py:mod:`salo.outputs`
+======================
+
+.. py:module:: salo.outputs
+
+.. autoapi-nested-parse::
+
+   .. _SaloOutputs:
+
+
+   Overview
+   ********
+
+   Outputs are a means to produce and save output from a SALO recipe. One or more can be defined, allowing to save results to multiple
+   locations. The current outputs supported are:
+
+       - Console
+       - Local File
+       - Splunk
+
+   .. note:: If no `output` is defined, generated events will be printed to the console.
+
+
+   Configuration File
+   ******************
+
+   To simplify outputs, it is possible to customize how and where log output is handled. This can be done via a configuration file.
+   The configuration for `outputs` is a simple YAML file. Let's take a look at an example from the default ``outputs.yaml`` file.
+
+   The initial key, ``salo.events.suricata``, is the root object that is matched when saving log output. If the ``SaloEventModel``
+   class starts with ``salo.events.suricata``, then this configuration will be used to save the output. SALO will iterate over each
+   key defined in ``outputs`` and save to the appropriate output object:
+
+   .. code-block:: yaml
+
+
+       salo.events.suricata:
+         outputs:
+           file:
+             path: suricata/eve.log
+           splunk:
+             index: salo
+             sourcetype: suricata
+
+
+   It is also possible to match against more specific ``SaloEventModel`` classes. In this case, let's take a look at a ``Zeek`` output
+   from the default ``outputs.yaml`` file:
+
+   .. code-block:: yaml
+
+
+       salo.events.zeek.dns.DNSModel:
+         outputs:
+           file:
+             path: zeek/dns.log
+           splunk:
+             index: salo
+             sourcetype: "bro:dns:json"
+
+
+   In this instance, the ``SaloEventModel`` match will have to be the full path to ``salo.events.zeek.dns.DNSModel`` in order to be saved.
+   This is useful when more specific logs are needed, such as ``dns.log`` or ``http.log``.
+
+
+   API
+   ***
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   console/index.rst
+   localfile/index.rst
+   splunkhec/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.outputs.Sessions
+   salo.outputs.SaloOutput
+
+
+
+
+.. py:class:: Sessions(config: str, outputs: Optional[List] = None, output_config: Optional[str] = None)
+
+   .. py:method:: load_config(self, config: pathlib.Path) -> Dict
+
+      Load Salo configuration file for recipe or output
+
+
+
+   .. py:method:: create_session(self, model: Dict) -> None
+
+      Create a new Session object for this collection of Sessions
+
+
+   .. py:method:: generate(self, with_stencils: bool = False) -> Generator
+
+      Iterate over Event objects for each Session object
+
+
+
+   .. py:method:: save(self) -> None
+
+      Pass all Sessions to outputs for saving/post-processing
+
+
+
+   .. py:method:: __repr__(self)
+
+      Return repr(self).
+
+
+   .. py:method:: __len__(self)
+
+
+
+.. py:class:: SaloOutput(config: Dict)
+
+   Bases: :py:obj:`abc.ABC`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: save(self, sessions: salo.Sessions) -> None
+      :abstractmethod:
+
+
+

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo.stencils.cobaltstrike.dns &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="salo.stencils.sunburst" href="../../sunburst/index.html" />
+    <link rel="prev" title="salo.stencils.cobaltstrike" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../framework.html">Framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../events/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../outputs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils.cobaltstrike</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils.cobaltstrike.dns</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/salo/stencils/cobaltstrike/dns/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-salo.stencils.cobaltstrike.dns">
+<span id="salo-stencils-cobaltstrike-dns"></span><h1><a class="reference internal" href="#module-salo.stencils.cobaltstrike.dns" title="salo.stencils.cobaltstrike.dns"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils.cobaltstrike.dns</span></code></a><a class="headerlink" href="#module-salo.stencils.cobaltstrike.dns" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2" title="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CobaltStrikeDNSC2</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.stencils.cobaltstrike.dns.DOMAINS" title="salo.stencils.cobaltstrike.dns.DOMAINS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DOMAINS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.DOMAINS">
+<span class="sig-prename descclassname"><span class="pre">salo.stencils.cobaltstrike.dns.</span></span><span class="sig-name descname"><span class="pre">DOMAINS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['c2.dns.getbobspizza.com']</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.DOMAINS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.stencils.cobaltstrike.dns.</span></span><span class="sig-name descname"><span class="pre">CobaltStrikeDNSC2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/stencils/cobaltstrike/dns.html#CobaltStrikeDNSC2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../index.html#salo.SaloStencilModel" title="salo.SaloStencilModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.SaloStencilModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_query">
+<span class="sig-name descname"><span class="pre">dns_query</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_query" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_version">
+<span class="sig-name descname"><span class="pre">dns_version</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_rcode">
+<span class="sig-name descname"><span class="pre">dns_rcode</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_rcode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_rcode_name">
+<span class="sig-name descname"><span class="pre">dns_rcode_name</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_rcode_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_qtype">
+<span class="sig-name descname"><span class="pre">dns_qtype</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_qtype" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_qtype_name">
+<span class="sig-name descname"><span class="pre">dns_qtype_name</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_qtype_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_rdata">
+<span class="sig-name descname"><span class="pre">dns_rdata</span></span><em class="property"> <span class="pre">:Optional[List[str]]</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_rdata" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_ttl">
+<span class="sig-name descname"><span class="pre">dns_ttl</span></span><em class="property"> <span class="pre">:Optional[List[int]]</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_ttl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_qa">
+<span class="sig-name descname"><span class="pre">dns_qa</span></span><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_qa" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_rd">
+<span class="sig-name descname"><span class="pre">dns_rd</span></span><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_rd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_ra">
+<span class="sig-name descname"><span class="pre">dns_ra</span></span><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_ra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_type">
+<span class="sig-name descname"><span class="pre">dns_type</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dns_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.proto">
+<span class="sig-name descname"><span class="pre">proto</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.proto" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.service">
+<span class="sig-name descname"><span class="pre">service</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.service" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dest_port">
+<span class="sig-name descname"><span class="pre">dest_port</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.set_dns_query">
+<span class="sig-name descname"><span class="pre">set_dns_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/stencils/cobaltstrike/dns.html#CobaltStrikeDNSC2.set_dns_query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.set_dns_query" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.set_dns_rdata">
+<span class="sig-name descname"><span class="pre">set_dns_rdata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/stencils/cobaltstrike/dns.html#CobaltStrikeDNSC2.set_dns_rdata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2.set_dns_rdata" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="salo.stencils.cobaltstrike" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../sunburst/index.html" class="btn btn-neutral float-right" title="salo.stencils.sunburst" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

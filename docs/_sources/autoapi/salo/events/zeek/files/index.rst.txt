@@ -1,0 +1,175 @@
+:py:mod:`salo.events.zeek.files`
+================================
+
+.. py:module:: salo.events.zeek.files
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.files.FilesModel
+
+
+
+
+.. py:class:: FilesModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/frameworks/files/main.zeek.html#type-Files::Info',...
+
+      
+
+   .. py:attribute:: src_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: fuid
+      :annotation: :str
+
+      
+
+   .. py:attribute:: tx_hosts
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: rx_hosts
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: conn_uids
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: source
+      :annotation: :str
+
+      
+
+   .. py:attribute:: depth
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: analyzers
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: mime_type
+      :annotation: :str
+
+      
+
+   .. py:attribute:: duration
+      :annotation: :Optional[float]
+
+      
+
+   .. py:attribute:: is_orig
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: seen_bytes
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: total_bytes
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: missing_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: overflow_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: timedout
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: parent_fuid
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: md5
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: sha1
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: sha256
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: extracted
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: extracted_cutoff
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: extract_size
+      :annotation: :Optional[int]
+
+      
+
+   .. py:method:: set_fields(cls, values)
+
+
+   .. py:method:: set_depth(cls, v)
+
+
+   .. py:method:: set_duration(cls, v)
+
+
+   .. py:method:: set_is_orig(cls, v)
+
+
+   .. py:method:: set_timedout(cls, v)
+
+
+   .. py:method:: set_extracted_cutoff(cls, v)
+
+
+   .. py:method:: set_conn_info(cls, v)
+
+
+

@@ -1,0 +1,226 @@
+:py:mod:`salo.events.zeek.dns`
+==============================
+
+.. py:module:: salo.events.zeek.dns
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.dns.DNSModel
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.dns.MAX_TRANS_ID
+   salo.events.zeek.dns.MAX_RTT
+   salo.events.zeek.dns.MAX_TTL
+   salo.events.zeek.dns.Q_TYPES
+   salo.events.zeek.dns.Q_CLASSES
+   salo.events.zeek.dns.RCODES
+
+
+.. py:data:: MAX_TRANS_ID
+   :annotation: = 65535
+
+   
+
+.. py:data:: MAX_RTT
+   :annotation: = 2
+
+   
+
+.. py:data:: MAX_TTL
+   :annotation: = 28800
+
+   
+
+.. py:data:: Q_TYPES
+   
+
+   
+
+.. py:data:: Q_CLASSES
+   
+
+   
+
+.. py:data:: RCODES
+   
+
+   
+
+.. py:class:: DNSModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/dns/main.zeek.html#type-DNS::Info',...
+
+      
+
+   .. py:attribute:: proto
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: dns_id
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dns_rtt
+      :annotation: :Optional[float]
+
+      
+
+   .. py:attribute:: dns_query
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_qclass
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_qclass_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_qtype
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_qtype_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_rcode
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_rcode_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_aa
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_tc
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_rd
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_ra
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_z
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_rdata
+      :annotation: :Optional[Union[str, List[str]]]
+
+      
+
+   .. py:attribute:: dns_ttl
+      :annotation: :Optional[Union[int, List[int]]]
+
+      
+
+   .. py:attribute:: dns_rejected
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_auth
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: dns_addl
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: dns_original_query
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: set_proto(cls, v)
+
+
+   .. py:method:: set_dns_id(cls, v)
+
+
+   .. py:method:: set_dns_rtt(cls, v)
+
+
+   .. py:method:: set_dns_aa(cls, v)
+
+
+   .. py:method:: set_dns_tc(cls, v)
+
+
+   .. py:method:: set_rd(cls, v)
+
+
+   .. py:method:: set_ra(cls, v)
+
+
+   .. py:method:: set_dns_rejected(cls, v)
+
+
+   .. py:method:: set_dns_rdata(cls, v)
+
+
+   .. py:method:: set_dns_ttl(cls, v, *, values)
+
+
+   .. py:method:: set_values(cls, values) -> None
+
+
+

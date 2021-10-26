@@ -1,0 +1,222 @@
+:py:mod:`salo.events.zeek.http`
+===============================
+
+.. py:module:: salo.events.zeek.http
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.http.HTTPModel
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.http.MAX_FUIDS
+   salo.events.zeek.http.HTTP_VERSIONS
+   salo.events.zeek.http.METHODS
+   salo.events.zeek.http.STATUSES
+
+
+.. py:data:: MAX_FUIDS
+   :annotation: = 2
+
+   
+
+.. py:data:: HTTP_VERSIONS
+   :annotation: = ['1.0', '1.1']
+
+   
+
+.. py:data:: METHODS
+   :annotation: = ['GET', 'POST']
+
+   
+
+.. py:data:: STATUSES
+   
+
+   
+
+.. py:class:: HTTPModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/http/main.zeek.html#type-HTTP::Info',...
+
+      
+
+   .. py:attribute:: trans_depth
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http_method
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_hostname
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_uri
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_referrer
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_version
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_user_agent
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_origin
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_request_body_len
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http_response_body_len
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http_status_code
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http_status_msg
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_info_code
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: http_info_msg
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_tags
+      :annotation: :Optional[List]
+
+      
+
+   .. py:attribute:: http_username
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_password
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_proxied
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: orig_fuids
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: orig_filenames
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: orig_mime_types
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: resp_fuids
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: resp_filenames
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: resp_mime_types
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: http_client_header_names
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: http_server_header_names
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: http_cookie_vars
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: http_uri_vars
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: set_http_version(cls, v)
+
+
+   .. py:method:: set_values(cls, values)
+
+
+

@@ -1,0 +1,239 @@
+:py:mod:`salo.events.sysmon.windows`
+====================================
+
+.. py:module:: salo.events.sysmon.windows
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   eventcode/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.sysmon.windows.EventCodeModel
+   salo.events.sysmon.windows.EventCode3Model
+
+
+
+
+.. py:class:: EventCodeModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.SaloEventModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: json_encoders
+         
+
+         
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: _template
+      :annotation: :str
+
+      
+
+   .. py:attribute:: timestamp
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:method:: set_utctime(cls, v, *, values)
+
+
+   .. py:method:: set_source_is_ipv6(cls, v, *, values)
+
+
+   .. py:method:: set_destination_is_ipv6(cls, v, *, values)
+
+
+   .. py:method:: generate(self, by_alias: bool = True, exclude_none: bool = True)
+
+
+
+.. py:class:: EventCode3Model(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`EventCodeModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _template
+      :annotation: :str = eventcode3.jinja2
+
+      
+
+   .. py:attribute:: Version
+      :annotation: :int
+
+      
+
+   .. py:attribute:: Level
+      :annotation: :int
+
+      
+
+   .. py:attribute:: Task
+      :annotation: :int
+
+      
+
+   .. py:attribute:: Opcode
+      :annotation: :int
+
+      
+
+   .. py:attribute:: Keywords
+      :annotation: :str = 0x8000000000000000
+
+      
+
+   .. py:attribute:: EventRecordID
+      :annotation: :int
+
+      
+
+   .. py:attribute:: ProcessID
+      :annotation: :int
+
+      
+
+   .. py:attribute:: ThreadID
+      :annotation: :int
+
+      
+
+   .. py:attribute:: Computer
+      :annotation: :str
+
+      
+
+   .. py:attribute:: UserID
+      :annotation: :str
+
+      
+
+   .. py:attribute:: UtcTime
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:attribute:: ProcessGuid
+      :annotation: :uuid.UUID
+
+      
+
+   .. py:attribute:: ProcessId
+      :annotation: :int
+
+      
+
+   .. py:attribute:: Image
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: User
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: protocol
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: Initiated
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: src_ip
+      :annotation: :pydantic.IPvAnyAddress
+
+      
+
+   .. py:attribute:: SourceIsIpv6
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: SourceHostname
+      :annotation: :str
+
+      
+
+   .. py:attribute:: src_port
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: SourcePortName
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dest_ip
+      :annotation: :pydantic.IPvAnyAddress
+
+      
+
+   .. py:attribute:: DestinationIsIpv6
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: DestinationHostname
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: DestinationPortName
+      :annotation: :str
+
+      
+
+   .. py:method:: set_Image(cls, v)
+
+
+   .. py:method:: set_User(cls, v)
+
+
+   .. py:method:: set_protocol(cls, v)
+
+
+   .. py:method:: set_src_port(cls, v)
+
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+

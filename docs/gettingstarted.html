@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Recipes" href="recipes.html" />
+    <link rel="prev" title="SALO Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-event-schema">Viewing Event Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#result-output">Result Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#console">Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file">File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#splunk">Splunk</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/gettingstarted.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<p>Create a new <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> for SALO:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv ~/.venv/salo
+</pre></div>
+</div>
+<p>Activate the new <code class="docutils literal notranslate"><span class="pre">venv</span></code> environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source ~/.venv/salo/bin/activate
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the path above, <code class="docutils literal notranslate"><span class="pre">~/.venv/salo</span></code>, can be replaced with your preferred path for <code class="docutils literal notranslate"><span class="pre">venv</span></code> environments.</p>
+</div>
+<p>Clone the respository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/splunk/salo
+</pre></div>
+</div>
+<p>Change directories to the newly cloned one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd salo
+</pre></div>
+</div>
+<p>Then, install SALO and neccessary requirements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install -e .
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<span id="id2"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h1>
+<p>Once installed, you can simply run <code class="docutils literal notranslate"><span class="pre">salo</span></code>. Multiple example <cite>recipes</cite> can be found in the <code class="docutils literal notranslate"><span class="pre">examples/recipes/</span></code> folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe examples/recipes/beacon.yaml
+</pre></div>
+</div>
+<section id="viewing-event-schema">
+<h2>Viewing Event Schema<a class="headerlink" href="#viewing-event-schema" title="Permalink to this headline"></a></h2>
+<p><cite>Event schemas</cite> define the attributes of a specific log event. When building a <cite>recipe</cite>, it is useful to view an <cite>event schema</cite> in order
+to properly define attributes for an event or session:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo schema salo.events.zeek.dns.DNSModel
+</pre></div>
+</div>
+<p>The results will be displayed, which  will include all schema information for the event, to include attribute names as well as their aliases:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;definitions&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;DNSModel&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;DNSModel&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Log event timestamp&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;date-time&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Zeek unique ID&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;src_ip&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Source ip address of connection&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;ipvanyaddress&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;src_port&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Source port of the connection&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dest_ip&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Destination ip address of connection&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;ipvanyaddress&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dest_port&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Destination port of the connection&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;proto&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_id&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;trans_id&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_rtt&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;rtt&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_query&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;query&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_qclass&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;qclass&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_qclass_name&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;qclass_name&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_qtype&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;qtype&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_qtype_name&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;qtype_name&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_rcode&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;rcode&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_rcode_name&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;rcode_name&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_aa&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;AA&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_tc&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;TC&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_rd&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;RD&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_ra&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;RA&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_z&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;Z&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_rdata&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;answers&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_ttl&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;anyOf&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;TTLs&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_rejected&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;rejected&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_auth&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;auth&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_addl&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;addl&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;dns_original_query&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;original_query&quot;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;dns_qclass&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dns_qclass_name&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dns_qtype&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dns_qtype_name&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dns_rcode&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dns_rcode_name&quot;</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="result-output">
+<h2>Result Output<a class="headerlink" href="#result-output" title="Permalink to this headline"></a></h2>
+<p>Output from SALO is handled modularly. There are currently three output modules supported:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Console</p></li>
+<li><p>File</p></li>
+<li><p>Splunk HTTP Event Collector (HEC)</p></li>
+</ul>
+</div></blockquote>
+<p>If no output module is defined, then SALO will default to <cite>Console</cite> output. Default output
+configurations can be defined in the <code class="docutils literal notranslate"><span class="pre">output.yaml</span></code> file. This file can also be customized
+to ensure generated event logs are saved in the desired location.</p>
+<p>As an example, configure the output  for <code class="docutils literal notranslate"><span class="pre">salo.events.zeek.dns.DNSModel</span></code>, we would create:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">salo.events.zeek.dns.DNSModel</span><span class="p">:</span>
+  <span class="nt">outputs</span><span class="p">:</span>
+    <span class="nt">file</span><span class="p">:</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zeek/dns.log</span>
+    <span class="nt">splunk</span><span class="p">:</span>
+      <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo</span>
+      <span class="nt">sourcetype</span><span class="p">:</span> <span class="s">&quot;bro:dns:json&quot;</span>
+</pre></div>
+</div>
+<p>This will resule in both the <code class="docutils literal notranslate"><span class="pre">file</span></code> and <code class="docutils literal notranslate"><span class="pre">splunk</span></code> outputs for the <cite>event model</cite> <code class="docutils literal notranslate"><span class="pre">salo.events.zeek.dns.DNSModel</span></code>.
+In this case, each <cite>Zeek</cite> event model needs to be defined and configured. However, if the desire was to save all <cite>Zeek</cite>
+events to one file, it is possible to change the event model definition like so:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">salo.events.zeek</span><span class="p">:</span>
+  <span class="nt">outputs</span><span class="p">:</span>
+    <span class="nt">file</span><span class="p">:</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zeek/zeek.log</span>
+    <span class="nt">splunk</span><span class="p">:</span>
+      <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo</span>
+      <span class="nt">sourcetype</span><span class="p">:</span> <span class="s">&quot;bro::json&quot;</span>
+</pre></div>
+</div>
+<p>SALO will match for the beginning values of the event model definition when determining the output configuration to use. By
+doing so, it can help to simplify outputs for events that may be less complex.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Multiple outputs can be used simulatenously. Simply use the command line argument for each of the output modules you would like to use.</p>
+</div>
+<section id="console">
+<h3>Console<a class="headerlink" href="#console" title="Permalink to this headline"></a></h3>
+<p>SALO will default to the <cite>Console</cite> output. No further configuration is required.</p>
+</section>
+<section id="file">
+<h3>File<a class="headerlink" href="#file" title="Permalink to this headline"></a></h3>
+<p>Generated event logs can be saved to files on disk for later use. The configuration for <cite>outputs</cite> must be configured for the individual
+event, as outlined above. Once configured, simply add the <code class="docutils literal notranslate"><span class="pre">--file</span></code> command line argument:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe examples/recipes/beacon.yaml --file
+</pre></div>
+</div>
+</section>
+<section id="splunk">
+<h3>Splunk<a class="headerlink" href="#splunk" title="Permalink to this headline"></a></h3>
+<p>To save results to Splunk, an HTTP Event Collector (HEC) must be configured and enabled. Please refer to the Splunk documentation on how to
+<a class="reference external" href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector">set up and use HTTP Event Collector in Splunk Web</a>.</p>
+<p>Once a Splunk HEC endpoint is enabled and a token has been generated, some environment variables must be set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">SPLUNK_HOST</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span>
+<span class="n">export</span> <span class="n">SPLUNK_TOKEN</span><span class="o">=</span><span class="s2">&quot;YOUR_TOKEN_HERE&quot;</span>
+</pre></div>
+</div>
+<p>Now, you’re all set to insert event logs directly into Splunk:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe examples/recipes/beacon.yaml --splunk
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="SALO Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="recipes.html" class="btn btn-neutral float-right" title="Recipes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

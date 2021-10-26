@@ -1,0 +1,34 @@
+:py:mod:`salo.outputs.splunkhec`
+================================
+
+.. py:module:: salo.outputs.splunkhec
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.outputs.splunkhec.SplunkOutput
+
+
+
+
+.. py:class:: SplunkOutput(config: Dict)
+
+   Bases: :py:obj:`salo.outputs.SaloOutput`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: save(self, sessions: salo.Sessions) -> None
+
+
+   .. py:method:: _save(self, sessions: salo.Sessions) -> None
+      :async:
+
+
+

@@ -1,0 +1,107 @@
+:py:mod:`salo.events.github.audit.base`
+=======================================
+
+.. py:module:: salo.events.github.audit.base
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.github.audit.base.ActorLocationModel
+   salo.events.github.audit.base.GitHubAuditModel
+
+
+
+
+.. py:class:: ActorLocationModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: country_code
+      :annotation: :str
+
+      
+
+
+.. py:class:: GitHubAuditModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.SaloEventModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: json_encoders
+         
+
+         
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: timestamp
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:attribute:: github_document_id
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_github_document_id(cls, v)
+
+
+   .. py:method:: set_github_created_at(cls, v, *, values)
+
+
+   .. py:method:: set_github_org(cls, v)
+
+
+   .. py:method:: set_github_business(cls, v)
+
+
+   .. py:method:: set_github_actor(cls, v)
+
+
+   .. py:method:: set_github_user(cls, v)
+
+
+   .. py:method:: set_github_name(cls, v)
+
+
+   .. py:method:: set_github_hook_id(cls, v)
+
+
+   .. py:method:: set_github_repo(cls, v, *, values)
+
+
+   .. py:method:: set_github_repository(cls, v, *, values)
+
+
+   .. py:method:: set_github_visibility(cls, v)
+
+
+   .. py:method:: set_github_team(cls, v, *, values)
+
+
+   .. py:method:: generate(self, by_alias: bool = True, exclude_none: bool = True)
+
+
+

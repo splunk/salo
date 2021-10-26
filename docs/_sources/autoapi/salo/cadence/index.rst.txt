@@ -1,0 +1,62 @@
+:py:mod:`salo.cadence`
+======================
+
+.. py:module:: salo.cadence
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.cadence.Cadence
+
+
+
+
+.. py:class:: Cadence(start: Optional[Union[str, datetime.datetime]] = None, end: Optional[Union[str, datetime.datetime]] = None, jitter_max: Optional[int] = None, jitter_min: Optional[int] = None, cadence: Optional[str] = None)
+
+   .. py:attribute:: DEFAULT_CADENCE
+      :annotation: = */1 * * * * *
+
+      
+
+   .. py:method:: next(self) -> datetime.datetime
+
+      Get next timestamp in cadence
+
+
+
+   .. py:method:: current(self) -> datetime.datetime
+
+      Get the current timestmapp in cadence
+
+
+
+   .. py:method:: jitter(self, current: datetime.datetime) -> datetime.datetime
+
+      Introduce random jitter to timestamp ensuring delta is not precise
+
+
+
+   .. py:method:: set_current(self, current: Union[str, datetime.datetime]) -> None
+
+      Set the current timestamp to a new value
+
+
+
+   .. py:method:: parse_time(self, dt: Union[str, datetime.datetime]) -> datetime.datetime
+
+      Parse a value to ensure it is a datetime object
+
+
+   .. py:method:: update_cadence(self, start: Optional[Union[str, datetime.datetime]] = None, end: Optional[Union[str, datetime.datetime]] = None, jitter_min: Optional[int] = None, jitter_max: Optional[int] = None, cadence: Optional[str] = None) -> None
+
+      Update cadence of timestamps
+
+
+
+

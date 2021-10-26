@@ -1,0 +1,227 @@
+:py:mod:`salo.events.github.audit.org`
+======================================
+
+.. py:module:: salo.events.github.audit.org
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.github.audit.org.OrgModel
+   salo.events.github.audit.org.AddMember
+   salo.events.github.audit.org.CancelInvitation
+   salo.events.github.audit.org.Create
+   salo.events.github.audit.org.InviteMember
+   salo.events.github.audit.org.RemoveMember
+   salo.events.github.audit.org.RemoveOutsideCollaborator
+   salo.events.github.audit.org.RestoreMember
+   salo.events.github.audit.org.UpdateTermsOfService
+
+
+
+
+.. py:class:: OrgModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.github.audit.base.GitHubAuditModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_actor
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_org
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_created_at
+      :annotation: :Optional[datetime.datetime]
+
+      
+
+
+.. py:class:: AddMember(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`OrgModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: CancelInvitation(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`OrgModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: Create(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`OrgModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: InviteMember(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`OrgModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: RemoveMember(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`OrgModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: RemoveOutsideCollaborator(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`OrgModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: RestoreMember(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`OrgModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_user
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: UpdateTermsOfService(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`OrgModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+

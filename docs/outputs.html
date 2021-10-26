@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outputs &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Framework" href="framework.html" />
+    <link rel="prev" title="Stencils" href="stencils.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stencils.html">Stencils</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file">Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#salo.outputs.SaloOutput">SaloOutput</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#salo.outputs.SaloOutput.save">save</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Outputs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/outputs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="outputs">
+<span id="id1"></span><h1>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-salo.outputs"></span><section id="overview">
+<span id="salooutputs"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>Outputs are a means to produce and save output from a SALO recipe. One or more can be defined, allowing to save results to multiple
+locations. The current outputs supported are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Console</p></li>
+<li><p>Local File</p></li>
+<li><p>Splunk</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If no <cite>output</cite> is defined, generated events will be printed to the console.</p>
+</div>
+</section>
+<section id="configuration-file">
+<h2>Configuration File<a class="headerlink" href="#configuration-file" title="Permalink to this headline"></a></h2>
+<p>To simplify outputs, it is possible to customize how and where log output is handled. This can be done via a configuration file.
+The configuration for <cite>outputs</cite> is a simple YAML file. Let’s take a look at an example from the default <code class="docutils literal notranslate"><span class="pre">outputs.yaml</span></code> file.</p>
+<p>The initial key, <code class="docutils literal notranslate"><span class="pre">salo.events.suricata</span></code>, is the root object that is matched when saving log output. If the <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code>
+class starts with <code class="docutils literal notranslate"><span class="pre">salo.events.suricata</span></code>, then this configuration will be used to save the output. SALO will iterate over each
+key defined in <code class="docutils literal notranslate"><span class="pre">outputs</span></code> and save to the appropriate output object:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">salo.events.suricata</span><span class="p">:</span>
+  <span class="nt">outputs</span><span class="p">:</span>
+    <span class="nt">file</span><span class="p">:</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">suricata/eve.log</span>
+    <span class="nt">splunk</span><span class="p">:</span>
+      <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo</span>
+      <span class="nt">sourcetype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">suricata</span>
+</pre></div>
+</div>
+<p>It is also possible to match against more specific <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> classes. In this case, let’s take a look at a <code class="docutils literal notranslate"><span class="pre">Zeek</span></code> output
+from the default <code class="docutils literal notranslate"><span class="pre">outputs.yaml</span></code> file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">salo.events.zeek.dns.DNSModel</span><span class="p">:</span>
+  <span class="nt">outputs</span><span class="p">:</span>
+    <span class="nt">file</span><span class="p">:</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zeek/dns.log</span>
+    <span class="nt">splunk</span><span class="p">:</span>
+      <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo</span>
+      <span class="nt">sourcetype</span><span class="p">:</span> <span class="s">&quot;bro:dns:json&quot;</span>
+</pre></div>
+</div>
+<p>In this instance, the <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> match will have to be the full path to <code class="docutils literal notranslate"><span class="pre">salo.events.zeek.dns.DNSModel</span></code> in order to be saved.
+This is useful when more specific logs are needed, such as <code class="docutils literal notranslate"><span class="pre">dns.log</span></code> or <code class="docutils literal notranslate"><span class="pre">http.log</span></code>.</p>
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.outputs.SaloOutput">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.outputs.</span></span><span class="sig-name descname"><span class="pre">SaloOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/salo/outputs.html#SaloOutput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.outputs.SaloOutput" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="salo.outputs.SaloOutput.save">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sessions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="framework.html#salo.salo.Sessions" title="salo.salo.Sessions"><span class="pre">salo.salo.Sessions</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/outputs.html#SaloOutput.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.outputs.SaloOutput.save" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stencils.html" class="btn btn-neutral float-left" title="Stencils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="framework.html" class="btn btn-neutral float-right" title="Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

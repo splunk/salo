@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipes &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Frequently Asked Questions" href="faq.html" />
+    <link rel="prev" title="Installation" href="gettingstarted.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-options">Configuration Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#root-options">Root Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sessions"><cite>sessions</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#global-options">Global Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#options"><cite>options</cite></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time">time</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#event-options">Event Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#event">event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spawns">spawns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeat">repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-values">save_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#likelihood">likelihood</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Recipes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/recipes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="recipes">
+<span id="id1"></span><h1>Recipes<a class="headerlink" href="#recipes" title="Permalink to this headline"></a></h1>
+<p>SALO <cite>recipes</cite> are a configuration file that define a log generation scenario. With recipes, it is possible to tell SALO what log events
+to generate, what their values should be, the order logged events should be in, and many other customizations. They enable SALO to generate
+highly flexible and repeatable synthetic log objects in a simple way. There are multiple configuration options available – let’s explore them here.</p>
+<section id="configuration-options">
+<h2>Configuration Options<a class="headerlink" href="#configuration-options" title="Permalink to this headline"></a></h2>
+<section id="root-options">
+<h3>Root Options<a class="headerlink" href="#root-options" title="Permalink to this headline"></a></h3>
+<p>Root options may only be defined at the <cite>root</cite> of the recipe. Meaning, they may not be used within an <cite>event</cite>. If they are defined elsewhere, they will
+simply be ignored.</p>
+<section id="sessions">
+<h4><cite>sessions</cite><a class="headerlink" href="#sessions" title="Permalink to this headline"></a></h4>
+<p><cite>sessions</cite> is a list of <cite>event</cite> configuration options. Each item, or session, in the list of sessions will be treated independently of other sessions.
+Each <code class="docutils literal notranslate"><span class="pre">event</span></code> in a session will pass along their own attributes to <code class="docutils literal notranslate"><span class="pre">spawns</span></code> defined.:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="c1"># First session</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.event.zeek.ConnModel</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="c1"># Attributes from the parent event, ConnModel,  will be passed to each spawned event</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.event.zeek.DNSModel</span>
+  <span class="c1"># Second session</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.event.zeek.ConnModel</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.event.zeek.HTTPModel</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="global-options">
+<h3>Global Options<a class="headerlink" href="#global-options" title="Permalink to this headline"></a></h3>
+<p>Global options may be used at the <cite>root</cite> of the <cite>recipe</cite>, or on a per-event basis. If defined at the <cite>root</cite> of the recipe, they will be the default values
+for all <cite>event</cite> configurations in each session within the recipe.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All global options can be defined on a per <code class="docutils literal notranslate"><span class="pre">event</span></code> basis.</p>
+</div>
+<section id="options">
+<h4><cite>options</cite><a class="headerlink" href="#options" title="Permalink to this headline"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">options</span></code> can be used to define the values of a <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> or <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code> attribute. For example, if the <code class="docutils literal notranslate"><span class="pre">src_ip</span></code> for all events in
+a recipe should be <code class="docutils literal notranslate"><span class="pre">1.2.3.4</span></code>, we can define it like so:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">options</span><span class="p">:</span>
+  <span class="nt">src_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.2.3.4</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">options</span></code> will be inherited from any and all parent <code class="docutils literal notranslate"><span class="pre">event</span></code> objects in the same <cite>session</cite>. Additionally, <code class="docutils literal notranslate"><span class="pre">options</span></code> defined within an <code class="docutils literal notranslate"><span class="pre">event</span></code>
+will override any parent <code class="docutils literal notranslate"><span class="pre">options</span></code> defined.</p>
+</div>
+</section>
+<section id="time">
+<h4>time<a class="headerlink" href="#time" title="Permalink to this headline"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">time</span></code> configuration option is used to define multiple attributes of the timestamp for an <code class="docutils literal notranslate"><span class="pre">event</span></code>. Several options are available, to include the
+<cite>start</cite> time, <cite>jitter</cite>, and the cadence of <code class="docutils literal notranslate"><span class="pre">event</span></code> timestamps. All options below may be used in concert with each other.</p>
+<section id="start">
+<h5>start<a class="headerlink" href="#start" title="Permalink to this headline"></a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">start</span></code> is the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> value an <code class="docutils literal notranslate"><span class="pre">event</span></code> must start at:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time</span><span class="p">:</span>
+  <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2021-12-25T01:00:00.000000</span>
+</pre></div>
+</div>
+</section>
+<section id="jitter-min">
+<h5>jitter_min<a class="headerlink" href="#jitter-min" title="Permalink to this headline"></a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">jitter_min</span></code> is the minimum amount of <cite>jitter</cite> in seconds to introduce into the timestamp:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time</span><span class="p">:</span>
+  <span class="nt">jitter_min</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
+</pre></div>
+</div>
+</section>
+<section id="jitter-max">
+<h5>jitter_max<a class="headerlink" href="#jitter-max" title="Permalink to this headline"></a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">jitter_max</span></code> is the maximum amount of <cite>jitter</cite> in seconds to introduce into the timestamp:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time</span><span class="p">:</span>
+  <span class="nt">jitter_max</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3600</span>
+</pre></div>
+</div>
+</section>
+<section id="cadence">
+<h5>cadence<a class="headerlink" href="#cadence" title="Permalink to this headline"></a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">cadence</span></code> is a crontab-style configuration option to define the delta between an <code class="docutils literal notranslate"><span class="pre">event</span></code>. The format for cadence is identical to a crontab configuration,
+except that second repetition is supported.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">second</span>  <span class="n">minute</span>  <span class="n">hour</span>  <span class="n">day</span>  <span class="n">month</span> <span class="n">year</span>
+</pre></div>
+</div>
+<p>For example, to define a cadence of one event per second:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time</span><span class="p">:</span>
+  <span class="nt">cadence</span><span class="p">:</span> <span class="s">&quot;*/1</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&quot;</span>
+</pre></div>
+</div>
+<p>Or, only at 3am on the first of the month:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time</span><span class="p">:</span>
+  <span class="nt">cadence</span><span class="p">:</span> <span class="s">&quot;*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">03</span><span class="nv"> </span><span class="s">01</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="event-options">
+<h3>Event Options<a class="headerlink" href="#event-options" title="Permalink to this headline"></a></h3>
+<p>An <code class="docutils literal notranslate"><span class="pre">event</span></code> is a subsection of the <code class="docutils literal notranslate"><span class="pre">sessions</span></code> option. Each top-level event in <code class="docutils literal notranslate"><span class="pre">sessions</span></code> is considered it’s own session.</p>
+<section id="event">
+<h4>event<a class="headerlink" href="#event" title="Permalink to this headline"></a></h4>
+<p>An <code class="docutils literal notranslate"><span class="pre">event</span></code> may be a <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> or <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code> object path. The value must be a python importable library:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.suricata.DNSModel</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For custom events, the <code class="docutils literal notranslate"><span class="pre">SALO_PATH</span></code> environment variable may be set to include this in the import search path. (i.e., <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">SALO_PATH</span> <span class="pre">&quot;/path/to/my/events&quot;</span></code>)</p>
+</div>
+<p>If it is a <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code>, it will only be used for defining the attributes for  <code class="docutils literal notranslate"><span class="pre">spawns</span></code>. It will not generate any output itself. <cite>Stencils</cite> are designed to
+generate complex programmatic log scenarios which would be otherwise impossible to do with just a <cite>recipe</cite>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.stencils.sunburst.SunBurstDNSQuery</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.DNSModel</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.suricata.DNSModel</span>
+</pre></div>
+</div>
+<p>If it is a <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code>, it will produce output in the form of a log object:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.ConnModel</span>
+</pre></div>
+</div>
+</section>
+<section id="spawns">
+<h4>spawns<a class="headerlink" href="#spawns" title="Permalink to this headline"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">spawns</span></code> are children of an <code class="docutils literal notranslate"><span class="pre">event</span></code> and are recursively chained together. All <code class="docutils literal notranslate"><span class="pre">spawns</span></code> of an <code class="docutils literal notranslate"><span class="pre">event</span></code> will inherit the parents attribute values.
+If the attributes are a member of the <cite>spawned</cite> <code class="docutils literal notranslate"><span class="pre">event</span></code>, they will be defined. Otherwise, they will be simply ignored and passed along to any additional
+child <code class="docutils literal notranslate"><span class="pre">spawns</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.ConnModel</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.DNSModel</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.ConnModel</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.SMTPModel</span>
+</pre></div>
+</div>
+</section>
+<section id="repeat">
+<h4>repeat<a class="headerlink" href="#repeat" title="Permalink to this headline"></a></h4>
+<p>Repeat the <code class="docutils literal notranslate"><span class="pre">event</span></code>, and all <code class="docutils literal notranslate"><span class="pre">spawns</span></code>, the number of times that are defined:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.suricata.DNSModel</span>
+    <span class="nt">repeat</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+</pre></div>
+</div>
+</section>
+<section id="save-values">
+<h4>save_values<a class="headerlink" href="#save-values" title="Permalink to this headline"></a></h4>
+<p>Save the values from the <code class="docutils literal notranslate"><span class="pre">event</span></code> as a variable for use in a later <code class="docutils literal notranslate"><span class="pre">event</span></code> or <code class="docutils literal notranslate"><span class="pre">session</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.suricata.DNSModel</span>
+    <span class="nt">save_values</span><span class="p">:</span>
+      <span class="nt">first_dns_query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dns_query</span>
+    <span class="nt">options</span><span class="p">:</span>
+      <span class="nt">dns_query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">totallybadsite.com</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.event.suricata.HTTPModel</span>
+    <span class="nt">options</span><span class="p">:</span>
+      <span class="nt">http_hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$first_dns_query</span>
+</pre></div>
+</div>
+<p>This example will save the value of <code class="docutils literal notranslate"><span class="pre">dns_query</span></code> from the first <code class="docutils literal notranslate"><span class="pre">event</span></code> into the variable <code class="docutils literal notranslate"><span class="pre">$first_dns_query</span></code>. It is then accessed and used to define
+the value of <code class="docutils literal notranslate"><span class="pre">http_hostname</span></code> in the second <code class="docutils literal notranslate"><span class="pre">event</span></code>, resulting in the <code class="docutils literal notranslate"><span class="pre">http_hostname</span></code> value being <code class="docutils literal notranslate"><span class="pre">totallybadsite.com</span></code>.</p>
+<p>Additionally, if the value is a list, the resulting value can be of a specific index or random. Let’s take a look at using a specific index value first:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.suricata.DNSModel</span>
+    <span class="nt">save_values</span><span class="p">:</span>
+      <span class="nt">first_dns_query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dns_query</span>
+      <span class="nt">first_dns_rdata</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dns_rdata</span>
+    <span class="nt">options</span><span class="p">:</span>
+      <span class="nt">dns_query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">totallybadsite.com</span>
+      <span class="nt">dns_rdata</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1.2.3.4</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">5.6.7.8</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.event.suricata.HTTPModel</span>
+    <span class="nt">options</span><span class="p">:</span>
+      <span class="nt">http_hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$first_dns_query</span>
+      <span class="nt">dest_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$first_dns_rdata.0</span>
+</pre></div>
+</div>
+<p>This will work exactly the same as the previous example above, but will also define the <code class="docutils literal notranslate"><span class="pre">dest_ip</span></code> as the value at index <code class="docutils literal notranslate"><span class="pre">0</span></code>, or <code class="docutils literal notranslate"><span class="pre">1.2.3.4</span></code>.</p>
+<p>If the value of <code class="docutils literal notranslate"><span class="pre">dest_ip</span></code> could be any of the values defined in <code class="docutils literal notranslate"><span class="pre">dns_rdata</span></code>, then we could leverage the <code class="docutils literal notranslate"><span class="pre">random</span></code> option:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.suricata.DNSModel</span>
+    <span class="nt">save_values</span><span class="p">:</span>
+      <span class="nt">first_dns_query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dns_query</span>
+      <span class="nt">first_dns_rdata</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dns_rdata</span>
+    <span class="nt">options</span><span class="p">:</span>
+      <span class="nt">dns_query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">totallybadsite.com</span>
+      <span class="nt">dns_rdata</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1.2.3.4</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">5.6.7.8</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.event.suricata.HTTPModel</span>
+    <span class="nt">options</span><span class="p">:</span>
+      <span class="nt">http_hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$first_dns_query</span>
+      <span class="nt">dest_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$first_dns_rdata.random</span>
+</pre></div>
+</div>
+<p>This allows for an easy and flexible way to define attribute values of an <code class="docutils literal notranslate"><span class="pre">event</span></code> within  a different <cite>session</cite>.</p>
+</section>
+<section id="likelihood">
+<h4>likelihood<a class="headerlink" href="#likelihood" title="Permalink to this headline"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">likelihood</span></code> will introduce a defined degree of randomness as to whether an <code class="docutils literal notranslate"><span class="pre">event</span></code> will be created:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.ConnModel</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.DNSModel</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.ConnModel</span>
+    <span class="nt">likelihood</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+    <span class="nt">spawns</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.zeek.SMTPModel</span>
+</pre></div>
+</div>
+<p>In the above example,  the first <code class="docutils literal notranslate"><span class="pre">event</span></code> and it’s <code class="docutils literal notranslate"><span class="pre">spawns</span></code> will always produce a log object. However, the second event will only produce a log object
+approximately 50% of the time.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gettingstarted.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

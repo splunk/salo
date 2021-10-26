@@ -1,0 +1,113 @@
+:py:mod:`salo.events.github.audit.integration`
+==============================================
+
+.. py:module:: salo.events.github.audit.integration
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.github.audit.integration.IntegrationModel
+   salo.events.github.audit.integration.Create
+   salo.events.github.audit.integration.Destroy
+   salo.events.github.audit.integration.GenerateClientSecret
+   salo.events.github.audit.integration.RemoveClientSecret
+
+
+
+
+.. py:class:: IntegrationModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.github.audit.base.GitHubAuditModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_actor
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_created_at
+      :annotation: :Optional[datetime.datetime]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+
+.. py:class:: Create(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`IntegrationModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+
+.. py:class:: Destroy(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`IntegrationModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+
+.. py:class:: GenerateClientSecret(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`IntegrationModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+
+.. py:class:: RemoveClientSecret(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`IntegrationModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+

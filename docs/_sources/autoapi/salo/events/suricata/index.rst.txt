@@ -1,0 +1,196 @@
+:py:mod:`salo.events.suricata`
+==============================
+
+.. py:module:: salo.events.suricata
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   base/index.rst
+   dns/index.rst
+   http/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.suricata.SuricataModel
+   salo.events.suricata.DNSModel
+   salo.events.suricata.HTTPModel
+
+
+
+
+.. py:class:: SuricataModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.SaloEventModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: json_encoders
+         
+
+         
+
+
+   .. py:attribute:: timestamp
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:attribute:: flow_id
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: pcap_cnt
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: event_type
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: src_ip
+      :annotation: :Optional[pydantic.IPvAnyAddress]
+
+      
+
+   .. py:attribute:: src_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dest_ip
+      :annotation: :Optional[pydantic.IPvAnyAddress]
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: proto
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: packet
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: packet_info
+      :annotation: :Optional[Dict]
+
+      
+
+   .. py:attribute:: tx_id
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: app_proto
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_src_port(cls, v)
+
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: generate(self, by_alias: bool = True, exclude_none: bool = True)
+
+
+
+.. py:class:: DNSModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.suricata.base.SuricataModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/logs/dns.html']
+
+      
+
+   .. py:attribute:: event_type
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns
+      :annotation: :Optional[Union[DNSModelFull, Dict]]
+
+      
+
+   .. py:method:: set_values(cls, values)
+
+
+   .. py:method:: get_options(self, *args, **kwargs) -> Dict
+
+
+
+.. py:class:: HTTPModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.suricata.base.SuricataModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://suricata.readthedocs.io/en/suricata-6.0.0/output/eve/eve-json-format.html#event-type-http']
+
+      
+
+   .. py:attribute:: event_type
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http
+      :annotation: :Optional[Union[HTTPModelFull, Dict]]
+
+      
+
+   .. py:method:: set_values(cls, values)
+
+
+   .. py:method:: get_options(self, *args, **kwargs)
+
+
+

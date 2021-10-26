@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo.events.sysmon.windows &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="salo.events.sysmon.windows.eventcode" href="eventcode/index.html" />
+    <link rel="prev" title="salo.events.sysmon" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../framework.html">Framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../outputs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../stencils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a> &raquo;</li>
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.sysmon</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.sysmon.windows</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/salo/events/sysmon/windows/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-salo.events.sysmon.windows">
+<span id="salo-events-sysmon-windows"></span><h1><a class="reference internal" href="#module-salo.events.sysmon.windows" title="salo.events.sysmon.windows"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.sysmon.windows</span></code></a><a class="headerlink" href="#module-salo.events.sysmon.windows" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eventcode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.sysmon.windows.eventcode</span></code></a></li>
+</ul>
+</div>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.events.sysmon.windows.EventCodeModel" title="salo.events.sysmon.windows.EventCodeModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventCodeModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.events.sysmon.windows.EventCode3Model" title="salo.events.sysmon.windows.EventCode3Model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventCode3Model</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.sysmon.windows.</span></span><span class="sig-name descname"><span class="pre">EventCodeModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCodeModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../index.html#salo.SaloEventModel" title="salo.SaloEventModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salo.SaloEventModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCodeModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel.Config.json_encoders">
+<span class="sig-name descname"><span class="pre">json_encoders</span></span><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel.Config.json_encoders" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel.Config.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel.Config.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel._template">
+<span class="sig-name descname"><span class="pre">_template</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel._template" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"> <span class="pre">:datetime.datetime</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel.timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel.set_utctime">
+<span class="sig-name descname"><span class="pre">set_utctime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCodeModel.set_utctime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel.set_utctime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel.set_source_is_ipv6">
+<span class="sig-name descname"><span class="pre">set_source_is_ipv6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCodeModel.set_source_is_ipv6"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel.set_source_is_ipv6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel.set_destination_is_ipv6">
+<span class="sig-name descname"><span class="pre">set_destination_is_ipv6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCodeModel.set_destination_is_ipv6"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel.set_destination_is_ipv6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCodeModel.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_alias</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_none</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCodeModel.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCodeModel.generate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.sysmon.windows.</span></span><span class="sig-name descname"><span class="pre">EventCode3Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCode3Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#salo.events.sysmon.windows.EventCodeModel" title="salo.events.sysmon.windows.EventCodeModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventCodeModel</span></code></a></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model._template">
+<span class="sig-name descname"><span class="pre">_template</span></span><em class="property"> <span class="pre">:str</span> <span class="pre">=</span> <span class="pre">eventcode3.jinja2</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model._template" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.Version">
+<span class="sig-name descname"><span class="pre">Version</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.Version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.Level">
+<span class="sig-name descname"><span class="pre">Level</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.Level" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.Task">
+<span class="sig-name descname"><span class="pre">Task</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.Task" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.Opcode">
+<span class="sig-name descname"><span class="pre">Opcode</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.Opcode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.Keywords">
+<span class="sig-name descname"><span class="pre">Keywords</span></span><em class="property"> <span class="pre">:str</span> <span class="pre">=</span> <span class="pre">0x8000000000000000</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.Keywords" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.EventRecordID">
+<span class="sig-name descname"><span class="pre">EventRecordID</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.EventRecordID" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.ProcessID">
+<span class="sig-name descname"><span class="pre">ProcessID</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.ProcessID" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.ThreadID">
+<span class="sig-name descname"><span class="pre">ThreadID</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.ThreadID" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.Computer">
+<span class="sig-name descname"><span class="pre">Computer</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.Computer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.UserID">
+<span class="sig-name descname"><span class="pre">UserID</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.UserID" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.UtcTime">
+<span class="sig-name descname"><span class="pre">UtcTime</span></span><em class="property"> <span class="pre">:datetime.datetime</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.UtcTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.ProcessGuid">
+<span class="sig-name descname"><span class="pre">ProcessGuid</span></span><em class="property"> <span class="pre">:uuid.UUID</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.ProcessGuid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.ProcessId">
+<span class="sig-name descname"><span class="pre">ProcessId</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.ProcessId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.Image">
+<span class="sig-name descname"><span class="pre">Image</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.Image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.User">
+<span class="sig-name descname"><span class="pre">User</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.User" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.protocol">
+<span class="sig-name descname"><span class="pre">protocol</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.protocol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.Initiated">
+<span class="sig-name descname"><span class="pre">Initiated</span></span><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.Initiated" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.src_ip">
+<span class="sig-name descname"><span class="pre">src_ip</span></span><em class="property"> <span class="pre">:pydantic.IPvAnyAddress</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.src_ip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.SourceIsIpv6">
+<span class="sig-name descname"><span class="pre">SourceIsIpv6</span></span><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.SourceIsIpv6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.SourceHostname">
+<span class="sig-name descname"><span class="pre">SourceHostname</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.SourceHostname" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.src_port">
+<span class="sig-name descname"><span class="pre">src_port</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.src_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.SourcePortName">
+<span class="sig-name descname"><span class="pre">SourcePortName</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.SourcePortName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.dest_ip">
+<span class="sig-name descname"><span class="pre">dest_ip</span></span><em class="property"> <span class="pre">:pydantic.IPvAnyAddress</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.dest_ip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.DestinationIsIpv6">
+<span class="sig-name descname"><span class="pre">DestinationIsIpv6</span></span><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.DestinationIsIpv6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.DestinationHostname">
+<span class="sig-name descname"><span class="pre">DestinationHostname</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.DestinationHostname" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.dest_port">
+<span class="sig-name descname"><span class="pre">dest_port</span></span><em class="property"> <span class="pre">:Optional[str]</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.DestinationPortName">
+<span class="sig-name descname"><span class="pre">DestinationPortName</span></span><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.DestinationPortName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.set_Image">
+<span class="sig-name descname"><span class="pre">set_Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCode3Model.set_Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.set_Image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.set_User">
+<span class="sig-name descname"><span class="pre">set_User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCode3Model.set_User"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.set_User" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.set_protocol">
+<span class="sig-name descname"><span class="pre">set_protocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCode3Model.set_protocol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.set_protocol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.set_src_port">
+<span class="sig-name descname"><span class="pre">set_src_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCode3Model.set_src_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.set_src_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.sysmon.windows.EventCode3Model.set_dest_port">
+<span class="sig-name descname"><span class="pre">set_dest_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/salo/events/sysmon/windows/eventcode.html#EventCode3Model.set_dest_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.sysmon.windows.EventCode3Model.set_dest_port" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="salo.events.sysmon" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="eventcode/index.html" class="btn btn-neutral float-right" title="salo.events.sysmon.windows.eventcode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+:py:mod:`salo.events.github.audit.hook`
+=======================================
+
+.. py:module:: salo.events.github.audit.hook
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.github.audit.hook.ConfigModel
+   salo.events.github.audit.hook.HookModel
+   salo.events.github.audit.hook.Create
+   salo.events.github.audit.hook.ConfigChanged
+   salo.events.github.audit.hook.EventsChanged
+
+
+
+
+.. py:class:: ConfigModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: content_type
+      :annotation: :str
+
+      
+
+   .. py:attribute:: insecure_ssl
+      :annotation: :str
+
+      
+
+   .. py:attribute:: url
+      :annotation: :pydantic.AnyHttpUrl
+
+      
+
+
+.. py:class:: HookModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.github.audit.base.GitHubAuditModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_org
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_created_at
+      :annotation: :Optional[datetime.datetime]
+
+      
+
+   .. py:attribute:: github_active
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: github_actor
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_hook_id
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: github_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+   .. py:attribute:: github_config
+      :annotation: :ConfigModel
+
+      
+
+   .. py:attribute:: github_events
+      :annotation: :List[str]
+
+      
+
+
+.. py:class:: Create(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`HookModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_repo
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: ConfigChanged(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`HookModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_config_was
+      :annotation: :Optional[ConfigModel]
+
+      
+
+   .. py:method:: set_github_config_was(cls, v, *, values)
+
+
+
+.. py:class:: EventsChanged(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`HookModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+   .. py:attribute:: github_events_were
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:method:: set_github_events_were(cls, v, *, values)
+
+
+

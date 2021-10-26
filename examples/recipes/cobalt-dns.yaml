@@ -1,0 +1,15 @@
+scenario: Example Cobalt Strike DNS query
+sessions:
+  - event: salo.stencils.cobaltstrike.dns.CobaltStrikeDNSC2
+    repeat: 100
+    time:
+      start: 2021-03-18T19:46:30.684733+0000
+    options:
+      src_ip: 10.0.1.14
+      src_port: 51075
+      dest_ip: 10.0.0.2
+    spawns:
+    - event: salo.events.suricata.DNSModel
+      spawns:
+        - event: salo.events.zeek.DNSModel
+

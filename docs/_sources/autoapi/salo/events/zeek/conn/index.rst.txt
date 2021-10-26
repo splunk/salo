@@ -1,0 +1,171 @@
+:py:mod:`salo.events.zeek.conn`
+===============================
+
+.. py:module:: salo.events.zeek.conn
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.conn.ConnModel
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.conn.CONN_STATES
+   salo.events.zeek.conn.HISTORIES
+   salo.events.zeek.conn.SERVICES
+
+
+.. py:data:: CONN_STATES
+   :annotation: = ['S0', 'S1', 'S2', 'S3', 'SF', 'REJ', 'RSTO', 'RSTR', 'RSTOS0', 'RSTRH', 'SH', 'SHR', 'OTH']
+
+   
+
+.. py:data:: HISTORIES
+   :annotation: = ['D', 'Dd', 'S', 'ShADTadtFf', 'ShADTadtFfR', 'ShADTadtFfRR', 'ShADTadtR', 'ShADTadtTFf',...
+
+   
+
+.. py:data:: SERVICES
+   
+
+   
+
+.. py:class:: ConnModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/conn/main.zeek.html#type-Conn::Info',...
+
+      
+
+   .. py:attribute:: proto
+      :annotation: :str
+
+      
+
+   .. py:attribute:: service
+      :annotation: :str
+
+      
+
+   .. py:attribute:: duration
+      :annotation: :Optional[float]
+
+      
+
+   .. py:attribute:: orig_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: resp_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: conn_state
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: local_orig
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: local_resp
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: missed_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: history
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: orig_pkts
+      :annotation: :int
+
+      
+
+   .. py:attribute:: orig_ip_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: resp_pkts
+      :annotation: :int
+
+      
+
+   .. py:attribute:: resp_ip_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: tunnel_parents
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: orig_l2_addr
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: resp_l2_addr
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: vlan
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: inner_vlan
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: speculative_service
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_duration(cls, v)
+
+
+   .. py:method:: set_conn_state(cls, v)
+
+
+   .. py:method:: set_history(cls, v)
+
+
+   .. py:method:: ports_protocols(cls, values)
+
+
+

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="salo.events" href="events/index.html" />
+    <link rel="prev" title="API Reference" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../framework.html">Framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="events/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="outputs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stencils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cadence/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.cadence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="salo/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.salo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/autoapi/salo/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-salo">
+<span id="salo"></span><h1><a class="reference internal" href="#module-salo" title="salo"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo</span></code></a><a class="headerlink" href="#module-salo" title="Permalink to this headline"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="events/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events/github/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.github</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="events/github/audit/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.github.audit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="events/suricata/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.suricata</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="events/suricata/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.suricata.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/suricata/dns/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.suricata.dns</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/suricata/http/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.suricata.http</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="events/sysmon/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.sysmon</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="events/sysmon/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.sysmon.windows</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="events/zeek/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="events/zeek/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/zeek/conn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.conn</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/zeek/dns/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.dns</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/zeek/files/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.files</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/zeek/http/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.http</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/zeek/rdp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.rdp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/zeek/smtp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.smtp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="events/zeek/ssl/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.events.zeek.ssl</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="outputs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="outputs/console/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs.console</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs/localfile/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs.localfile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs/splunkhec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.outputs.splunkhec</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stencils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stencils/cobaltstrike/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils.cobaltstrike</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stencils/cobaltstrike/dns/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils.cobaltstrike.dns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stencils/sunburst/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils.sunburst</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.__main__</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cadence/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.cadence</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.cli</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="salo/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.salo</span></code></a></li>
+</ul>
+</div>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.Session" title="salo.Session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Session</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.Sessions" title="salo.Sessions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sessions</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.Event" title="salo.Event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Event</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.SaloEventModel" title="salo.SaloEventModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SaloEventModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.SaloStencilModel" title="salo.SaloStencilModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SaloStencilModel</span></code></a></p></td>
+<td><p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.fake" title="salo.fake"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fake</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#salo.__version__" title="salo.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#salo.__author__" title="salo.__author__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__author__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.Session">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cadence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="cadence/index.html#salo.cadence.Cadence" title="salo.cadence.Cadence"><span class="pre">salo.cadence.Cadence</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saved_values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/salo.html#Session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Session" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="salo.Session.spawn">
+<span class="sig-name descname"><span class="pre">spawn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Session.spawn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Session.spawn" title="Permalink to this definition"></a></dt>
+<dd><p>Iterate over event objects in recipe, generate Event objects, and spawn
+additional child Event objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Session.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/salo.html#Session.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Session.__repr__" title="Permalink to this definition"></a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Session.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_stencils</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Session.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Session.generate" title="Permalink to this definition"></a></dt>
+<dd><p>Iterate over Event objects for this Session</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Session.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/salo.html#Session.__len__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Session.__len__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.Sessions">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.</span></span><span class="sig-name descname"><span class="pre">Sessions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/salo.html#Sessions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Sessions" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="salo.Sessions.load_config">
+<span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Sessions.load_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Sessions.load_config" title="Permalink to this definition"></a></dt>
+<dd><p>Load Salo configuration file for recipe or output</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Sessions.create_session">
+<span class="sig-name descname"><span class="pre">create_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Sessions.create_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Sessions.create_session" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new Session object for this collection of Sessions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Sessions.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_stencils</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Sessions.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Sessions.generate" title="Permalink to this definition"></a></dt>
+<dd><p>Iterate over Event objects for each Session object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Sessions.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Sessions.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Sessions.save" title="Permalink to this definition"></a></dt>
+<dd><p>Pass all Sessions to outputs for saving/post-processing</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Sessions.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/salo.html#Sessions.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Sessions.__repr__" title="Permalink to this definition"></a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Sessions.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/salo.html#Sessions.__len__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Sessions.__len__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.Event">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#salo.Session" title="salo.Session"><span class="pre">Session</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_none</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/salo.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Event" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="salo.Event.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Event.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Event.run" title="Permalink to this definition"></a></dt>
+<dd><p>Create log event</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Event.update_cadence">
+<span class="sig-name descname"><span class="pre">update_cadence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Event.update_cadence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Event.update_cadence" title="Permalink to this definition"></a></dt>
+<dd><p>Update the cadence and timestamp for this Event</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Event.update_saved_values">
+<span class="sig-name descname"><span class="pre">update_saved_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../stencils.html#salo.stencils.SaloStencilModel" title="salo.stencils.SaloStencilModel"><span class="pre">salo.stencils.SaloStencilModel</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../../events.html#salo.events.SaloEventModel" title="salo.events.SaloEventModel"><span class="pre">salo.events.SaloEventModel</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Event.update_saved_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Event.update_saved_values" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure saved_values are updated if defined in the recipe</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Event.get_saved_value">
+<span class="sig-name descname"><span class="pre">get_saved_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Event.get_saved_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Event.get_saved_value" title="Permalink to this definition"></a></dt>
+<dd><p>Set the value of an attribute for the event if a saved_value exists and is defined</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Event.set_options">
+<span class="sig-name descname"><span class="pre">set_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Event.set_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Event.set_options" title="Permalink to this definition"></a></dt>
+<dd><p>Set Event options</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Event.save_value">
+<span class="sig-name descname"><span class="pre">save_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Event.save_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Event.save_value" title="Permalink to this definition"></a></dt>
+<dd><p>Update Session object with values if a saved_value is defined</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.Event._load_model">
+<span class="sig-name descname"><span class="pre">_load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pydantic.main.ModelMetaclass</span></span></span><a class="reference internal" href="../../_modules/salo/salo.html#Event._load_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.Event._load_model" title="Permalink to this definition"></a></dt>
+<dd><p>Import model object defined in recipe</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="salo.fake">
+<span class="sig-prename descclassname"><span class="pre">salo.</span></span><span class="sig-name descname"><span class="pre">fake</span></span><a class="headerlink" href="#salo.fake" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.SaloEventModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.</span></span><span class="sig-name descname"><span class="pre">SaloEventModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/events.html#SaloEventModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.SaloEventModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.SaloEventModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../../_modules/salo/events.html#SaloEventModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.SaloEventModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.SaloEventModel.Config.allow_population_by_field_name">
+<span class="sig-name descname"><span class="pre">allow_population_by_field_name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.SaloEventModel.Config.allow_population_by_field_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.SaloEventModel.Config.underscore_attrs_are_private">
+<span class="sig-name descname"><span class="pre">underscore_attrs_are_private</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.SaloEventModel.Config.underscore_attrs_are_private" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.SaloEventModel.Config.validate_assignment">
+<span class="sig-name descname"><span class="pre">validate_assignment</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.SaloEventModel.Config.validate_assignment" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.SaloEventModel.Config.allow_reuse">
+<span class="sig-name descname"><span class="pre">allow_reuse</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.SaloEventModel.Config.allow_reuse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.SaloEventModel.Config.schema_extra">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">schema_extra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/salo/events.html#SaloEventModel.Config.schema_extra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.SaloEventModel.Config.schema_extra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.SaloStencilModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.</span></span><span class="sig-name descname"><span class="pre">SaloStencilModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__pydantic_self__</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/salo/stencils.html#SaloStencilModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.SaloStencilModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<p>Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.</p>
+<p>__pretty__ is used by [devtools](<a class="reference external" href="https://python-devtools.helpmanual.io/">https://python-devtools.helpmanual.io/</a>) to provide human readable representations
+of objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.SaloStencilModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../../_modules/salo/stencils.html#SaloStencilModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.SaloStencilModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.SaloStencilModel.Config.allow_population_by_field_name">
+<span class="sig-name descname"><span class="pre">allow_population_by_field_name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.SaloStencilModel.Config.allow_population_by_field_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.SaloStencilModel.Config.validate_assignment">
+<span class="sig-name descname"><span class="pre">validate_assignment</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.SaloStencilModel.Config.validate_assignment" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.SaloStencilModel.Config.allow_reuse">
+<span class="sig-name descname"><span class="pre">allow_reuse</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.SaloStencilModel.Config.allow_reuse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="salo.__version__">
+<span class="sig-prename descclassname"><span class="pre">salo.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.1.0</span></em><a class="headerlink" href="#salo.__version__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="salo.__author__">
+<span class="sig-prename descclassname"><span class="pre">salo.</span></span><span class="sig-name descname"><span class="pre">__author__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">Marcus</span> <span class="pre">LaFerrera</span></em><a class="headerlink" href="#salo.__author__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="events/index.html" class="btn btn-neutral float-right" title="salo.events" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<Event
+	xmlns='http://schemas.microsoft.com/win/2004/08/events/event'>
+	<System>
+		<Provider Name='Microsoft-Windows-Sysmon' Guid='{5770385f-c22a-43e0-bf4c-06f5698ffbd9}'/>
+		<EventID>3</EventID>
+		<Version>{{ Version }}</Version>
+		<Level>{{ Level }}</Level>
+		<Task>{{ Task }}</Task>
+		<Opcode>{{ Opcode }}</Opcode>
+		<Keywords>{{ Keywords }}</Keywords>
+		<TimeCreated SystemTime='{{ SystemTime }}Z'/>
+		<EventRecordID>{{ EventRecordID }}</EventRecordID>
+		<Correlation/>
+		<Execution ProcessID='{{ ProcessID }}' ThreadID='{{ ThreadID }}'/>
+		<Channel>Microsoft-Windows-Sysmon/Operational</Channel>
+		<Computer>{{ Computer }}</Computer>
+		<Security UserID='{{ UserID }}'/>
+	</System>
+	<EventData>
+		<Data Name='RuleName'>technique_id=T1218,technique_name=Signed Binary Proxy Execution</Data>
+		<Data Name='UtcTime'>{{ UtcTime }}</Data>
+		<Data Name='ProcessGuid'>{% raw %}{{% endraw %}{{ ProcessGuid }}{% raw %}}{% endraw %}</Data>
+		<Data Name='ProcessId'>{{ ProcessId }}</Data>
+		<Data Name='Image'>{{ Image }}</Data>
+		<Data Name='User'>{{ User }}</Data>
+		<Data Name='Protocol'>{{ Protocol }}</Data>
+		<Data Name='Initiated'>{{ Initiated }}</Data>
+		<Data Name='SourceIsIpv6'>{{ SourceIsIpv6 }}</Data>
+		<Data Name='SourceIp'>{{ SourceIp }}</Data>
+		<Data Name='SourceHostname'>{{ Computer }}</Data>
+		<Data Name='SourcePort'>{{ SourcePort }}</Data>
+		<Data Name='SourcePortName'>{{ SourcePortName }}</Data>
+		<Data Name='DestinationIsIpv6'>{{ DestinationIsIpv6 }}</Data>
+		<Data Name='DestinationIp'>{{ DestinationIp }}</Data>
+		<Data Name='DestinationHostname'>{{ DestinationHostname }}</Data>
+		<Data Name='DestinationPort'>{{ DestinationPort }}</Data>
+		<Data Name='DestinationPortName'>{{ DestinationPortName }}</Data>
+	</EventData>
+</Event>

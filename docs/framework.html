@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Framework &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="autoapi/index.html" />
+    <link rel="prev" title="Outputs" href="outputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#salo.salo.Event">Event</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Event.get_saved_value">get_saved_value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Event.run">run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Event.save_value">save_value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Event.set_options">set_options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Event.update_cadence">update_cadence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Event.update_saved_values">update_saved_values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#salo.salo.Session">Session</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Session.generate">generate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Session.spawn">spawn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#salo.salo.Sessions">Sessions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Sessions.create_session">create_session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Sessions.generate">generate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Sessions.load_config">load_config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#salo.salo.Sessions.save">save</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Framework</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/framework.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="framework">
+<span id="id1"></span><h1>Framework<a class="headerlink" href="#framework" title="Permalink to this headline"></a></h1>
+<span class="target" id="module-salo.salo"></span><dl class="py class">
+<dt class="sig sig-object py" id="salo.salo.Event">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.salo.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#salo.salo.Session" title="salo.salo.Session"><span class="pre">salo.salo.Session</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_none</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/salo/salo.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Event" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Event.get_saved_value">
+<span class="sig-name descname"><span class="pre">get_saved_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Event.get_saved_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Event.get_saved_value" title="Permalink to this definition"></a></dt>
+<dd><p>Set the value of an attribute for the event if a saved_value exists and is defined</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Event.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Event.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Event.run" title="Permalink to this definition"></a></dt>
+<dd><p>Create log event</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Event.save_value">
+<span class="sig-name descname"><span class="pre">save_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Event.save_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Event.save_value" title="Permalink to this definition"></a></dt>
+<dd><p>Update Session object with values if a saved_value is defined</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Event.set_options">
+<span class="sig-name descname"><span class="pre">set_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Event.set_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Event.set_options" title="Permalink to this definition"></a></dt>
+<dd><p>Set Event options</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Event.update_cadence">
+<span class="sig-name descname"><span class="pre">update_cadence</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Event.update_cadence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Event.update_cadence" title="Permalink to this definition"></a></dt>
+<dd><p>Update the cadence and timestamp for this Event</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Event.update_saved_values">
+<span class="sig-name descname"><span class="pre">update_saved_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stencils.html#salo.stencils.SaloStencilModel" title="salo.stencils.SaloStencilModel"><span class="pre">salo.stencils.SaloStencilModel</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="events.html#salo.events.SaloEventModel" title="salo.events.SaloEventModel"><span class="pre">salo.events.SaloEventModel</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Event.update_saved_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Event.update_saved_values" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure saved_values are updated if defined in the recipe</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.salo.Session">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.salo.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cadence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="autoapi/salo/cadence/index.html#salo.cadence.Cadence" title="salo.cadence.Cadence"><span class="pre">salo.cadence.Cadence</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saved_values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/salo/salo.html#Session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Session" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Session.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_stencils</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Session.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Session.generate" title="Permalink to this definition"></a></dt>
+<dd><p>Iterate over Event objects for this Session</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Session.spawn">
+<span class="sig-name descname"><span class="pre">spawn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Session.spawn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Session.spawn" title="Permalink to this definition"></a></dt>
+<dd><p>Iterate over event objects in recipe, generate Event objects, and spawn
+additional child Event objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.salo.Sessions">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.salo.</span></span><span class="sig-name descname"><span class="pre">Sessions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/salo/salo.html#Sessions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Sessions" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Sessions.create_session">
+<span class="sig-name descname"><span class="pre">create_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Sessions.create_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Sessions.create_session" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new Session object for this collection of Sessions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Sessions.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_stencils</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Sessions.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Sessions.generate" title="Permalink to this definition"></a></dt>
+<dd><p>Iterate over Event objects for each Session object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Sessions.load_config">
+<span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Sessions.load_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Sessions.load_config" title="Permalink to this definition"></a></dt>
+<dd><p>Load Salo configuration file for recipe or output</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.salo.Sessions.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/salo.html#Sessions.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.salo.Sessions.save" title="Permalink to this definition"></a></dt>
+<dd><p>Pass all Sessions to outputs for saving/post-processing</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="outputs.html" class="btn btn-neutral float-left" title="Outputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

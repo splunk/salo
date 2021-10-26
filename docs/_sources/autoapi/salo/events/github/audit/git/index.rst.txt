@@ -1,0 +1,122 @@
+:py:mod:`salo.events.github.audit.git`
+======================================
+
+.. py:module:: salo.events.github.audit.git
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.github.audit.git.GitModel
+   salo.events.github.audit.git.Push
+   salo.events.github.audit.git.Clone
+   salo.events.github.audit.git.Fetch
+
+
+
+
+.. py:class:: GitModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.github.audit.base.GitHubAuditModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_actor
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_business
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_org
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_repo
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_actor_location
+      :annotation: :salo.events.github.audit.base.ActorLocationModel
+
+      
+
+   .. py:attribute:: github_repository
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: github_repository_public
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: github_transport_protocol_name
+      :annotation: :Literal[http, ssh]
+
+      
+
+   .. py:attribute:: github_transport_protocol
+      :annotation: :int
+
+      
+
+
+.. py:class:: Push(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`GitModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+
+.. py:class:: Clone(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`GitModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+
+.. py:class:: Fetch(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`GitModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: github_action
+      :annotation: :str
+
+      
+
+

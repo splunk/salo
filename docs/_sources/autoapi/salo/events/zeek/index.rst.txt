@@ -1,0 +1,1249 @@
+:py:mod:`salo.events.zeek`
+==========================
+
+.. py:module:: salo.events.zeek
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   base/index.rst
+   conn/index.rst
+   dns/index.rst
+   files/index.rst
+   http/index.rst
+   rdp/index.rst
+   smtp/index.rst
+   ssl/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.ZeekModel
+   salo.events.zeek.ConnModel
+   salo.events.zeek.SSLModel
+   salo.events.zeek.DNSModel
+   salo.events.zeek.HTTPModel
+   salo.events.zeek.SMTPModel
+   salo.events.zeek.RDPModel
+   salo.events.zeek.FilesModel
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   salo.events.zeek.fake
+
+
+.. py:class:: ZeekModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.SaloEventModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: json_encoders
+         
+
+         
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: timestamp
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:attribute:: uid
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: src_ip
+      :annotation: :Optional[pydantic.IPvAnyAddress]
+
+      
+
+   .. py:attribute:: src_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dest_ip
+      :annotation: :Optional[pydantic.IPvAnyAddress]
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:method:: set_src_port(cls, v)
+
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: generate(self, by_alias: bool = True, exclude_none: bool = True)
+
+
+
+.. py:data:: fake
+   
+
+   
+
+.. py:class:: ConnModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/conn/main.zeek.html#type-Conn::Info',...
+
+      
+
+   .. py:attribute:: proto
+      :annotation: :str
+
+      
+
+   .. py:attribute:: service
+      :annotation: :str
+
+      
+
+   .. py:attribute:: duration
+      :annotation: :Optional[float]
+
+      
+
+   .. py:attribute:: orig_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: resp_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: conn_state
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: local_orig
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: local_resp
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: missed_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: history
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: orig_pkts
+      :annotation: :int
+
+      
+
+   .. py:attribute:: orig_ip_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: resp_pkts
+      :annotation: :int
+
+      
+
+   .. py:attribute:: resp_ip_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: tunnel_parents
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: orig_l2_addr
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: resp_l2_addr
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: vlan
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: inner_vlan
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: speculative_service
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_duration(cls, v)
+
+
+   .. py:method:: set_conn_state(cls, v)
+
+
+   .. py:method:: set_history(cls, v)
+
+
+   .. py:method:: ports_protocols(cls, values)
+
+
+
+.. py:class:: SSLModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/ssl/main.zeek.html#type-SSL::Info',...
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :int
+
+      
+
+   .. py:attribute:: version
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cipher
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: curve
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: server_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: resumed
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: last_alert
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: next_protocol
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: established
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: ssl_history
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cert_chain_fps
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: client_cert_chain_fps
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: subject
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: issuer
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_subject
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_issuer
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: sni_matches_cert
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: server_version
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: client_version
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: client_ciphers
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: ssl_client_exts
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: ssl_server_exts
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: ticket_lifetime_hint
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dh_param_size
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: point_formats
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: client_curves
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: orig_alpn
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: client_supported_versions
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: server_supported_version
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: client_key_share_groups
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: server_key_share_group
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: client_comp_methods
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: sigalgs
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: hashalgs
+      :annotation: :Optional[List[int]]
+
+      
+
+   .. py:attribute:: validation_status
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: ocsp_status
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: valid_ct_logs
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: valid_ct_operators
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: ja3
+      :annotation: :str
+
+      
+
+   .. py:attribute:: ja3s
+      :annotation: :str
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: set_version(cls, v)
+
+
+   .. py:method:: set_cipher(cls, v)
+
+
+   .. py:method:: set_curve(cls, v)
+
+
+   .. py:method:: set_resumed(cls, v)
+
+
+   .. py:method:: set_established(cls, v)
+
+
+
+.. py:class:: DNSModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/dns/main.zeek.html#type-DNS::Info',...
+
+      
+
+   .. py:attribute:: proto
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: dns_id
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dns_rtt
+      :annotation: :Optional[float]
+
+      
+
+   .. py:attribute:: dns_query
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_qclass
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_qclass_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_qtype
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_qtype_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_rcode
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_rcode_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dns_aa
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_tc
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_rd
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_ra
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_z
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dns_rdata
+      :annotation: :Optional[Union[str, List[str]]]
+
+      
+
+   .. py:attribute:: dns_ttl
+      :annotation: :Optional[Union[int, List[int]]]
+
+      
+
+   .. py:attribute:: dns_rejected
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: dns_auth
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: dns_addl
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: dns_original_query
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: set_proto(cls, v)
+
+
+   .. py:method:: set_dns_id(cls, v)
+
+
+   .. py:method:: set_dns_rtt(cls, v)
+
+
+   .. py:method:: set_dns_aa(cls, v)
+
+
+   .. py:method:: set_dns_tc(cls, v)
+
+
+   .. py:method:: set_rd(cls, v)
+
+
+   .. py:method:: set_ra(cls, v)
+
+
+   .. py:method:: set_dns_rejected(cls, v)
+
+
+   .. py:method:: set_dns_rdata(cls, v)
+
+
+   .. py:method:: set_dns_ttl(cls, v, *, values)
+
+
+   .. py:method:: set_values(cls, values) -> None
+
+
+
+.. py:class:: HTTPModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/http/main.zeek.html#type-HTTP::Info',...
+
+      
+
+   .. py:attribute:: trans_depth
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http_method
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_hostname
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_uri
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_referrer
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_version
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_user_agent
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_origin
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_request_body_len
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http_response_body_len
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http_status_code
+      :annotation: :int
+
+      
+
+   .. py:attribute:: http_status_msg
+      :annotation: :str
+
+      
+
+   .. py:attribute:: http_info_code
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: http_info_msg
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_tags
+      :annotation: :Optional[List]
+
+      
+
+   .. py:attribute:: http_username
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_password
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: http_proxied
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: orig_fuids
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: orig_filenames
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: orig_mime_types
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: resp_fuids
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: resp_filenames
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: resp_mime_types
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: http_client_header_names
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: http_server_header_names
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: http_cookie_vars
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: http_uri_vars
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: set_http_version(cls, v)
+
+
+   .. py:method:: set_values(cls, values)
+
+
+
+.. py:class:: SMTPModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:class:: Config
+
+      .. py:attribute:: fields
+         
+
+         
+
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/smtp/main.zeek.html#type-SMTP::Info',...
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: smtp_trans_depth
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: smtp_helo
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_mailfrom
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_rcptto
+      :annotation: :List[str]
+
+      
+
+   .. py:attribute:: timestamp
+      :annotation: :datetime.datetime
+
+      
+
+   .. py:attribute:: smtp_from
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_to
+      :annotation: :List[str]
+
+      
+
+   .. py:attribute:: smtp_cc
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: smtp_reply_to
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_msg_id
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_in_reply_to
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_subject
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_x_originating_ip
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_first_received
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_second_received
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_last_reply
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: smtp_path
+      :annotation: :Optional[List[pydantic.IPvAnyAddress]]
+
+      
+
+   .. py:attribute:: smtp_user_agent
+      :annotation: :str
+
+      
+
+   .. py:attribute:: smtp_tls
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: smtp_process_received_from
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: smtp_has_client_activity
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: smtp_process_smtp_headers
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: smtp_entity_count
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: fuids
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: smtp_is_webmail
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+   .. py:method:: set_smtp_msg_id(cls, v)
+
+
+   .. py:method:: set_smtp_trans_depth(cls, v)
+
+
+   .. py:method:: set_smtp_path(cls, v, *, values)
+
+
+   .. py:method:: set_smtp_tls(cls, v)
+
+
+   .. py:method:: set_fuids(cls, v)
+
+
+   .. py:method:: set_is_webmail(cls, v)
+
+
+   .. py:method:: set_values(cls, values) -> None
+
+
+
+.. py:class:: RDPModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/protocols/rdp/main.zeek.html#type-RDP::Info',...
+
+      
+
+   .. py:attribute:: cookie
+      :annotation: :str
+
+      
+
+   .. py:attribute:: result
+      :annotation: :str
+
+      
+
+   .. py:attribute:: security_protocol
+      :annotation: :str
+
+      
+
+   .. py:attribute:: client_channels
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: keyboard_layour
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_build
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: client_dig_product_id
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: desktop_width
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: desktop_height
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: requested_color_depth
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cert_type
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cert_count
+      :annotation: :int
+
+      
+
+   .. py:attribute:: cert_permanent
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: encryption_level
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: encryption_method
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: ssl
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:method:: set_dest_port(cls, v)
+
+
+
+.. py:class:: FilesModel(__pydantic_self__, **data: Any)
+
+   Bases: :py:obj:`salo.events.zeek.base.ZeekModel`
+
+   Mixin to provide __str__, __repr__, and __pretty__ methods. See #884 for more details.
+
+   __pretty__ is used by [devtools](https://python-devtools.helpmanual.io/) to provide human readable representations
+   of objects.
+
+   .. py:attribute:: _refs
+      :annotation: :List[str] = ['https://docs.zeek.org/en/master/scripts/base/frameworks/files/main.zeek.html#type-Files::Info',...
+
+      
+
+   .. py:attribute:: src_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: dest_port
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: fuid
+      :annotation: :str
+
+      
+
+   .. py:attribute:: tx_hosts
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: rx_hosts
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: conn_uids
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: source
+      :annotation: :str
+
+      
+
+   .. py:attribute:: depth
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: analyzers
+      :annotation: :Optional[List[str]]
+
+      
+
+   .. py:attribute:: mime_type
+      :annotation: :str
+
+      
+
+   .. py:attribute:: duration
+      :annotation: :Optional[float]
+
+      
+
+   .. py:attribute:: is_orig
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: seen_bytes
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: total_bytes
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: missing_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: overflow_bytes
+      :annotation: :int
+
+      
+
+   .. py:attribute:: timedout
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: parent_fuid
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: md5
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: sha1
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: sha256
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: extracted
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: extracted_cutoff
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: extract_size
+      :annotation: :Optional[int]
+
+      
+
+   .. py:method:: set_fields(cls, values)
+
+
+   .. py:method:: set_depth(cls, v)
+
+
+   .. py:method:: set_duration(cls, v)
+
+
+   .. py:method:: set_is_orig(cls, v)
+
+
+   .. py:method:: set_timedout(cls, v)
+
+
+   .. py:method:: set_extracted_cutoff(cls, v)
+
+
+   .. py:method:: set_conn_info(cls, v)
+
+
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo.events.zeek.smtp &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+          <li><a href="../../events.html">salo.events</a> &raquo;</li>
+      <li>salo.events.zeek.smtp</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for salo.events.zeek.smtp</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="c1">#  Copyright 2021 Splunk Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">Field</span><span class="p">,</span> <span class="n">IPvAnyAddress</span><span class="p">,</span> <span class="n">root_validator</span><span class="p">,</span> <span class="n">validator</span>
+
+<span class="kn">from</span> <span class="nn">salo</span> <span class="kn">import</span> <span class="n">fake</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">ZeekModel</span><span class="p">,</span> <span class="n">random_fuid</span>
+
+
+<span class="n">MAX_FUIDS</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">MAX_RCPT</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">MAX_CC</span> <span class="o">=</span> <span class="mi">10</span>
+
+
+<div class="viewcode-block" id="SMTPModel"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel">[docs]</a><span class="k">class</span> <span class="nc">SMTPModel</span><span class="p">(</span><span class="n">ZeekModel</span><span class="p">):</span>
+    <span class="n">_refs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;https://docs.zeek.org/en/master/scripts/base/protocols/smtp/main.zeek.html#type-SMTP::Info&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://docs.zeek.org/en/master/logs/smtp.html&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">dest_port</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">smtp_trans_depth</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_helo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">fake</span><span class="o">.</span><span class="n">hostname</span><span class="p">)</span>
+    <span class="n">smtp_mailfrom</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">smtp_rcptto</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+    <span class="n">smtp_from</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">smtp_to</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">smtp_cc</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_reply_to</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_msg_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_in_reply_to</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_subject</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">fake</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">smtp_x_originating_ip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_first_received</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_second_received</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_last_reply</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">IPvAnyAddress</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_user_agent</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">fake</span><span class="o">.</span><span class="n">user_agent</span><span class="p">)</span>
+    <span class="n">smtp_tls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_process_received_from</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_has_client_activity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_process_smtp_headers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_entity_count</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fuids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">smtp_is_webmail</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="SMTPModel.Config"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.Config">[docs]</a>    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;smtp_trans_depth&quot;</span><span class="p">:</span> <span class="s2">&quot;trans_depth&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_helo&quot;</span><span class="p">:</span> <span class="s2">&quot;helo&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_mailfrom&quot;</span><span class="p">:</span> <span class="s2">&quot;mailfrom&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_rcptto&quot;</span><span class="p">:</span> <span class="s2">&quot;rcptto&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_from&quot;</span><span class="p">:</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_to&quot;</span><span class="p">:</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_cc&quot;</span><span class="p">:</span> <span class="s2">&quot;cc&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_reply_to&quot;</span><span class="p">:</span> <span class="s2">&quot;reply_to&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_msg_id&quot;</span><span class="p">:</span> <span class="s2">&quot;msg_id&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_in_reply_to&quot;</span><span class="p">:</span> <span class="s2">&quot;in_reply_to&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_subject&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_x_originating_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;x_originating_ip&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_first_received&quot;</span><span class="p">:</span> <span class="s2">&quot;first_received&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_second_received&quot;</span><span class="p">:</span> <span class="s2">&quot;second_received&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_last_reply&quot;</span><span class="p">:</span> <span class="s2">&quot;last_reply&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_path&quot;</span><span class="p">:</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;user_agent&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_tls&quot;</span><span class="p">:</span> <span class="s2">&quot;tls&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_process_received_from&quot;</span><span class="p">:</span> <span class="s2">&quot;process_received_from&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_has_client_activity&quot;</span><span class="p">:</span> <span class="s2">&quot;has_client_activity&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_process_smtp_headers&quot;</span><span class="p">:</span> <span class="s2">&quot;process_smtp_headers&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_entity_count&quot;</span><span class="p">:</span> <span class="s2">&quot;entity_count&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_is_webmail&quot;</span><span class="p">:</span> <span class="s2">&quot;is_webmail&quot;</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="SMTPModel.set_dest_port"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.set_dest_port">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;dest_port&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_dest_port</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="mi">25</span></div>
+
+<div class="viewcode-block" id="SMTPModel.set_smtp_msg_id"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.set_smtp_msg_id">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;smtp_msg_id&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_smtp_msg_id</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="n">fake</span><span class="o">.</span><span class="n">hexify</span><span class="p">()</span><span class="si">}</span><span class="s2">$</span><span class="si">{</span><span class="n">fake</span><span class="o">.</span><span class="n">lexify</span><span class="p">()</span><span class="si">}</span><span class="s2">$</span><span class="si">{</span><span class="n">fake</span><span class="o">.</span><span class="n">hexify</span><span class="p">()</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">fake</span><span class="o">.</span><span class="n">tld</span><span class="p">()</span><span class="si">}</span><span class="s2">&gt;&quot;</span></div>
+
+<div class="viewcode-block" id="SMTPModel.set_smtp_trans_depth"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.set_smtp_trans_depth">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;smtp_trans_depth&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_smtp_trans_depth</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">fake</span><span class="o">.</span><span class="n">pyint</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SMTPModel.set_smtp_path"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.set_smtp_path">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;smtp_path&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_smtp_path</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;src_ip&quot;</span><span class="p">,</span> <span class="n">fake</span><span class="o">.</span><span class="n">ipv4</span><span class="p">())</span>
+        <span class="n">dest</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dest_ip&quot;</span><span class="p">,</span> <span class="n">fake</span><span class="o">.</span><span class="n">ipv4</span><span class="p">())</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">dest</span><span class="p">,</span> <span class="n">src</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">path</span></div>
+
+<div class="viewcode-block" id="SMTPModel.set_smtp_tls"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.set_smtp_tls">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;smtp_tls&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_smtp_tls</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">fake</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="n">chance_of_getting_true</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SMTPModel.set_fuids"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.set_fuids">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;fuids&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_fuids</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="n">fuids</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">fake</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="n">chance_of_getting_true</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+            <span class="n">fuids</span> <span class="o">=</span> <span class="p">[</span><span class="n">random_fuid</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">pyint</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="n">MAX_FUIDS</span><span class="p">))]</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">fuids</span></div>
+
+<div class="viewcode-block" id="SMTPModel.set_is_webmail"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.set_is_webmail">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;smtp_is_webmail&quot;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">always</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_is_webmail</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">fake</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="n">chance_of_getting_true</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
+            <span class="n">is_webmail</span> <span class="o">=</span> <span class="n">fake</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="n">chance_of_getting_true</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_webmail</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="ow">or</span> <span class="n">is_webmail</span></div>
+
+<div class="viewcode-block" id="SMTPModel.set_values"><a class="viewcode-back" href="../../../../autoapi/salo/events/zeek/smtp/index.html#salo.events.zeek.SMTPModel.set_values">[docs]</a>    <span class="nd">@root_validator</span><span class="p">(</span><span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_values</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">values</span><span class="p">[</span><span class="s2">&quot;smtp_mailfrom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;smtp_mailfrom&quot;</span><span class="p">,</span> <span class="n">fake</span><span class="o">.</span><span class="n">email</span><span class="p">())</span>
+        <span class="n">values</span><span class="p">[</span><span class="s2">&quot;smtp_rcptto&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&quot;smtp_rcptto&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">fake</span><span class="o">.</span><span class="n">email</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_RCPT</span><span class="p">)]</span>
+        <span class="p">)</span>
+        <span class="n">values</span><span class="p">[</span><span class="s2">&quot;smtp_from&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&quot;smtp_from&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">fake</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="si">}</span><span class="s1">&quot; &lt;</span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;smtp_mailfrom&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&gt;&#39;</span>
+        <span class="p">)</span>
+        <span class="n">values</span><span class="p">[</span><span class="s2">&quot;smtp_to&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&quot;smtp_to&quot;</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">fake</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="si">}</span><span class="s1">&quot; &lt;</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&gt;&#39;</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">values</span><span class="p">[</span><span class="s2">&quot;smtp_rcptto&quot;</span><span class="p">]]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;smtp_cc&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">fake</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="n">chance_of_getting_true</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+                <span class="n">values</span><span class="p">[</span><span class="s2">&quot;smtp_cc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">fake</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="si">}</span><span class="s1">&quot; &lt;</span><span class="si">{</span><span class="n">fake</span><span class="o">.</span><span class="n">email</span><span class="p">()</span><span class="si">}</span><span class="s1">&gt;&#39;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_CC</span><span class="p">)</span>
+                <span class="p">]</span>
+        <span class="k">return</span> <span class="n">values</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

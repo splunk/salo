@@ -1,0 +1,6 @@
+:py:mod:`salo.__main__`
+=======================
+
+.. py:module:: salo.__main__
+
+

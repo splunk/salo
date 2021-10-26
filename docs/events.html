@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Stencils" href="stencils.html" />
+    <link rel="prev" title="Frequently Asked Questions" href="faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-fields">Model Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#salo.events.SaloEventModel">SaloEventModel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#salo.events.SaloEventModel.Config">Config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Events</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/events.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-salo.events">
+<span id="events"></span><span id="eventmodel"></span><h1>Events<a class="headerlink" href="#module-salo.events" title="Permalink to this headline"></a></h1>
+<section id="overview">
+<span id="saloeventmodel"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>Events are specific schemas that represent the contruct of a logged event. Event generation is very
+dynamic and flexible, allowing for nearly any logged event to be easily generated once a <cite>SaloEventModel</cite>
+has been created. Once a <cite>SaloEventModel</cite> is created, logged events can easily be customized via a
+recipe or, for more advanced use cases, by leveraging <cite>Stencils</cite>. SALO comes with several <cite>Events</cite> out of
+the box, with more being developed and shared regularly.</p>
+<p><cite>SaloEventModel</cite> leverages <a class="reference external" href="https://pydantic-docs.helpmanual.io/">pydantic</a> for modeling to ensure strict data validation and 
+type checking. If creating a new <cite>SaloEventModel</cite>, it is recommended to have a minimal understanding of <code class="docutils literal notranslate"><span class="pre">pydantic</span></code>, though 
+being an expert is not a  requirement.</p>
+</section>
+<section id="model-fields">
+<h2>Model Fields<a class="headerlink" href="#model-fields" title="Permalink to this headline"></a></h2>
+<p>In order to ensure <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> classes can pass along their values to other <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> and <code class="docutils literal notranslate"><span class="pre">SaloStencilModel</span></code> objects, SALO
+heavily relies on <code class="docutils literal notranslate"><span class="pre">pydantic</span></code> <code class="docutils literal notranslate"><span class="pre">Field</span></code> aliases. For example, <code class="docutils literal notranslate"><span class="pre">Zeek</span></code> represents the source ip address as <code class="docutils literal notranslate"><span class="pre">id.orig_h</span></code>, while
+<code class="docutils literal notranslate"><span class="pre">suricata</span></code> represents it as <code class="docutils literal notranslate"><span class="pre">src_ip</span></code>. To accomodate the multitude of variations across log schemas, <code class="docutils literal notranslate"><span class="pre">pydantic</span></code> <code class="docutils literal notranslate"><span class="pre">Field</span></code> aliases
+are used to define common <code class="docutils literal notranslate"><span class="pre">Field</span></code> names across models.</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h2>
+<p><cite>Events</cite> must be a subclass of the <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> class. Let’s explore a simple example of a <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code>.</p>
+<p>In this example, we will create a <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> that produces a simple log output. Our example log event will
+be in JSON:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="nt">&quot;src_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;1.1.1.1&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s build our example event model in <code class="docutils literal notranslate"><span class="pre">salo/events/example.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">Field</span><span class="p">,</span> <span class="n">IPvAnyAddress</span>
+
+<span class="kn">from</span> <span class="nn">salo</span> <span class="kn">import</span> <span class="n">SaloEventModel</span>
+
+<span class="k">class</span> <span class="nc">ExampleModel</span><span class="p">(</span><span class="n">SaloEventModel</span><span class="p">):</span>
+    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+    <span class="n">src_ip</span><span class="p">:</span> <span class="n">IPvAnyAddress</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;1.1.1.1&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">by_alias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">exclude_none</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">by_alias</span><span class="o">=</span><span class="n">by_alias</span><span class="p">,</span> <span class="n">exclude_none</span><span class="o">=</span><span class="n">exclude_none</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">generate</span></code> method must exist. In this case, we are returning a JSON result. However, any output can be
+returned to include raw text or XML. In some cases, it may be more useful to generate results using a templating
+language, such as <a class="reference external" href="https://jinja2docs.readthedocs.io/en/stable/">Jinja2</a>.</p>
+</div>
+<p>Now, we  can simple create a new recipe in <code class="docutils literal notranslate"><span class="pre">example.yaml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sessions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salo.events.example.ExampleModel</span>
+</pre></div>
+</div>
+<p>Once the recipe is executed, <code class="docutils literal notranslate"><span class="pre">salogen.py</span> <span class="pre">-r</span> <span class="pre">example.yaml</span></code>, you should see the exact log output we  set out to create:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="nt">&quot;src_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;1.1.1.1&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="salo.events.SaloEventModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">salo.events.</span></span><span class="sig-name descname"><span class="pre">SaloEventModel</span></span><a class="reference internal" href="_modules/salo/events.html#SaloEventModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.SaloEventModel" title="Permalink to this definition"></a></dt>
+<dd><dl class="py class">
+<dt class="sig sig-object py" id="salo.events.SaloEventModel.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/salo/events.html#SaloEventModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.SaloEventModel.Config" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.SaloEventModel.Config.allow_population_by_field_name">
+<span class="sig-name descname"><span class="pre">allow_population_by_field_name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.events.SaloEventModel.Config.allow_population_by_field_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.SaloEventModel.Config.allow_reuse">
+<span class="sig-name descname"><span class="pre">allow_reuse</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.events.SaloEventModel.Config.allow_reuse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="salo.events.SaloEventModel.Config.schema_extra">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">schema_extra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/salo/events.html#SaloEventModel.Config.schema_extra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#salo.events.SaloEventModel.Config.schema_extra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.SaloEventModel.Config.underscore_attrs_are_private">
+<span class="sig-name descname"><span class="pre">underscore_attrs_are_private</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.events.SaloEventModel.Config.underscore_attrs_are_private" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="salo.events.SaloEventModel.Config.validate_assignment">
+<span class="sig-name descname"><span class="pre">validate_assignment</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#salo.events.SaloEventModel.Config.validate_assignment" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="faq.html" class="btn btn-neutral float-left" title="Frequently Asked Questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stencils.html" class="btn btn-neutral float-right" title="Stencils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

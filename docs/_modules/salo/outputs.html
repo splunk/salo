@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>salo.outputs &mdash; SALO v0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SALO
+          </a>
+              <div class="version">
+                v0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stencils.html">Stencils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../framework.html">Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SALO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>salo.outputs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for salo.outputs</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="c1">#  Copyright 2021 Splunk Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    .. _SaloOutputs:</span>
+
+
+<span class="sd">    Overview</span>
+<span class="sd">    ********</span>
+
+<span class="sd">    Outputs are a means to produce and save output from a SALO recipe. One or more can be defined, allowing to save results to multiple</span>
+<span class="sd">    locations. The current outputs supported are:</span>
+
+<span class="sd">        - Console</span>
+<span class="sd">        - Local File</span>
+<span class="sd">        - Splunk</span>
+
+<span class="sd">    .. note:: If no `output` is defined, generated events will be printed to the console.</span>
+
+
+<span class="sd">    Configuration File</span>
+<span class="sd">    ******************</span>
+
+<span class="sd">    To simplify outputs, it is possible to customize how and where log output is handled. This can be done via a configuration file.</span>
+<span class="sd">    The configuration for `outputs` is a simple YAML file. Let&#39;s take a look at an example from the default ``outputs.yaml`` file.</span>
+
+<span class="sd">    The initial key, ``salo.events.suricata``, is the root object that is matched when saving log output. If the ``SaloEventModel``</span>
+<span class="sd">    class starts with ``salo.events.suricata``, then this configuration will be used to save the output. SALO will iterate over each</span>
+<span class="sd">    key defined in ``outputs`` and save to the appropriate output object:</span>
+
+<span class="sd">    .. code-block:: yaml</span>
+
+
+<span class="sd">        salo.events.suricata:</span>
+<span class="sd">          outputs:</span>
+<span class="sd">            file:</span>
+<span class="sd">              path: suricata/eve.log</span>
+<span class="sd">            splunk:</span>
+<span class="sd">              index: salo</span>
+<span class="sd">              sourcetype: suricata</span>
+
+
+<span class="sd">    It is also possible to match against more specific ``SaloEventModel`` classes. In this case, let&#39;s take a look at a ``Zeek`` output</span>
+<span class="sd">    from the default ``outputs.yaml`` file:</span>
+
+<span class="sd">    .. code-block:: yaml</span>
+
+
+<span class="sd">        salo.events.zeek.dns.DNSModel:</span>
+<span class="sd">          outputs:</span>
+<span class="sd">            file:</span>
+<span class="sd">              path: zeek/dns.log</span>
+<span class="sd">            splunk:</span>
+<span class="sd">              index: salo</span>
+<span class="sd">              sourcetype: &quot;bro:dns:json&quot;</span>
+
+
+<span class="sd">    In this instance, the ``SaloEventModel`` match will have to be the full path to ``salo.events.zeek.dns.DNSModel`` in order to be saved.</span>
+<span class="sd">    This is useful when more specific logs are needed, such as ``dns.log`` or ``http.log``.</span>
+
+
+<span class="sd">    API</span>
+<span class="sd">    ***</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="kn">from</span> <span class="nn">salo</span> <span class="kn">import</span> <span class="n">Sessions</span>
+
+
+<div class="viewcode-block" id="SaloOutput"><a class="viewcode-back" href="../../outputs.html#salo.outputs.SaloOutput">[docs]</a><span class="k">class</span> <span class="nc">SaloOutput</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+
+<div class="viewcode-block" id="SaloOutput.save"><a class="viewcode-back" href="../../outputs.html#salo.outputs.SaloOutput.save">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessions</span><span class="p">:</span> <span class="n">Sessions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span></div></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

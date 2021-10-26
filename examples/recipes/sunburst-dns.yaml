@@ -1,0 +1,38 @@
+scenario: SyntheticWinds
+author: Marcus LaFerrera
+date: 2021-11-16
+references:
+  - https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html
+  - https://www.netresec.com/?page=Blog&month=2020-12&post=Reassembling-Victim-Domain-Fragments-from-SUNBURST-DNS
+description: Solarwinds host resolving domain and beaconing over TLS
+options:
+  src_ip: 192.168.54.36
+  dest_ip: 167.114.213.199
+time:
+  start: "2020-12-24T00:01:59.000004"
+  jitter_min: 0
+  jitter_max: 1
+  # cadence: "* 10 1 * * *"
+sessions:
+  # We will leverage the SunburstDNSQuery Stencil to randomly generate DNS queries that are similar to those that SUNBURST
+  # generated. (i.e., nfrg6utzofzveqscnnleozkb.appsync-api.us-east-1.avsvmcloud.com)
+  - event: salo.stencils.sunburst.SunBurstDNSQuery
+    options:
+      # Possible options: kill, beacon, preactivation
+      # This value will dictate the response IP address as outlined in the netresec blog post in references
+      sunburst_phase: beacon  
+    # Use the data generated from the SunburstDNSQuery stencil to populate the appropriate fields in the spawned events
+    spawns:
+    - event: salo.events.zeek.ConnModel
+      description: Generate initial DNS connection and query
+      spawns:
+        - event: salo.events.zeek.DNSModel
+          save_values:
+            query_timestamp: timestamp
+          spawns:
+            # Spawn the  suricata DNSModel so we can ensure consistency across generated events
+            - event: salo.events.suricata.dns.DNSModel
+              time:
+              options:
+                timestamp: $query_timestamp
+                dns_type: answer
