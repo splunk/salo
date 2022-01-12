@@ -20,7 +20,7 @@ import salo
 # -- Project information -----------------------------------------------------
 
 project = "SALO"
-copyright = "2021, Splunk, Inc."
+copyright = "2021, Splunk, Inc"
 author = "Marcus LaFerrera"
 
 # The short X.Y.Z version

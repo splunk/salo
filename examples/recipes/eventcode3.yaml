@@ -7,8 +7,7 @@ sessions:
     options:
       src_ip: fe80::aede:48ff:fe00:1122
       src_port: 42350
-      #dest_ip: 13.59.205.66
-      dest_ip: a
+      dest_ip: 13.59.205.66
       dest_port: 443
       server_name: deftsecurity.com
       DestinationHostname: deftsecurity.com

@@ -22,7 +22,7 @@
     Overview
     ********
 
-    Stencils allow for complex programatic ``SaloEventModel`` generation. By leveraging Stencils, SALO is able to produce
+    Stencils allow for complex programmatic ``SaloEventModel`` generation. By leveraging Stencils, SALO is able to produce
     events that can easily mimic specific characteristics, tactics, and techniques of an attack. For instance, some malware
     may create command and control (C2) beacons over DNS that leverage TXT records with base64 encoded content.
     A `Stencil` can be created that mimics this specific pattern to ensure ``SaloEventModel`` that are generated appear 
@@ -94,7 +94,7 @@
              if they are not defined. To ensure attributes are inherited, ``SaloEventModel`` `events` must spawn additional `events`.
              If inherited values are not needed, then there is no need for them to be spawned.
 
-    Once executed, two sythentic log events will be generated. One for DNS and another  for the HTTP request. As you can see,
+    Once executed, two synthentic log events will be generated. One for DNS and another  for the HTTP request. As you can see,
     the defined values in our `stencil` have automatically pre-populated the neccessary fields:
 
     .. code-block:: json

@@ -22,7 +22,7 @@ simply be ignored.
 ++++++++++
 
 `sessions` is a list of `event` configuration options. Each item, or session, in the list of sessions will be treated independently of other sessions. 
-Each ``event`` in a session will pass along their own attributes to ``spawns`` defined.:
+Each ``event`` in a session will pass along their own attributes to ``spawns`` as defined:
 
 .. code-block:: yaml
 

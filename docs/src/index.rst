@@ -235,7 +235,7 @@ log event for the connection, which automatically have overlapping values:
     }
 
 
-For more advanced use cases of SALO, take a look at some example `recipes <examples/recipes/>`_.
+For more advanced use cases of SALO, take a look at some example `recipes <https://github.com/splunk/salo/tree/main/examples/recipes>`_.
 
 ----------------------------------------------------------
 

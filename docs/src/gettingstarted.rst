@@ -52,7 +52,7 @@ to properly define attributes for an event or session::
     $ salo schema salo.events.zeek.dns.DNSModel
 
 
-The results will be displayed, which  will include all schema information for the event, to include attribute names as well as their aliases:
+The results will be displayed, which will include all schema information for the event, to include attribute names as well as their aliases:
 
 .. code-block:: json 
 
@@ -227,7 +227,7 @@ If no output module is defined, then SALO will default to `Console` output. Defa
 configurations can be defined in the ``output.yaml`` file. This file can also be customized 
 to ensure generated event logs are saved in the desired location. 
 
-As an example, configure the output  for ``salo.events.zeek.dns.DNSModel``, we would create:
+As an example, to configure the output  for ``salo.events.zeek.dns.DNSModel``, we would create:
 
 .. code-block:: yaml
 
@@ -241,7 +241,7 @@ As an example, configure the output  for ``salo.events.zeek.dns.DNSModel``, we w
           sourcetype: "bro:dns:json"
 
 
-This will resule in both the ``file`` and ``splunk`` outputs for the `event model` ``salo.events.zeek.dns.DNSModel``.
+This will result in both the ``file`` and ``splunk`` outputs for the `event model` ``salo.events.zeek.dns.DNSModel``.
 In this case, each `Zeek` event model needs to be defined and configured. However, if the desire was to save all `Zeek`
 events to one file, it is possible to change the event model definition like so:
 

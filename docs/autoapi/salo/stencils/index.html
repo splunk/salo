@@ -100,7 +100,7 @@
 <span id="salo-stencils"></span><h1><a class="reference internal" href="../../../stencils.html#module-salo.stencils" title="salo.stencils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">salo.stencils</span></code></a><a class="headerlink" href="#module-salo.stencils" title="Permalink to this headline"></a></h1>
 <section id="overview">
 <span id="salostencilmodel"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
-<p>Stencils allow for complex programatic <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> generation. By leveraging Stencils, SALO is able to produce
+<p>Stencils allow for complex programmatic <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> generation. By leveraging Stencils, SALO is able to produce
 events that can easily mimic specific characteristics, tactics, and techniques of an attack. For instance, some malware
 may create command and control (C2) beacons over DNS that leverage TXT records with base64 encoded content.
 A <cite>Stencil</cite> can be created that mimics this specific pattern to ensure <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> that are generated appear
@@ -164,7 +164,7 @@ attributes above if the <code class="docutils literal notranslate"><span class="
 if they are not defined. To ensure attributes are inherited, <code class="docutils literal notranslate"><span class="pre">SaloEventModel</span></code> <cite>events</cite> must spawn additional <cite>events</cite>.
 If inherited values are not needed, then there is no need for them to be spawned.</p>
 </div>
-<p>Once executed, two sythentic log events will be generated. One for DNS and another  for the HTTP request. As you can see,
+<p>Once executed, two synthentic log events will be generated. One for DNS and another  for the HTTP request. As you can see,
 the defined values in our <cite>stencil</cite> have automatically pre-populated the neccessary fields:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-02T11:05:56Z&quot;</span><span class="p">,</span>
@@ -299,7 +299,7 @@ of objects.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+    <p>&#169; Copyright 2021, Splunk, Inc.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

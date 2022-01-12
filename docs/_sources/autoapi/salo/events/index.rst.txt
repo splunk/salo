@@ -10,7 +10,7 @@
    Overview
    ********
 
-   Events are specific schemas that represent the contruct of a logged event. Event generation is very
+   Events are specific schemas that represent the construct of a logged event. Event generation is very
    dynamic and flexible, allowing for nearly any logged event to be easily generated once a `SaloEventModel`
    has been created. Once a `SaloEventModel` is created, logged events can easily be customized via a
    recipe or, for more advanced use cases, by leveraging `Stencils`. SALO comes with several `Events` out of
@@ -61,7 +61,7 @@
             returned to include raw text or XML. In some cases, it may be more useful to generate results using a templating
             language, such as `Jinja2 <https://jinja2docs.readthedocs.io/en/stable/>`_.
 
-   Now, we  can simple create a new recipe in ``example.yaml``:
+   Now, we can simply create a new recipe in ``example.yaml``:
 
    .. code-block:: yaml
 

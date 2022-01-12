@@ -130,7 +130,7 @@ to properly define attributes for an event or session:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo schema salo.events.zeek.dns.DNSModel
 </pre></div>
 </div>
-<p>The results will be displayed, which  will include all schema information for the event, to include attribute names as well as their aliases:</p>
+<p>The results will be displayed, which will include all schema information for the event, to include attribute names as well as their aliases:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;definitions&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;DNSModel&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -302,7 +302,7 @@ to properly define attributes for an event or session:</p>
 <p>If no output module is defined, then SALO will default to <cite>Console</cite> output. Default output
 configurations can be defined in the <code class="docutils literal notranslate"><span class="pre">output.yaml</span></code> file. This file can also be customized
 to ensure generated event logs are saved in the desired location.</p>
-<p>As an example, configure the output  for <code class="docutils literal notranslate"><span class="pre">salo.events.zeek.dns.DNSModel</span></code>, we would create:</p>
+<p>As an example, to configure the output  for <code class="docutils literal notranslate"><span class="pre">salo.events.zeek.dns.DNSModel</span></code>, we would create:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">salo.events.zeek.dns.DNSModel</span><span class="p">:</span>
   <span class="nt">outputs</span><span class="p">:</span>
     <span class="nt">file</span><span class="p">:</span>
@@ -312,7 +312,7 @@ to ensure generated event logs are saved in the desired location.</p>
       <span class="nt">sourcetype</span><span class="p">:</span> <span class="s">&quot;bro:dns:json&quot;</span>
 </pre></div>
 </div>
-<p>This will resule in both the <code class="docutils literal notranslate"><span class="pre">file</span></code> and <code class="docutils literal notranslate"><span class="pre">splunk</span></code> outputs for the <cite>event model</cite> <code class="docutils literal notranslate"><span class="pre">salo.events.zeek.dns.DNSModel</span></code>.
+<p>This will result in both the <code class="docutils literal notranslate"><span class="pre">file</span></code> and <code class="docutils literal notranslate"><span class="pre">splunk</span></code> outputs for the <cite>event model</cite> <code class="docutils literal notranslate"><span class="pre">salo.events.zeek.dns.DNSModel</span></code>.
 In this case, each <cite>Zeek</cite> event model needs to be defined and configured. However, if the desire was to save all <cite>Zeek</cite>
 events to one file, it is possible to change the event model definition like so:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">salo.events.zeek</span><span class="p">:</span>
@@ -370,7 +370,7 @@ event, as outlined above. Once configured, simply add the <code class="docutils 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Splunk, Inc..</p>
+    <p>&#169; Copyright 2021, Splunk, Inc.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
