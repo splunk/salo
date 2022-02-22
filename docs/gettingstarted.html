@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; SALO v0.1.0 documentation</title>
+  <title>Installation &mdash; SALO v0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -31,7 +31,7 @@
             <a href="index.html" class="icon icon-home"> SALO
           </a>
               <div class="version">
-                v0.1.0
+                v0.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -338,7 +338,7 @@ doing so, it can help to simplify outputs for events that may be less complex.</
 <h3>File<a class="headerlink" href="#file" title="Permalink to this headline"></a></h3>
 <p>Generated event logs can be saved to files on disk for later use. The configuration for <cite>outputs</cite> must be configured for the individual
 event, as outlined above. Once configured, simply add the <code class="docutils literal notranslate"><span class="pre">--file</span></code> command line argument:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe examples/recipes/beacon.yaml --file
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe examples/recipes/beacon.yaml -o outputs.yaml --file
 </pre></div>
 </div>
 </section>
@@ -352,7 +352,7 @@ event, as outlined above. Once configured, simply add the <code class="docutils 
 </pre></div>
 </div>
 <p>Now, you’re all set to insert event logs directly into Splunk:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe examples/recipes/beacon.yaml --splunk
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ salo recipe examples/recipes/beacon.yaml -o outputs.yaml --splunk
 </pre></div>
 </div>
 </section>

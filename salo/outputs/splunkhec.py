@@ -36,9 +36,9 @@ class SplunkOutput(SaloOutput):
     async def _save(self, sessions: Sessions) -> None:
         async with SplunkHEC(splunk_host=self.host, token=self.token) as hec:
             for session in sessions.generate():
-                event_config = None
                 event_type = str(type(session)).split("'")[1]
                 for k in self.config.keys():
+                    event_config = None
                     if event_type.startswith(k):
                         event_config = self.config.get(k)
                     if event_config:

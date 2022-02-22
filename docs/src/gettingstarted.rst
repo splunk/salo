@@ -275,7 +275,7 @@ File
 Generated event logs can be saved to files on disk for later use. The configuration for `outputs` must be configured for the individual
 event, as outlined above. Once configured, simply add the ``--file`` command line argument::
 
-    $ salo recipe examples/recipes/beacon.yaml --file
+    $ salo recipe examples/recipes/beacon.yaml -o outputs.yaml --file
 
 
 Splunk
@@ -291,5 +291,5 @@ Once a Splunk HEC endpoint is enabled and a token has been generated, some envir
 
 Now, you're all set to insert event logs directly into Splunk::
 
-    $ salo recipe examples/recipes/beacon.yaml --splunk
+    $ salo recipe examples/recipes/beacon.yaml -o outputs.yaml --splunk
 

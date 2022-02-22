@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>salo.outputs.splunkhec &mdash; SALO v0.1.0 documentation</title>
+  <title>salo.outputs.splunkhec &mdash; SALO v0.1.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -28,7 +28,7 @@
             <a href="../../../index.html" class="icon icon-home"> SALO
           </a>
               <div class="version">
-                v0.1.0
+                v0.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -118,9 +118,9 @@
 <div class="viewcode-block" id="SplunkOutput._save"><a class="viewcode-back" href="../../../autoapi/salo/outputs/splunkhec/index.html#salo.outputs.splunkhec.SplunkOutput._save">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessions</span><span class="p">:</span> <span class="n">Sessions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">async</span> <span class="k">with</span> <span class="n">SplunkHEC</span><span class="p">(</span><span class="n">splunk_host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span> <span class="k">as</span> <span class="n">hec</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">session</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">generate</span><span class="p">():</span>
-                <span class="n">event_config</span> <span class="o">=</span> <span class="kc">None</span>
                 <span class="n">event_type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">session</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">event_config</span> <span class="o">=</span> <span class="kc">None</span>
                     <span class="k">if</span> <span class="n">event_type</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
                         <span class="n">event_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">event_config</span><span class="p">:</span>

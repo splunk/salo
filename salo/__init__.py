@@ -18,5 +18,5 @@ from .salo import Session, Sessions, Event, fake
 from .events import SaloEventModel
 from .stencils import SaloStencilModel
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Marcus LaFerrera"
