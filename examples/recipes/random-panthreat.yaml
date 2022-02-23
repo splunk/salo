@@ -1,0 +1,3 @@
+sessions:
+  - event: salo.events.pan.PANThreatModel
+    repeat: 50
