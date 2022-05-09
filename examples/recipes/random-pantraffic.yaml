@@ -1,0 +1,12 @@
+sessions:
+  - event: salo.events.pan.PANTrafficModel
+    repeat: 50
+    options:
+      dest_port: 389
+      proto: udp
+  - event: salo.events.pan.PANTrafficModel
+    repeat: 50
+    options:
+      dest_port: 1389
+      proto: udp
+
